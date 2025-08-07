@@ -60,6 +60,8 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.editarToolStripMenuItem,
@@ -68,32 +70,32 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(933, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
             this.verToolStripMenuItem.Text = "Ver";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // lblPrestamo
@@ -102,10 +104,10 @@
             this.lblPrestamo.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.lblPrestamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrestamo.ForeColor = System.Drawing.Color.Black;
-            this.lblPrestamo.Location = new System.Drawing.Point(175, 53);
+            this.lblPrestamo.Location = new System.Drawing.Point(276, 73);
             this.lblPrestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrestamo.Name = "lblPrestamo";
-            this.lblPrestamo.Size = new System.Drawing.Size(124, 29);
+            this.lblPrestamo.Size = new System.Drawing.Size(179, 40);
             this.lblPrestamo.TabIndex = 1;
             this.lblPrestamo.Text = "Prestamo";
             // 
@@ -113,27 +115,27 @@
             // 
             this.lblIDprestamo.AutoSize = true;
             this.lblIDprestamo.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblIDprestamo.Location = new System.Drawing.Point(80, 120);
+            this.lblIDprestamo.Location = new System.Drawing.Point(124, 229);
             this.lblIDprestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIDprestamo.Name = "lblIDprestamo";
-            this.lblIDprestamo.Size = new System.Drawing.Size(79, 13);
+            this.lblIDprestamo.Size = new System.Drawing.Size(118, 20);
             this.lblIDprestamo.TabIndex = 2;
             this.lblIDprestamo.Text = "ID prestamo:";
             // 
             // txtIDprestamo
             // 
-            this.txtIDprestamo.Location = new System.Drawing.Point(166, 120);
+            this.txtIDprestamo.Location = new System.Drawing.Point(274, 229);
             this.txtIDprestamo.Name = "txtIDprestamo";
-            this.txtIDprestamo.Size = new System.Drawing.Size(134, 20);
+            this.txtIDprestamo.Size = new System.Drawing.Size(160, 26);
             this.txtIDprestamo.TabIndex = 3;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblUsuario.Location = new System.Drawing.Point(81, 156);
+            this.lblUsuario.Location = new System.Drawing.Point(162, 261);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(54, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(80, 20);
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "Usuario:";
             // 
@@ -141,9 +143,9 @@
             // 
             this.lblLibro.AutoSize = true;
             this.lblLibro.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblLibro.Location = new System.Drawing.Point(81, 190);
+            this.lblLibro.Location = new System.Drawing.Point(184, 293);
             this.lblLibro.Name = "lblLibro";
-            this.lblLibro.Size = new System.Drawing.Size(39, 13);
+            this.lblLibro.Size = new System.Drawing.Size(58, 20);
             this.lblLibro.TabIndex = 5;
             this.lblLibro.Text = "Libro:";
             // 
@@ -151,9 +153,9 @@
             // 
             this.lblFechaPrestmo.AutoSize = true;
             this.lblFechaPrestmo.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblFechaPrestmo.Location = new System.Drawing.Point(80, 224);
+            this.lblFechaPrestmo.Location = new System.Drawing.Point(66, 325);
             this.lblFechaPrestmo.Name = "lblFechaPrestmo";
-            this.lblFechaPrestmo.Size = new System.Drawing.Size(119, 13);
+            this.lblFechaPrestmo.Size = new System.Drawing.Size(176, 20);
             this.lblFechaPrestmo.TabIndex = 6;
             this.lblFechaPrestmo.Text = "Fecha de prestamo:";
             // 
@@ -161,9 +163,9 @@
             // 
             this.lblFcehaVencimiento.AutoSize = true;
             this.lblFcehaVencimiento.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblFcehaVencimiento.Location = new System.Drawing.Point(81, 262);
+            this.lblFcehaVencimiento.Location = new System.Drawing.Point(49, 357);
             this.lblFcehaVencimiento.Name = "lblFcehaVencimiento";
-            this.lblFcehaVencimiento.Size = new System.Drawing.Size(133, 13);
+            this.lblFcehaVencimiento.Size = new System.Drawing.Size(193, 20);
             this.lblFcehaVencimiento.TabIndex = 7;
             this.lblFcehaVencimiento.Text = "fecha de vencimiento:";
             // 
@@ -171,9 +173,9 @@
             // 
             this.lblFcehaDevolucion.AutoSize = true;
             this.lblFcehaDevolucion.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblFcehaDevolucion.Location = new System.Drawing.Point(79, 298);
+            this.lblFcehaDevolucion.Location = new System.Drawing.Point(55, 389);
             this.lblFcehaDevolucion.Name = "lblFcehaDevolucion";
-            this.lblFcehaDevolucion.Size = new System.Drawing.Size(130, 13);
+            this.lblFcehaDevolucion.Size = new System.Drawing.Size(187, 20);
             this.lblFcehaDevolucion.TabIndex = 8;
             this.lblFcehaDevolucion.Text = "Fecha de devolucion:";
             // 
@@ -181,59 +183,59 @@
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblEstado.Location = new System.Drawing.Point(80, 339);
+            this.lblEstado.Location = new System.Drawing.Point(169, 421);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(50, 13);
+            this.lblEstado.Size = new System.Drawing.Size(73, 20);
             this.lblEstado.TabIndex = 9;
             this.lblEstado.Text = "Estado:";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(141, 153);
+            this.txtUsuario.Location = new System.Drawing.Point(274, 261);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(159, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(160, 26);
             this.txtUsuario.TabIndex = 10;
             // 
             // txtLibro
             // 
-            this.txtLibro.Location = new System.Drawing.Point(141, 187);
+            this.txtLibro.Location = new System.Drawing.Point(274, 293);
             this.txtLibro.Name = "txtLibro";
-            this.txtLibro.Size = new System.Drawing.Size(160, 20);
+            this.txtLibro.Size = new System.Drawing.Size(160, 26);
             this.txtLibro.TabIndex = 11;
             // 
             // txtFechaprestamo
             // 
-            this.txtFechaprestamo.Location = new System.Drawing.Point(201, 220);
+            this.txtFechaprestamo.Location = new System.Drawing.Point(274, 325);
             this.txtFechaprestamo.Name = "txtFechaprestamo";
-            this.txtFechaprestamo.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaprestamo.Size = new System.Drawing.Size(160, 26);
             this.txtFechaprestamo.TabIndex = 12;
             // 
             // txtFechaVencimiento
             // 
-            this.txtFechaVencimiento.Location = new System.Drawing.Point(216, 255);
+            this.txtFechaVencimiento.Location = new System.Drawing.Point(274, 357);
             this.txtFechaVencimiento.Name = "txtFechaVencimiento";
-            this.txtFechaVencimiento.Size = new System.Drawing.Size(85, 20);
+            this.txtFechaVencimiento.Size = new System.Drawing.Size(160, 26);
             this.txtFechaVencimiento.TabIndex = 13;
             this.txtFechaVencimiento.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // txtFechadevolucion
             // 
-            this.txtFechadevolucion.Location = new System.Drawing.Point(211, 292);
+            this.txtFechadevolucion.Location = new System.Drawing.Point(274, 389);
             this.txtFechadevolucion.Name = "txtFechadevolucion";
-            this.txtFechadevolucion.Size = new System.Drawing.Size(90, 20);
+            this.txtFechadevolucion.Size = new System.Drawing.Size(160, 26);
             this.txtFechadevolucion.TabIndex = 14;
             // 
             // txtEstado
             // 
-            this.txtEstado.Location = new System.Drawing.Point(141, 331);
+            this.txtEstado.Location = new System.Drawing.Point(274, 421);
             this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(159, 20);
+            this.txtEstado.Size = new System.Drawing.Size(160, 26);
             this.txtEstado.TabIndex = 15;
             // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnGuardar.Location = new System.Drawing.Point(74, 387);
+            this.btnGuardar.Location = new System.Drawing.Point(192, 487);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(93, 32);
             this.btnGuardar.TabIndex = 16;
@@ -243,7 +245,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.CadetBlue;
-            this.btnModificar.Location = new System.Drawing.Point(185, 385);
+            this.btnModificar.Location = new System.Drawing.Point(303, 485);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(93, 32);
             this.btnModificar.TabIndex = 17;
@@ -253,7 +255,7 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.LightGreen;
-            this.btnEliminar.Location = new System.Drawing.Point(294, 385);
+            this.btnEliminar.Location = new System.Drawing.Point(412, 485);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(93, 32);
             this.btnEliminar.TabIndex = 18;
@@ -263,7 +265,7 @@
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnBuscar.Location = new System.Drawing.Point(298, 426);
+            this.btnBuscar.Location = new System.Drawing.Point(416, 526);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(93, 32);
             this.btnBuscar.TabIndex = 19;
@@ -274,19 +276,19 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(47, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(90, 62);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 67);
+            this.pictureBox1.Size = new System.Drawing.Size(152, 138);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
             // FrmPrestamo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GrayText;
-            this.ClientSize = new System.Drawing.Size(933, 468);
+            this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
