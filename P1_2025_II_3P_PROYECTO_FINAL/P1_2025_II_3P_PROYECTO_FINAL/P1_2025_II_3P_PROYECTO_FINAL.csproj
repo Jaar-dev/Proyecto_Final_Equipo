@@ -46,10 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmLibro.cs">
+    <Compile Include="GUI\FrmAutor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLibro.Designer.cs">
+    <Compile Include="GUI\FrmAutor.Designer.cs">
+      <DependentUpon>FrmAutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmBibliotecario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmBibliotecario.Designer.cs">
+      <DependentUpon>FrmBibliotecario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmDevolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDevolucion.Designer.cs">
+      <DependentUpon>FrmDevolucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmLibro.Designer.cs">
       <DependentUpon>FrmLibro.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmEditorial.cs">
@@ -76,15 +100,33 @@
     <Compile Include="GUI\FrmUbicacion.Designer.cs">
       <DependentUpon>FrmUbicacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Prestamo.cs">
+    <Compile Include="GUI\FrmUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Prestamo.Designer.cs">
-      <DependentUpon>Prestamo.cs</DependentUpon>
+    <Compile Include="GUI\FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmPrestamo.Designer.cs">
+      <DependentUpon>FrmPrestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmLibro.resx">
+    <EmbeddedResource Include="GUI\FrmAutor.resx">
+      <DependentUpon>FrmAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmBibliotecario.resx">
+      <DependentUpon>FrmBibliotecario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDevolucion.resx">
+      <DependentUpon>FrmDevolucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmLibro.resx">
       <DependentUpon>FrmLibro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmEditorial.resx">
@@ -99,8 +141,11 @@
     <EmbeddedResource Include="GUI\FrmUbicacion.resx">
       <DependentUpon>FrmUbicacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Prestamo.resx">
-      <DependentUpon>Prestamo.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmPrestamo.resx">
+      <DependentUpon>FrmPrestamo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
