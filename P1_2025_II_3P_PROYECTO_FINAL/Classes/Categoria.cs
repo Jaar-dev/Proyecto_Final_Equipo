@@ -20,74 +20,75 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 
         public string Nombre
         {
-            get { return _nombre; }
+            get => _nombre;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("El nombre de la categoría no puede estar vacío");
+                    throw new ArgumentException("El nombre de la categoría no puede estar vacío.");
                 if (value.Length > 50)
-                    throw new ArgumentException("El nombre no puede exceder 50 caracteres");
+                    throw new ArgumentException("El nombre no puede exceder los 50 caracteres.");
                 _nombre = value;
             }
         }
 
         public string Descripcion
         {
-            get { return _descripcion; }
-            set { _descripcion = value; }
+            get => _descripcion;
+            set => _descripcion = value;
         }
 
+     
         public string CodigoCategoria
         {
-            get { return _codigoCategoria; }
+            get => _codigoCategoria;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("El código de categoría no puede estar vacío");
+                    throw new ArgumentException("El código de categoría no puede estar vacío.");
                 if (!Regex.IsMatch(value, @"^[A-Z]{3}\d{3}$"))
-                    throw new ArgumentException("El código debe tener el formato: AAA000");
+                    throw new ArgumentException("El código debe tener el formato AAA000.");
                 _codigoCategoria = value;
             }
         }
 
         public int LibrosEnCategoria
         {
-            get { return _librosEnCategoria; }
+            get => _librosEnCategoria;
             set
             {
                 if (value < 0)
-                    throw new ArgumentException("El número de libros no puede ser negativo");
+                    throw new ArgumentException("El número de libros no puede ser negativo.");
                 _librosEnCategoria = value;
             }
         }
 
         public string UbicacionEstanteria
         {
-            get { return _ubicacionEstanteria; }
-            set { _ubicacionEstanteria = value; }
+            get => _ubicacionEstanteria;
+            set => _ubicacionEstanteria = value;
         }
 
         public int PrestamosCategoria
         {
-            get { return _prestamosCategoria; }
-            set { _prestamosCategoria = value; }
+            get => _prestamosCategoria;
+            set => _prestamosCategoria = value;
         }
-
         public string NivelDemanda
         {
-            get { return _nivelDemanda; }
+            get => _nivelDemanda;
             set
             {
-                if (value != "Alta" && value != "Media" && value != "Baja")
-                    throw new ArgumentException("El nivel de demanda debe ser: Alta, Media o Baja");
+                var nivelesValidos = new[] { "Alta", "Media", "Baja" };
+                if (!Array.Exists(nivelesValidos, nivel => nivel == value))
+                    throw new ArgumentException("El nivel de demanda debe ser: Alta, Media o Baja.");
                 _nivelDemanda = value;
             }
         }
 
         public bool ParaAdultos
         {
-            get { return _paraAdultos; }
-            set { _paraAdultos = value; }
+            get => _paraAdultos;
+            set => _paraAdultos = value;
         }
 
         public Categoria() : base()
@@ -104,6 +105,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             {
                 if (string.IsNullOrWhiteSpace(Nombre)) return false;
                 if (string.IsNullOrWhiteSpace(CodigoCategoria)) return false;
+                if (!Regex.IsMatch(CodigoCategoria, @"^[A-Z]{3}\d{3}$")) return false;
+                if (_librosEnCategoria < 0) return false;
                 return true;
             }
             catch

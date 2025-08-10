@@ -16,10 +16,9 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
         private decimal _multaAplicada;
         private string _observacionesDevolucion;
         private int _bibliotecarioReceptorId;
-
         public int PrestamoId
         {
-            get { return _prestamoId; }
+            get => _prestamoId;
             set
             {
                 if (value <= 0)
@@ -27,10 +26,9 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                 _prestamoId = value;
             }
         }
-
         public int UsuarioId
         {
-            get { return _usuarioId; }
+            get => _usuarioId;
             set
             {
                 if (value <= 0)
@@ -38,10 +36,9 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                 _usuarioId = value;
             }
         }
-
         public int LibroId
         {
-            get { return _libroId; }
+            get => _libroId;
             set
             {
                 if (value <= 0)
@@ -52,7 +49,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 
         public DateTime FechaDevolucion
         {
-            get { return _fechaDevolucion; }
+            get => _fechaDevolucion;
             set
             {
                 if (value > DateTime.Now)
@@ -63,10 +60,11 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 
         public string CondicionLibro
         {
-            get { return _condicionLibro; }
+            get => _condicionLibro;
             set
             {
-                if (value != "Excelente" && value != "Bueno" && value != "Regular" && value != "Malo" && value != "Perdido")
+                var condicionesValidas = new[] { "Excelente", "Bueno", "Regular", "Malo", "Perdido" };
+                if (!condicionesValidas.Contains(value))
                     throw new ArgumentException("Condición del libro inválida");
                 _condicionLibro = value;
             }
@@ -74,24 +72,29 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 
         public decimal MultaAplicada
         {
-            get { return _multaAplicada; }
+            get => _multaAplicada;
             set
             {
-                if (value < 0)
-                    throw new ArgumentException("La multa no puede ser negativa");
+                if (value < 0 || value > 1000)
+                    throw new ArgumentException("La multa debe estar entre 0 y 1000 lempiras");
                 _multaAplicada = value;
             }
         }
 
         public string ObservacionesDevolucion
         {
-            get { return _observacionesDevolucion; }
-            set { _observacionesDevolucion = value; }
+            get => _observacionesDevolucion;
+            set
+            {
+                if (value.Length > 250)
+                    throw new ArgumentException("Las observaciones no deben exceder 250 caracteres");
+                _observacionesDevolucion = value;
+            }
         }
 
         public int BibliotecarioReceptorId
         {
-            get { return _bibliotecarioReceptorId; }
+            get => _bibliotecarioReceptorId;
             set
             {
                 if (value <= 0)
@@ -105,22 +108,19 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             _fechaDevolucion = DateTime.Now;
             _condicionLibro = "Bueno";
             _multaAplicada = 0;
+            _observacionesDevolucion = string.Empty;
         }
 
         public override bool Validar()
         {
-            try
-            {
-                if (_prestamoId <= 0) return false;
-                if (_usuarioId <= 0) return false;
-                if (_libroId <= 0) return false;
-                if (_bibliotecarioReceptorId <= 0) return false;
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return _prestamoId > 0 &&
+                   _usuarioId > 0 &&
+                   _libroId > 0 &&
+                   _bibliotecarioReceptorId > 0 &&
+                   _fechaDevolucion <= DateTime.Now &&
+                   !string.IsNullOrWhiteSpace(_condicionLibro) &&
+                   _multaAplicada >= 0 &&
+                   _observacionesDevolucion.Length <= 250;
         }
 
         public override string ObtenerInformación()
@@ -131,12 +131,13 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                    $"Libro ID: {LibroId}\n" +
                    $"Fecha Devolución: {FechaDevolucion:dd/MM/yyyy}\n" +
                    $"Condición: {CondicionLibro}\n" +
-                   $"Multa Aplicada: L. {MultaAplicada:F2}";
+                   $"Multa Aplicada: L. {MultaAplicada:F2}\n" +
+                   $"Observaciones: {ObservacionesDevolucion}";
         }
 
         public decimal CalcularMultaPorCondicion()
         {
-            switch (_condicionLibro)
+            switch (CondicionLibro)
             {
                 case "Malo":
                     return 50;
@@ -149,7 +150,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 
         public void ProcesarDevolucion(decimal multaPorRetraso)
         {
-            _multaAplicada = multaPorRetraso + CalcularMultaPorCondicion();
+            MultaAplicada = multaPorRetraso + CalcularMultaPorCondicion();
             ActualizarFechaModificación();
         }
     }

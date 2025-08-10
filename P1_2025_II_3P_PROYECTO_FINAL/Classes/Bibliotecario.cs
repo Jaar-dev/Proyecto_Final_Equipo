@@ -16,82 +16,79 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
         private int _prestamosGestionados;
         private string _especialidad;
         private string _nivelAcceso;
-
         public string CodigoEmpleado
         {
-            get { return _codigoEmpleado; }
+            get => _codigoEmpleado;
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("El código de empleado no puede estar vacío");
+                    throw new ArgumentException("El código de empleado no puede estar vacío.");
                 _codigoEmpleado = value;
             }
         }
 
         public string Turno
         {
-            get { return _turno; }
+            get => _turno;
             set
             {
-                if (value != "Matutino" && value != "Vespertino" && value != "Nocturno")
-                    throw new ArgumentException("El turno debe ser: Matutino, Vespertino o Nocturno");
+                var turnosValidos = new[] { "Matutino", "Vespertino", "Nocturno" };
+                if (!turnosValidos.Contains(value))
+                    throw new ArgumentException("Turno inválido. Debe ser Matutino, Vespertino o Nocturno.");
                 _turno = value;
             }
         }
-
         public decimal Salario
         {
-            get { return _salario; }
+            get => _salario;
             set
             {
                 if (value < 0)
-                    throw new ArgumentException("El salario no puede ser negativo");
+                    throw new ArgumentException("El salario no puede ser negativo.");
                 if (value < 9000)
-                    throw new ArgumentException("El salario no puede ser menor al mínimo");
+                    throw new ArgumentException("El salario no puede ser menor al mínimo permitido.");
                 _salario = value;
             }
         }
-
         public DateTime FechaContratacion
         {
-            get { return _fechaContratacion; }
+            get => _fechaContratacion;
             set
             {
                 if (value > DateTime.Now)
-                    throw new ArgumentException("La fecha de contratación no puede ser futura");
+                    throw new ArgumentException("La fecha de contratación no puede ser futura.");
                 _fechaContratacion = value;
             }
         }
 
         public string Departamento
         {
-            get { return _departamento; }
-            set { _departamento = value; }
+            get => _departamento;
+            set => _departamento = value;
         }
 
         public int PrestamosGestionados
         {
-            get { return _prestamosGestionados; }
-            set { _prestamosGestionados = value; }
+            get => _prestamosGestionados;
+            set => _prestamosGestionados = value;
         }
 
         public string Especialidad
         {
-            get { return _especialidad; }
-            set { _especialidad = value; }
+            get => _especialidad;
+            set => _especialidad = value;
         }
-
         public string NivelAcceso
         {
-            get { return _nivelAcceso; }
+            get => _nivelAcceso;
             set
             {
-                if (value != "Básico" && value != "Intermedio" && value != "Avanzado" && value != "Administrador")
-                    throw new ArgumentException("Nivel de acceso inválido");
+                var nivelesValidos = new[] { "Básico", "Intermedio", "Avanzado", "Administrador" };
+                if (!nivelesValidos.Contains(value))
+                    throw new ArgumentException("Nivel de acceso inválido.");
                 _nivelAcceso = value;
             }
         }
-
         public Bibliotecario() : base()
         {
             _fechaContratacion = DateTime.Now;
@@ -100,23 +97,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             _nivelAcceso = "Básico";
             _salario = 9000;
         }
-
-        public int AnosServicio
-        {
-            get
-            {
-                return DateTime.Now.Year - _fechaContratacion.Year;
-            }
-        }
-
-        public decimal BonoAntiguedad
-        {
-            get
-            {
-                return AnosServicio * 500;
-            }
-        }
-
+         public int AnosServicio => DateTime.Now.Year - _fechaContratacion.Year;
+          public decimal BonoAntiguedad => AnosServicio * 500;
         public override bool Validar()
         {
             try
@@ -126,6 +108,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                 if (string.IsNullOrWhiteSpace(CodigoEmpleado)) return false;
                 if (string.IsNullOrWhiteSpace(Correo)) return false;
                 if (_salario < 9000) return false;
+                if (_fechaContratacion > DateTime.Now) return false;
                 return true;
             }
             catch
@@ -133,7 +116,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                 return false;
             }
         }
-
         public override string ObtenerInformación()
         {
             return $"Bibliotecario: {NombreCompleto}\n" +
