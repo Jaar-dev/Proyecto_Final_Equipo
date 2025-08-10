@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Autor.cs" />
+    <Compile Include="Classes\Bibliotecario.cs" />
+    <Compile Include="Classes\Categoria.cs" />
+    <Compile Include="Classes\Devolucion.cs" />
+    <Compile Include="Classes\Editorial.cs" />
+    <Compile Include="Classes\EntidadBase.cs" />
+    <Compile Include="Classes\Historial.cs" />
+    <Compile Include="Classes\Libro.cs" />
+    <Compile Include="Classes\Pais.cs" />
+    <Compile Include="Classes\Persona.cs" />
+    <Compile Include="Classes\Prestamo.cs" />
+    <Compile Include="Classes\Ubicacion.cs" />
+    <Compile Include="Classes\Usuario.cs" />
+    <Compile Include="Classes\VentaLibros.cs" />
     <Compile Include="GUI\FrmAutor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +142,7 @@
     <Compile Include="GUI\FrmVentasLibros.Designer.cs">
       <DependentUpon>FrmVentasLibros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FrmAutor.resx">
@@ -175,6 +194,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -191,5 +211,6 @@
   <ItemGroup>
     <None Include="Resources\libro.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

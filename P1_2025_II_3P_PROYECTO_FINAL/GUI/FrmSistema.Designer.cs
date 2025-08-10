@@ -132,7 +132,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(330, 147);
+            this.pictureBox3.Location = new System.Drawing.Point(344, 147);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(108, 83);
@@ -178,10 +178,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(342, 265);
+            this.pictureBox5.Location = new System.Drawing.Point(357, 271);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(96, 68);
+            this.pictureBox5.Size = new System.Drawing.Size(95, 58);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
@@ -295,7 +295,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(340, 371);
+            this.pictureBox10.Location = new System.Drawing.Point(349, 371);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(104, 72);
@@ -318,7 +318,7 @@
             // pictureBox11
             // 
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(469, 269);
+            this.pictureBox11.Location = new System.Drawing.Point(504, 265);
             this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(108, 64);
@@ -331,7 +331,7 @@
             this.lblVentasLibros.AutoSize = true;
             this.lblVentasLibros.BackColor = System.Drawing.Color.Gainsboro;
             this.lblVentasLibros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVentasLibros.Location = new System.Drawing.Point(473, 339);
+            this.lblVentasLibros.Location = new System.Drawing.Point(501, 335);
             this.lblVentasLibros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVentasLibros.Name = "lblVentasLibros";
             this.lblVentasLibros.Size = new System.Drawing.Size(165, 29);
@@ -341,7 +341,7 @@
             // pictureBox12
             // 
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(469, 371);
+            this.pictureBox12.Location = new System.Drawing.Point(504, 371);
             this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(108, 72);
@@ -354,7 +354,7 @@
             this.lblUbicacion.AutoSize = true;
             this.lblUbicacion.BackColor = System.Drawing.Color.Gainsboro;
             this.lblUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUbicacion.Location = new System.Drawing.Point(483, 449);
+            this.lblUbicacion.Location = new System.Drawing.Point(501, 450);
             this.lblUbicacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUbicacion.Name = "lblUbicacion";
             this.lblUbicacion.Size = new System.Drawing.Size(129, 29);
@@ -364,7 +364,7 @@
             // pictureBox13
             // 
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(462, 147);
+            this.pictureBox13.Location = new System.Drawing.Point(504, 147);
             this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(108, 83);
@@ -377,7 +377,7 @@
             this.lblPaises.AutoSize = true;
             this.lblPaises.BackColor = System.Drawing.Color.Gainsboro;
             this.lblPaises.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lblPaises.Location = new System.Drawing.Point(485, 234);
+            this.lblPaises.Location = new System.Drawing.Point(516, 234);
             this.lblPaises.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPaises.Name = "lblPaises";
             this.lblPaises.Size = new System.Drawing.Size(84, 26);

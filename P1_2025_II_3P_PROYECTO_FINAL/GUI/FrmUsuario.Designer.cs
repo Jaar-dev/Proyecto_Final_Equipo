@@ -108,7 +108,7 @@
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(288, 26);
             this.txtContraseña.TabIndex = 31;
-            this.txtContraseña.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtContraseña.TextChanged += new System.EventHandler(this.ConfigurarFormulario);
             // 
             // txtNombreUsuario
             // 
@@ -398,6 +398,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.Load += new System.EventHandler(this.FrmUsuario_Load);
             this.menuStrip1.ResumeLayout(false);
