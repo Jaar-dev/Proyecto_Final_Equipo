@@ -17,6 +17,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
         private DataManager dataManager;
         private Libro libroActual;
         private bool modoEdicion = false;
+
         public FrmLibro()
         {
             InitializeComponent();
@@ -24,36 +25,21 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
             ConfigurarFormulario();
         }
 
-        /private void ConfigurarFormulario()
+        private void ConfigurarFormulario()
         {
             try
-            { 
+            {
+                numericNumeroPaginas.Minimum = 1;
+                numericNumeroPaginas.Maximum = 99999;
+                numericNumeroPaginas.Value = 100;
+
+                dtpAño.Format = DateTimePickerFormat.Custom;
+                dtpAño.CustomFormat = "yyyy";
+                dtpAño.ShowUpDown = true;
+
+                txtIDLibro.Enabled = false;
+
                 CargarCombos();
-
-                numCantidad.Minimum = 0;
-                numCantidad.Maximum = 9999;
-                numCantidad.Value = 1;
-
-                numDisponibles.Minimum = 0;
-                numDisponibles.Maximum = 9999;
-                numDisponibles.Value = 1;
-
-                numPaginas.Minimum = 1;
-                numPaginas.Maximum = 99999;
-                numPaginas.Value = 100;
-
-                numPrecio.Minimum = 0;
-                numPrecio.Maximum = 99999;
-                numPrecio.DecimalPlaces = 2;
-
-                numAnioPublicacion.Minimum = 1450;
-                numAnioPublicacion.Maximum = DateTime.Now.Year;
-                numAnioPublicacion.Value = DateTime.Now.Year;
-
-                txtCodigo.Enabled = false;
-
-                dtpFechaAdquisicion.Format = DateTimePickerFormat.Short;
-                dtpFechaAdquisicion.Value = DateTime.Now;
 
                 ConfigurarTooltips();
 
@@ -70,56 +56,11 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
         {
             try
             {
-                // Cargar Autores
-                cmbAutor.Items.Clear();
-                cmbAutor.Items.Add("-- Seleccione --");
-
-                if (dataManager.Autores != null && dataManager.Autores.Any())
-                {
-                    foreach (var autor in dataManager.Autores.Where(a => a.Activo))
-                    {
-                        cmbAutor.Items.Add(autor.ObtenerNombrePublicacion());
-                    }
-                }
-                else
-                {
-                    // Agregar algunos autores por defecto
-                    cmbAutor.Items.AddRange(new string[] {
-                        "Gabriel García Márquez",
-                        "Isabel Allende",
-                        "Jorge Luis Borges",
-                        "Pablo Neruda"
-                    });
-                }
-                cmbAutor.SelectedIndex = 0;
-
-                // Cargar Editoriales
-                cmbEditorial.Items.Clear();
-                cmbEditorial.Items.Add("-- Seleccione --");
-
-                if (dataManager.Editoriales != null && dataManager.Editoriales.Any())
-                {
-                    foreach (var editorial in dataManager.Editoriales.Where(e => e.Activo))
-                    {
-                        cmbEditorial.Items.Add(editorial.Nombre);
-                    }
-                }
-                else
-                {
-                    // Agregar algunas editoriales por defecto
-                    cmbEditorial.Items.AddRange(new string[] {
-                        "Santillana",
-                        "Pearson",
-                        "McGraw-Hill",
-                        "Planeta"
-                    });
-                }
-                cmbEditorial.SelectedIndex = 0;
-
-                // Cargar Categorías
+                cmbTitulo.Items.Clear();
                 cmbCategoria.Items.Clear();
-                cmbCategoria.Items.Add("-- Seleccione --");
+                cmbIdioma.Items.Clear();
 
+                cmbCategoria.Items.Add("-- Seleccione --");
                 if (dataManager.Categorias != null && dataManager.Categorias.Any())
                 {
                     foreach (var categoria in dataManager.Categorias.Where(c => c.Activo))
@@ -129,53 +70,18 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
                 }
                 else
                 {
-                    // Agregar algunas categorías por defecto
                     cmbCategoria.Items.AddRange(new string[] {
-                        "Literatura",
-                        "Ciencias",
-                        "Historia",
-                        "Tecnología",
-                        "Arte",
-                        "Infantil"
+                        "Literatura", "Ciencias", "Historia", "Tecnología", "Arte", "Infantil"
                     });
                 }
                 cmbCategoria.SelectedIndex = 0;
 
-                // Cargar Ubicaciones
-                cmbUbicacionFisica.Items.Clear();
-                cmbUbicacionFisica.Items.Add("-- Seleccione --");
-
-                if (dataManager.Ubicaciones != null && dataManager.Ubicaciones.Any())
-                {
-                    foreach (var ubicacion in dataManager.Ubicaciones.Where(u => u.Activo))
-                    {
-                        cmbUbicacionFisica.Items.Add($"{ubicacion.Estanteria}-{ubicacion.Pasillo}-{ubicacion.Seccion}");
-                    }
-                }
-                else
-                {
-                    // Agregar algunas ubicaciones por defecto
-                    cmbUbicacionFisica.Items.AddRange(new string[] {
-                        "A1-1-Literatura",
-                        "B1-2-Ciencias",
-                        "C1-3-Historia",
-                        "D1-4-Tecnología"
-                    });
-                }
-                cmbUbicacionFisica.SelectedIndex = 0;
-
-                // Cargar Idiomas
-                cmbIdioma.Items.Clear();
                 cmbIdioma.Items.AddRange(new string[] {
-                    "-- Seleccione --",
-                    "Español",
-                    "Inglés",
-                    "Francés",
-                    "Alemán",
-                    "Italiano",
-                    "Portugués"
+                    "-- Seleccione --", "Español", "Inglés", "Francés", "Alemán", "Italiano", "Portugués"
                 });
                 cmbIdioma.SelectedIndex = 0;
+
+                cmbTitulo.DropDownStyle = ComboBoxStyle.Simple;
             }
             catch (Exception ex)
             {
@@ -188,22 +94,16 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
         {
             ToolTip toolTip = new ToolTip();
             toolTip.SetToolTip(txtISBN, "Ingrese el ISBN del libro (13 dígitos)");
-            toolTip.SetToolTip(txtTitulo, "Ingrese el título del libro");
-            toolTip.SetToolTip(cmbAutor, "Seleccione o ingrese el autor");
-            toolTip.SetToolTip(cmbEditorial, "Seleccione la editorial");
+            toolTip.SetToolTip(cmbTitulo, "Ingrese el título del libro");
+            toolTip.SetToolTip(txtAutor, "Ingrese el nombre del autor");
             toolTip.SetToolTip(cmbCategoria, "Seleccione la categoría del libro");
-            toolTip.SetToolTip(numCantidad, "Cantidad total de ejemplares");
-            toolTip.SetToolTip(numDisponibles, "Ejemplares disponibles para préstamo");
+            toolTip.SetToolTip(numericNumeroPaginas, "Número de páginas del libro");
         }
 
         private void FrmLibro_Load(object sender, EventArgs e)
         {
             ActualizarCodigoLibro();
         }
-
-        // ========================================
-        // MÉTODOS CRUD
-        // ========================================
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -218,7 +118,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
 
                 if (!modoEdicion)
                 {
-                    // Crear nuevo libro
                     Libro nuevoLibro = new Libro();
                     AsignarDatosLibro(nuevoLibro);
 
@@ -232,11 +131,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
                 }
                 else
                 {
-                    // Modificar libro existente
                     if (libroActual != null)
                     {
                         AsignarDatosLibro(libroActual);
-                        libroActual.ActualizarFechaModificacion();
+                        libroActual.ActualizarFechaModificación();
 
                         dataManager.ActualizarLibro(libroActual);
 
@@ -274,19 +172,16 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
 
                 Libro libroEncontrado = null;
 
-                // Buscar por código
                 if (int.TryParse(busqueda, out int codigo))
                 {
                     libroEncontrado = dataManager.BuscarLibro(codigo);
                 }
 
-                // Si no se encontró por código, buscar por ISBN
                 if (libroEncontrado == null)
                 {
                     libroEncontrado = dataManager.BuscarLibroPorISBN(busqueda);
                 }
 
-                // Si no se encontró por ISBN, buscar por título
                 if (libroEncontrado == null)
                 {
                     var librosPorTitulo = dataManager.BuscarLibrosPorTitulo(busqueda);
@@ -348,10 +243,9 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
 
                 if (resultado == DialogResult.Yes)
                 {
-                    // Marcar como inactivo
                     libroActual.Activo = false;
                     libroActual.Estado = "Eliminado";
-                    libroActual.ActualizarFechaModificacion();
+                    libroActual.ActualizarFechaModificación();
 
                     dataManager.ActualizarLibro(libroActual);
 
@@ -370,24 +264,17 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
             }
         }
 
-        // ========================================
-        // MÉTODOS DE VALIDACIÓN
-        // ========================================
-
         private bool ValidarFormulario()
         {
-            // Validar campos obligatorios
             if (string.IsNullOrWhiteSpace(txtISBN.Text) ||
-                string.IsNullOrWhiteSpace(txtTitulo.Text) ||
-                cmbAutor.SelectedIndex <= 0 ||
-                cmbEditorial.SelectedIndex <= 0 ||
+                string.IsNullOrWhiteSpace(cmbTitulo.Text) ||
+                string.IsNullOrWhiteSpace(txtAutor.Text) ||
                 cmbCategoria.SelectedIndex <= 0 ||
                 cmbIdioma.SelectedIndex <= 0)
             {
                 return false;
             }
 
-            // Validar ISBN
             string isbn = txtISBN.Text.Replace("-", "").Replace(" ", "");
             if (isbn.Length != 13 || !long.TryParse(isbn, out _))
             {
@@ -396,18 +283,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
                 return false;
             }
 
-            // Validar año de publicación
-            if (numAnioPublicacion.Value < 1450 || numAnioPublicacion.Value > DateTime.Now.Year)
+            int año = dtpAño.Value.Year;
+            if (año < 1450 || año > DateTime.Now.Year)
             {
                 MessageBox.Show($"El año de publicación debe estar entre 1450 y {DateTime.Now.Year}.",
-                    "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // Validar cantidades
-            if (numDisponibles.Value > numCantidad.Value)
-            {
-                MessageBox.Show("Los ejemplares disponibles no pueden ser mayor que la cantidad total.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -415,71 +294,38 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
             return true;
         }
 
-        // ========================================
-        // MÉTODOS AUXILIARES
-        // ========================================
-
         private void AsignarDatosLibro(Libro libro)
         {
             libro.ISBN = txtISBN.Text.Trim();
-            libro.Titulo = txtTitulo.Text.Trim();
-
-            if (cmbAutor.SelectedIndex > 0)
-                libro.Autor = cmbAutor.SelectedItem.ToString();
-
-            if (cmbEditorial.SelectedIndex > 0)
-                libro.Editorial = cmbEditorial.SelectedItem.ToString();
-
-            libro.AnioPublicacion = (int)numAnioPublicacion.Value;
+            libro.Titulo = cmbTitulo.Text.Trim();
+            libro.Autor = txtAutor.Text.Trim();
+            libro.AñoPublicacion = dtpAño.Value.Year;
 
             if (cmbCategoria.SelectedIndex > 0)
                 libro.Categoria = cmbCategoria.SelectedItem.ToString();
 
-            libro.CantidadTotal = (int)numCantidad.Value;
-            libro.CantidadDisponible = (int)numDisponibles.Value;
-            libro.Precio = numPrecio.Value;
+            libro.Editorial = "Editorial por defecto";
+            libro.CantidadTotal = 1;
+            libro.CantidadDisponible = 1;
+            libro.Precio = 0;
 
             if (cmbIdioma.SelectedIndex > 0)
                 libro.Idioma = cmbIdioma.SelectedItem.ToString();
 
-            libro.NumeroPaginas = (int)numPaginas.Value;
-            libro.Edicion = txtEdicion.Text.Trim();
-
-            if (cmbUbicacionFisica.SelectedIndex > 0)
-                libro.Ubicacion = cmbUbicacionFisica.SelectedItem.ToString();
-
-            libro.Observaciones = txtDescripcion.Text.Trim();
+            libro.NumeroPaginas = (int)numericNumeroPaginas.Value;
+            libro.Edicion = "Primera";
+            libro.Ubicacion = "Estantería A1";
         }
 
         private void CargarLibroEnFormulario(Libro libro)
         {
-            txtCodigo.Text = libro.Id.ToString();
+            txtIDLibro.Text = libro.Id.ToString();
             txtISBN.Text = libro.ISBN;
-            txtTitulo.Text = libro.Titulo;
+            cmbTitulo.Text = libro.Titulo;
+            txtAutor.Text = libro.Autor;
 
-            // Seleccionar autor
-            for (int i = 0; i < cmbAutor.Items.Count; i++)
-            {
-                if (cmbAutor.Items[i].ToString() == libro.Autor)
-                {
-                    cmbAutor.SelectedIndex = i;
-                    break;
-                }
-            }
+            dtpAño.Value = new DateTime(libro.AñoPublicacion, 1, 1);
 
-            // Seleccionar editorial
-            for (int i = 0; i < cmbEditorial.Items.Count; i++)
-            {
-                if (cmbEditorial.Items[i].ToString() == libro.Editorial)
-                {
-                    cmbEditorial.SelectedIndex = i;
-                    break;
-                }
-            }
-
-            numAnioPublicacion.Value = libro.AnioPublicacion;
-
-            // Seleccionar categoría
             for (int i = 0; i < cmbCategoria.Items.Count; i++)
             {
                 if (cmbCategoria.Items[i].ToString() == libro.Categoria)
@@ -489,11 +335,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
                 }
             }
 
-            numCantidad.Value = libro.CantidadTotal;
-            numDisponibles.Value = libro.CantidadDisponible;
-            numPrecio.Value = libro.Precio;
-
-            // Seleccionar idioma
             for (int i = 0; i < cmbIdioma.Items.Count; i++)
             {
                 if (cmbIdioma.Items[i].ToString() == libro.Idioma)
@@ -503,44 +344,19 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
                 }
             }
 
-            numPaginas.Value = libro.NumeroPaginas;
-            txtEdicion.Text = libro.Edicion;
-
-            // Seleccionar ubicación
-            if (!string.IsNullOrWhiteSpace(libro.Ubicacion))
-            {
-                for (int i = 0; i < cmbUbicacionFisica.Items.Count; i++)
-                {
-                    if (cmbUbicacionFisica.Items[i].ToString() == libro.Ubicacion)
-                    {
-                        cmbUbicacionFisica.SelectedIndex = i;
-                        break;
-                    }
-                }
-            }
-
-            txtDescripcion.Text = libro.Observaciones;
-            dtpFechaAdquisicion.Value = libro.FechaCreacion;
+            numericNumeroPaginas.Value = libro.NumeroPaginas;
         }
 
         private void LimpiarFormulario()
         {
-            txtCodigo.Clear();
+            txtIDLibro.Clear();
             txtISBN.Clear();
-            txtTitulo.Clear();
-            cmbAutor.SelectedIndex = 0;
-            cmbEditorial.SelectedIndex = 0;
-            numAnioPublicacion.Value = DateTime.Now.Year;
+            cmbTitulo.Text = "";
+            txtAutor.Clear();
+            dtpAño.Value = DateTime.Now;
             cmbCategoria.SelectedIndex = 0;
-            numCantidad.Value = 1;
-            numDisponibles.Value = 1;
-            numPrecio.Value = 0;
             cmbIdioma.SelectedIndex = 0;
-            numPaginas.Value = 100;
-            txtEdicion.Clear();
-            cmbUbicacionFisica.SelectedIndex = 0;
-            txtDescripcion.Clear();
-            dtpFechaAdquisicion.Value = DateTime.Now;
+            numericNumeroPaginas.Value = 100;
 
             modoEdicion = false;
             libroActual = null;
@@ -552,23 +368,17 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
             {
                 int proximoId = dataManager.Libros.Any() ?
                     dataManager.Libros.Max(l => l.Id) + 1 : 1;
-                txtCodigo.Text = proximoId.ToString();
+                txtIDLibro.Text = proximoId.ToString();
             }
         }
 
-        // ========================================
-        // EVENTOS DEL MENÚ
-        // ========================================
-
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Implementar opciones del menú Archivo
             MessageBox.Show("Menú Archivo", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void editarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Implementar opciones del menú Editar
             MessageBox.Show("Menú Editar", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -604,36 +414,11 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
 
             foreach (var libro in dataManager.Libros.Where(l => l.Activo).Take(10))
             {
-                lista += libro.ObtenerInformacion() + "\n";
+                lista += libro.ObtenerInformación() + "\n";
                 lista += "-------------------------------------\n";
             }
 
             MessageBox.Show(lista, "Lista de Libros", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        // ========================================
-        // VALIDACIONES EN TIEMPO REAL
-        // ========================================
-
-        private void txtISBN_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Permitir solo números, guión y backspace
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != '\b')
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void numCantidad_ValueChanged(object sender, EventArgs e)
-        {
-            // Ajustar el máximo de ejemplares disponibles
-            numDisponibles.Maximum = numCantidad.Value;
-
-            // Si los disponibles son mayores que el total, ajustar
-            if (numDisponibles.Value > numCantidad.Value)
-            {
-                numDisponibles.Value = numCantidad.Value;
-            }
-        }
     }
-}*/
+}

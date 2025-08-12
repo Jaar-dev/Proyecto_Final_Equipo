@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSistema));
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pbLogoUJCV = new System.Windows.Forms.PictureBox();
+            this.pbLibro = new System.Windows.Forms.PictureBox();
             this.lblLibro = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pbAutor = new System.Windows.Forms.PictureBox();
+            this.pbUsuario = new System.Windows.Forms.PictureBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblAutor = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pbDevolucion = new System.Windows.Forms.PictureBox();
+            this.pbEditorial = new System.Windows.Forms.PictureBox();
+            this.pbPrestamo = new System.Windows.Forms.PictureBox();
             this.lblPrestamo = new System.Windows.Forms.Label();
             this.lblDevocion = new System.Windows.Forms.Label();
             this.lblBlbliotecario = new System.Windows.Forms.Label();
             this.lblcategoria = new System.Windows.Forms.Label();
             this.lblEditorial = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pbBibliotecario = new System.Windows.Forms.PictureBox();
+            this.pbCategoria = new System.Windows.Forms.PictureBox();
+            this.pbHistorial = new System.Windows.Forms.PictureBox();
             this.lblHistorial = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pbVentasLibros = new System.Windows.Forms.PictureBox();
             this.lblVentasLibros = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pbUbicacion = new System.Windows.Forms.PictureBox();
             this.lblUbicacion = new System.Windows.Forms.Label();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pbPaises = new System.Windows.Forms.PictureBox();
             this.lblPaises = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTitulo2 = new System.Windows.Forms.Label();
+            this.lblCreadoPor = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -64,58 +64,63 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblUsuarios = new System.Windows.Forms.Label();
+            this.lblLibrosR = new System.Windows.Forms.Label();
+            this.lblBS = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoUJCV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLibro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAutor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDevolucion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrestamo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBibliotecario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHistorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVentasLibros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUbicacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaises)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(260, 48);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(406, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Sistema de Biblioteca UJCV";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTitulo.Location = new System.Drawing.Point(260, 48);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(406, 33);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "Sistema de Biblioteca UJCV";
             // 
-            // pictureBox1
+            // pbLogoUJCV
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.OrangeRed;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(65, 16);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 99);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbLogoUJCV.BackColor = System.Drawing.Color.OrangeRed;
+            this.pbLogoUJCV.Image = ((System.Drawing.Image)(resources.GetObject("pbLogoUJCV.Image")));
+            this.pbLogoUJCV.Location = new System.Drawing.Point(65, 16);
+            this.pbLogoUJCV.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogoUJCV.Name = "pbLogoUJCV";
+            this.pbLogoUJCV.Size = new System.Drawing.Size(183, 99);
+            this.pbLogoUJCV.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogoUJCV.TabIndex = 1;
+            this.pbLogoUJCV.TabStop = false;
             // 
-            // pictureBox2
+            // pbLibro
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Black;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(62, 147);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 83);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.pbLibro.BackColor = System.Drawing.Color.Black;
+            this.pbLibro.Image = ((System.Drawing.Image)(resources.GetObject("pbLibro.Image")));
+            this.pbLibro.Location = new System.Drawing.Point(62, 147);
+            this.pbLibro.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLibro.Name = "pbLibro";
+            this.pbLibro.Size = new System.Drawing.Size(100, 83);
+            this.pbLibro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLibro.TabIndex = 0;
+            this.pbLibro.TabStop = false;
             // 
             // lblLibro
             // 
@@ -129,27 +134,27 @@
             this.lblLibro.TabIndex = 2;
             this.lblLibro.Text = "Libro";
             // 
-            // pictureBox3
+            // pbAutor
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(344, 147);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(108, 83);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.pbAutor.Image = ((System.Drawing.Image)(resources.GetObject("pbAutor.Image")));
+            this.pbAutor.Location = new System.Drawing.Point(344, 147);
+            this.pbAutor.Margin = new System.Windows.Forms.Padding(4);
+            this.pbAutor.Name = "pbAutor";
+            this.pbAutor.Size = new System.Drawing.Size(108, 83);
+            this.pbAutor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAutor.TabIndex = 3;
+            this.pbAutor.TabStop = false;
             // 
-            // pictureBox4
+            // pbUsuario
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(194, 147);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(104, 83);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
+            this.pbUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pbUsuario.Image")));
+            this.pbUsuario.Location = new System.Drawing.Point(194, 147);
+            this.pbUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.pbUsuario.Name = "pbUsuario";
+            this.pbUsuario.Size = new System.Drawing.Size(104, 83);
+            this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUsuario.TabIndex = 4;
+            this.pbUsuario.TabStop = false;
             // 
             // lblUsuario
             // 
@@ -175,38 +180,38 @@
             this.lblAutor.TabIndex = 6;
             this.lblAutor.Text = "Autor";
             // 
-            // pictureBox5
+            // pbDevolucion
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(357, 271);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(95, 58);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 7;
-            this.pictureBox5.TabStop = false;
+            this.pbDevolucion.Image = ((System.Drawing.Image)(resources.GetObject("pbDevolucion.Image")));
+            this.pbDevolucion.Location = new System.Drawing.Point(357, 271);
+            this.pbDevolucion.Margin = new System.Windows.Forms.Padding(4);
+            this.pbDevolucion.Name = "pbDevolucion";
+            this.pbDevolucion.Size = new System.Drawing.Size(95, 58);
+            this.pbDevolucion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDevolucion.TabIndex = 7;
+            this.pbDevolucion.TabStop = false;
             // 
-            // pictureBox6
+            // pbEditorial
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(194, 275);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(112, 61);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 8;
-            this.pictureBox6.TabStop = false;
+            this.pbEditorial.Image = ((System.Drawing.Image)(resources.GetObject("pbEditorial.Image")));
+            this.pbEditorial.Location = new System.Drawing.Point(194, 275);
+            this.pbEditorial.Margin = new System.Windows.Forms.Padding(4);
+            this.pbEditorial.Name = "pbEditorial";
+            this.pbEditorial.Size = new System.Drawing.Size(112, 61);
+            this.pbEditorial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEditorial.TabIndex = 8;
+            this.pbEditorial.TabStop = false;
             // 
-            // pictureBox7
+            // pbPrestamo
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(62, 271);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(104, 65);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 9;
-            this.pictureBox7.TabStop = false;
+            this.pbPrestamo.Image = ((System.Drawing.Image)(resources.GetObject("pbPrestamo.Image")));
+            this.pbPrestamo.Location = new System.Drawing.Point(62, 271);
+            this.pbPrestamo.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPrestamo.Name = "pbPrestamo";
+            this.pbPrestamo.Size = new System.Drawing.Size(104, 65);
+            this.pbPrestamo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPrestamo.TabIndex = 9;
+            this.pbPrestamo.TabStop = false;
             // 
             // lblPrestamo
             // 
@@ -268,38 +273,38 @@
             this.lblEditorial.TabIndex = 14;
             this.lblEditorial.Text = "Editorial";
             // 
-            // pictureBox8
+            // pbBibliotecario
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(62, 371);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(104, 70);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 15;
-            this.pictureBox8.TabStop = false;
+            this.pbBibliotecario.Image = ((System.Drawing.Image)(resources.GetObject("pbBibliotecario.Image")));
+            this.pbBibliotecario.Location = new System.Drawing.Point(62, 371);
+            this.pbBibliotecario.Margin = new System.Windows.Forms.Padding(4);
+            this.pbBibliotecario.Name = "pbBibliotecario";
+            this.pbBibliotecario.Size = new System.Drawing.Size(104, 70);
+            this.pbBibliotecario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBibliotecario.TabIndex = 15;
+            this.pbBibliotecario.TabStop = false;
             // 
-            // pictureBox9
+            // pbCategoria
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(210, 371);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(88, 72);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 16;
-            this.pictureBox9.TabStop = false;
+            this.pbCategoria.Image = ((System.Drawing.Image)(resources.GetObject("pbCategoria.Image")));
+            this.pbCategoria.Location = new System.Drawing.Point(210, 371);
+            this.pbCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.pbCategoria.Name = "pbCategoria";
+            this.pbCategoria.Size = new System.Drawing.Size(88, 72);
+            this.pbCategoria.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCategoria.TabIndex = 16;
+            this.pbCategoria.TabStop = false;
             // 
-            // pictureBox10
+            // pbHistorial
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(349, 371);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(104, 72);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 17;
-            this.pictureBox10.TabStop = false;
+            this.pbHistorial.Image = ((System.Drawing.Image)(resources.GetObject("pbHistorial.Image")));
+            this.pbHistorial.Location = new System.Drawing.Point(349, 371);
+            this.pbHistorial.Margin = new System.Windows.Forms.Padding(4);
+            this.pbHistorial.Name = "pbHistorial";
+            this.pbHistorial.Size = new System.Drawing.Size(104, 72);
+            this.pbHistorial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbHistorial.TabIndex = 17;
+            this.pbHistorial.TabStop = false;
             // 
             // lblHistorial
             // 
@@ -313,16 +318,16 @@
             this.lblHistorial.TabIndex = 18;
             this.lblHistorial.Text = "Historial";
             // 
-            // pictureBox11
+            // pbVentasLibros
             // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(504, 265);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(108, 64);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 19;
-            this.pictureBox11.TabStop = false;
+            this.pbVentasLibros.Image = ((System.Drawing.Image)(resources.GetObject("pbVentasLibros.Image")));
+            this.pbVentasLibros.Location = new System.Drawing.Point(504, 265);
+            this.pbVentasLibros.Margin = new System.Windows.Forms.Padding(4);
+            this.pbVentasLibros.Name = "pbVentasLibros";
+            this.pbVentasLibros.Size = new System.Drawing.Size(108, 64);
+            this.pbVentasLibros.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbVentasLibros.TabIndex = 19;
+            this.pbVentasLibros.TabStop = false;
             // 
             // lblVentasLibros
             // 
@@ -336,16 +341,16 @@
             this.lblVentasLibros.TabIndex = 20;
             this.lblVentasLibros.Text = "Ventas libros";
             // 
-            // pictureBox12
+            // pbUbicacion
             // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(504, 371);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(108, 72);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 21;
-            this.pictureBox12.TabStop = false;
+            this.pbUbicacion.Image = ((System.Drawing.Image)(resources.GetObject("pbUbicacion.Image")));
+            this.pbUbicacion.Location = new System.Drawing.Point(504, 371);
+            this.pbUbicacion.Margin = new System.Windows.Forms.Padding(4);
+            this.pbUbicacion.Name = "pbUbicacion";
+            this.pbUbicacion.Size = new System.Drawing.Size(108, 72);
+            this.pbUbicacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUbicacion.TabIndex = 21;
+            this.pbUbicacion.TabStop = false;
             // 
             // lblUbicacion
             // 
@@ -359,16 +364,16 @@
             this.lblUbicacion.TabIndex = 22;
             this.lblUbicacion.Text = "Ubicación";
             // 
-            // pictureBox13
+            // pbPaises
             // 
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.Location = new System.Drawing.Point(504, 147);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(108, 83);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 23;
-            this.pictureBox13.TabStop = false;
+            this.pbPaises.Image = ((System.Drawing.Image)(resources.GetObject("pbPaises.Image")));
+            this.pbPaises.Location = new System.Drawing.Point(504, 147);
+            this.pbPaises.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPaises.Name = "pbPaises";
+            this.pbPaises.Size = new System.Drawing.Size(108, 83);
+            this.pbPaises.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPaises.TabIndex = 23;
+            this.pbPaises.TabStop = false;
             // 
             // lblPaises
             // 
@@ -382,33 +387,33 @@
             this.lblPaises.TabIndex = 24;
             this.lblPaises.Text = "Países";
             // 
-            // label2
+            // lblTitulo2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(811, 43);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(568, 33);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Programacion 1, Segundo Periodo 2025";
+            this.lblTitulo2.AutoSize = true;
+            this.lblTitulo2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTitulo2.Location = new System.Drawing.Point(811, 43);
+            this.lblTitulo2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo2.Name = "lblTitulo2";
+            this.lblTitulo2.Size = new System.Drawing.Size(568, 33);
+            this.lblTitulo2.TabIndex = 25;
+            this.lblTitulo2.Text = "Programacion 1, Segundo Periodo 2025";
             // 
-            // label3
+            // lblCreadoPor
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(788, 118);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 33);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Creado por:";
+            this.lblCreadoPor.AutoSize = true;
+            this.lblCreadoPor.BackColor = System.Drawing.Color.Silver;
+            this.lblCreadoPor.Location = new System.Drawing.Point(811, 118);
+            this.lblCreadoPor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCreadoPor.Name = "lblCreadoPor";
+            this.lblCreadoPor.Size = new System.Drawing.Size(179, 33);
+            this.lblCreadoPor.TabIndex = 26;
+            this.lblCreadoPor.Text = "Creado por:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label4.Location = new System.Drawing.Point(881, 168);
+            this.label4.Location = new System.Drawing.Point(897, 160);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(195, 33);
@@ -419,7 +424,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label5.Location = new System.Drawing.Point(881, 265);
+            this.label5.Location = new System.Drawing.Point(897, 234);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(243, 33);
@@ -430,7 +435,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(815, 339);
+            this.label6.Location = new System.Drawing.Point(811, 303);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 33);
@@ -441,7 +446,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label7.Location = new System.Drawing.Point(900, 381);
+            this.label7.Location = new System.Drawing.Point(897, 339);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(188, 33);
@@ -451,7 +456,7 @@
             // pictureBox14
             // 
             this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.Location = new System.Drawing.Point(1143, 381);
+            this.pictureBox14.Location = new System.Drawing.Point(1143, 318);
             this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(108, 99);
@@ -462,7 +467,7 @@
             // pictureBox15
             // 
             this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
-            this.pictureBox15.Location = new System.Drawing.Point(1158, 265);
+            this.pictureBox15.Location = new System.Drawing.Point(1158, 218);
             this.pictureBox15.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(93, 92);
@@ -473,7 +478,7 @@
             // pictureBox16
             // 
             this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.Location = new System.Drawing.Point(1158, 165);
+            this.pictureBox16.Location = new System.Drawing.Point(1158, 118);
             this.pictureBox16.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(93, 92);
@@ -481,13 +486,77 @@
             this.pictureBox16.TabIndex = 33;
             this.pictureBox16.TabStop = false;
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.BackColor = System.Drawing.Color.Silver;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(712, 449);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(92, 29);
+            this.lblFecha.TabIndex = 34;
+            this.lblFecha.Text = "Fecha:";
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.BackColor = System.Drawing.Color.Silver;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.Location = new System.Drawing.Point(897, 449);
+            this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(76, 29);
+            this.lblHora.TabIndex = 35;
+            this.lblHora.Text = "Hora:";
+            // 
+            // lblUsuarios
+            // 
+            this.lblUsuarios.AutoSize = true;
+            this.lblUsuarios.BackColor = System.Drawing.Color.Silver;
+            this.lblUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarios.Location = new System.Drawing.Point(712, 478);
+            this.lblUsuarios.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuarios.Name = "lblUsuarios";
+            this.lblUsuarios.Size = new System.Drawing.Size(271, 29);
+            this.lblUsuarios.TabIndex = 36;
+            this.lblUsuarios.Text = "Usuarios Registrados:";
+            // 
+            // lblLibrosR
+            // 
+            this.lblLibrosR.AutoSize = true;
+            this.lblLibrosR.BackColor = System.Drawing.Color.Silver;
+            this.lblLibrosR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLibrosR.Location = new System.Drawing.Point(712, 507);
+            this.lblLibrosR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLibrosR.Name = "lblLibrosR";
+            this.lblLibrosR.Size = new System.Drawing.Size(241, 29);
+            this.lblLibrosR.TabIndex = 37;
+            this.lblLibrosR.Text = "Libros Registrados:";
+            // 
+            // lblBS
+            // 
+            this.lblBS.AutoSize = true;
+            this.lblBS.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.lblBS.Location = new System.Drawing.Point(762, 408);
+            this.lblBS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBS.Name = "lblBS";
+            this.lblBS.Size = new System.Drawing.Size(325, 33);
+            this.lblBS.TabIndex = 38;
+            this.lblBS.Text = "Bienvenido al Sistema";
+            // 
             // FrmSistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1428, 504);
+            this.ClientSize = new System.Drawing.Size(1428, 588);
+            this.Controls.Add(this.lblBS);
+            this.Controls.Add(this.lblLibrosR);
+            this.Controls.Add(this.lblUsuarios);
+            this.Controls.Add(this.lblHora);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.pictureBox14);
@@ -495,53 +564,53 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCreadoPor);
+            this.Controls.Add(this.lblTitulo2);
             this.Controls.Add(this.lblPaises);
-            this.Controls.Add(this.pictureBox13);
+            this.Controls.Add(this.pbPaises);
             this.Controls.Add(this.lblUbicacion);
-            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.pbUbicacion);
             this.Controls.Add(this.lblVentasLibros);
-            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.pbVentasLibros);
             this.Controls.Add(this.lblHistorial);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pbHistorial);
+            this.Controls.Add(this.pbCategoria);
+            this.Controls.Add(this.pbBibliotecario);
             this.Controls.Add(this.lblEditorial);
             this.Controls.Add(this.lblcategoria);
             this.Controls.Add(this.lblBlbliotecario);
             this.Controls.Add(this.lblDevocion);
             this.Controls.Add(this.lblPrestamo);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pbPrestamo);
+            this.Controls.Add(this.pbEditorial);
+            this.Controls.Add(this.pbDevolucion);
             this.Controls.Add(this.lblAutor);
             this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pbUsuario);
+            this.Controls.Add(this.pbAutor);
             this.Controls.Add(this.lblLibro);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pbLibro);
+            this.Controls.Add(this.pbLogoUJCV);
+            this.Controls.Add(this.lblTitulo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.Name = "FrmSistema";
             this.Text = "UJCV";
             this.Load += new System.EventHandler(this.FrmSistema_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoUJCV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLibro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAutor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDevolucion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEditorial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrestamo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBibliotecario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHistorial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVentasLibros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUbicacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaises)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -552,34 +621,34 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox pbLogoUJCV;
+        private System.Windows.Forms.PictureBox pbLibro;
         private System.Windows.Forms.Label lblLibro;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pbAutor;
+        private System.Windows.Forms.PictureBox pbUsuario;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblAutor;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pbDevolucion;
+        private System.Windows.Forms.PictureBox pbEditorial;
+        private System.Windows.Forms.PictureBox pbPrestamo;
         private System.Windows.Forms.Label lblPrestamo;
         private System.Windows.Forms.Label lblDevocion;
         private System.Windows.Forms.Label lblBlbliotecario;
         private System.Windows.Forms.Label lblcategoria;
         private System.Windows.Forms.Label lblEditorial;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pbBibliotecario;
+        private System.Windows.Forms.PictureBox pbCategoria;
+        private System.Windows.Forms.PictureBox pbHistorial;
         private System.Windows.Forms.Label lblHistorial;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pbVentasLibros;
         private System.Windows.Forms.Label lblVentasLibros;
-        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pbUbicacion;
         private System.Windows.Forms.Label lblUbicacion;
-        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pbPaises;
         private System.Windows.Forms.Label lblPaises;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTitulo2;
+        private System.Windows.Forms.Label lblCreadoPor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -587,5 +656,10 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label lblUsuarios;
+        private System.Windows.Forms.Label lblLibrosR;
+        private System.Windows.Forms.Label lblBS;
     }
 }

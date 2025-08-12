@@ -253,12 +253,12 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Helpers
 
         public List<Libro> BuscarLibrosPorTitulo(string titulo)
         {
-            return Libros.Where(l => l.Titulo.Contains(titulo, StringComparison.OrdinalIgnoreCase)).ToList();
+            return Libros.Where(l => l.Titulo != null && l.Titulo.ToLower().Contains(titulo.ToLower())).ToList();
         }
 
         public List<Libro> BuscarLibrosPorAutor(string autor)
         {
-            return Libros.Where(l => l.Autor.Contains(autor, StringComparison.OrdinalIgnoreCase)).ToList();
+            return Libros.Where(l => l.Autor != null && l.Autor.ToLower().Contains(autor.ToLower())).ToList();
         }
 
         public void CrearPrestamo(int usuarioId, int libroId, int bibliotecarioId)

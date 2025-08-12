@@ -152,7 +152,6 @@
             this.lblAñoFundacion.Size = new System.Drawing.Size(154, 20);
             this.lblAñoFundacion.TabIndex = 8;
             this.lblAñoFundacion.Text = "Año de fundación";
-            this.lblAñoFundacion.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtNombre
             // 
@@ -170,7 +169,6 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(258, 46);
             this.txtDireccion.TabIndex = 11;
-            this.txtDireccion.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtTelefono
             // 
@@ -209,6 +207,7 @@
             this.btnEliminar.TabIndex = 68;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
@@ -223,6 +222,7 @@
             this.btnBuscar.TabIndex = 67;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnModificar
             // 
@@ -237,29 +237,30 @@
             this.btnModificar.TabIndex = 66;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 30);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 30);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 30);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
             this.verToolStripMenuItem.Text = "Ver";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 30);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // menuStrip1
@@ -274,7 +275,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -319,6 +320,7 @@
             this.btnGuardar.TabIndex = 72;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FrmEditorial
             // 

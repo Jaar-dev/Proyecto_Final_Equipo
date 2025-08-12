@@ -60,18 +60,19 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             lblUbicacion.Click += (s, e) => AbrirFormulario(ref frmUbicacion);
             lblPaises.Click += (s, e) => AbrirFormulario(ref frmPaises);
 
-            pictureBox1.Click += (s, e) => AbrirFormulario(ref frmLibro);
-            pictureBox2.Click += (s, e) => AbrirFormulario(ref frmUsuario);
-            pictureBox3.Click += (s, e) => AbrirFormulario(ref frmAutor);
-            pictureBox4.Click += (s, e) => AbrirFormulario(ref frmPrestamo);
-            pictureBox5.Click += (s, e) => AbrirFormulario(ref frmDevolucion);
-            pictureBox6.Click += (s, e) => AbrirFormulario(ref frmBibliotecario);
-            pictureBox7.Click += (s, e) => AbrirFormulario(ref frmCategoria);
-            pictureBox8.Click += (s, e) => AbrirFormulario(ref frmEditorial);
-            pictureBox9.Click += (s, e) => AbrirFormulario(ref frmHistorial);
-            pictureBox10.Click += (s, e) => AbrirFormulario(ref frmVentasLibros);
-            pictureBox11.Click += (s, e) => AbrirFormulario(ref frmUbicacion);
-            pictureBox12.Click += (s, e) => AbrirFormulario(ref frmPaises);
+            pbLibro.Click += (s, e) => AbrirFormulario(ref frmLibro);
+            pbUsuario.Click += (s, e) => AbrirFormulario(ref frmUsuario);
+            pbAutor.Click += (s, e) => AbrirFormulario(ref frmAutor);
+            pbPaises.Click += (s, e) => AbrirFormulario(ref frmPaises);
+            pbPrestamo.Click += (s, e) => AbrirFormulario(ref frmPrestamo);
+            pbDevolucion.Click += (s, e) => AbrirFormulario(ref frmDevolucion);
+            pbBibliotecario.Click += (s, e) => AbrirFormulario(ref frmBibliotecario);
+            pbCategoria.Click += (s, e) => AbrirFormulario(ref frmCategoria);
+            pbEditorial.Click += (s, e) => AbrirFormulario(ref frmEditorial);
+            pbHistorial.Click += (s, e) => AbrirFormulario(ref frmHistorial);
+            pbVentasLibros.Click += (s, e) => AbrirFormulario(ref frmVentasLibros);
+            pbUbicacion.Click += (s, e) => AbrirFormulario(ref frmUbicacion);
+            
 
             ConfigurarCursores();
         }
@@ -91,18 +92,18 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             lblUbicacion.Cursor = Cursors.Hand;
             lblPaises.Cursor = Cursors.Hand;
 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox2.Cursor = Cursors.Hand;
-            pictureBox3.Cursor = Cursors.Hand;
-            pictureBox4.Cursor = Cursors.Hand;
-            pictureBox5.Cursor = Cursors.Hand;
-            pictureBox6.Cursor = Cursors.Hand;
-            pictureBox7.Cursor = Cursors.Hand;
-            pictureBox8.Cursor = Cursors.Hand;
-            pictureBox9.Cursor = Cursors.Hand;
-            pictureBox10.Cursor = Cursors.Hand;
-            pictureBox11.Cursor = Cursors.Hand;
-            pictureBox12.Cursor = Cursors.Hand;
+            pbLibro.Cursor = Cursors.Hand;
+            pbAutor.Cursor = Cursors.Hand;
+            pbUsuario.Cursor = Cursors.Hand;
+            pbDevolucion.Cursor = Cursors.Hand;
+            pbEditorial.Cursor = Cursors.Hand;
+            pbPrestamo.Cursor = Cursors.Hand;
+            pbBibliotecario.Cursor = Cursors.Hand;
+            pbCategoria.Cursor = Cursors.Hand;
+            pbHistorial.Cursor = Cursors.Hand;
+            pbVentasLibros.Cursor = Cursors.Hand;
+            pbUbicacion.Cursor = Cursors.Hand;
+            pbPaises.Cursor = Cursors.Hand;
         }
 
         private void AbrirFormulario<T>(ref T formulario) where T : Form, new()
@@ -134,10 +135,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             timer.Interval = 1000;
             timer.Tick += (s, e) =>
             {
-                if (label2 != null)
-                    label2.Text = $"Fecha: {DateTime.Now:dd/MM/yyyy}";
-                if (label3 != null)
-                    label3.Text = $"Hora: {DateTime.Now:HH:mm:ss}";
+                if (lblFecha != null)
+                    lblFecha.Text = $"Fecha: {DateTime.Now:dd/MM/yyyy}";
+                if (lblHora != null)
+                    lblHora.Text = $"Hora: {DateTime.Now:HH:mm:ss}";
             };
             timer.Start();
         }
@@ -156,12 +157,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 estadisticas += $"Autores: {ContarRegistros("autores.json")}\n";
                 estadisticas += $"Categorías: {ContarRegistros("categorias.json")}\n";
 
-                if (label4 != null)
-                    label4.Text = "Usuarios: " + ContarRegistros("usuarios.json");
-                if (label5 != null)
-                    label5.Text = "Libros: " + ContarRegistros("libros.json");
-                if (label6 != null)
-                    label6.Text = "Préstamos: " + ContarRegistros("prestamos.json");
+                if (lblUsuarios != null)
+                    lblUsuarios.Text = "Usuarios Registrados: " + ContarRegistros("usuarios.json");
+                if (lblLibrosR != null)
+                    lblLibrosR.Text = "Libros Registrados: " + ContarRegistros("libros.json");
             }
             catch (Exception ex)
             {
@@ -192,8 +191,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             base.OnLoad(e);
             MostrarEstadisticas();
 
-            label1.Text = "Sistema de Gestión de Biblioteca";
-            label7.Text = "Bienvenido al Sistema";
+            lblTitulo.Text = "Sistema de Biblioteca UJCV";
+            lblBS.Text = "Bienvenido al Sistema";
         }
 
         private void CerrarTodosLosFormularios()
@@ -226,41 +225,41 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
         private void AgregarEfectosHover()
         {
-            pictureBox1.MouseEnter += (s, e) => CambiarBorde(pictureBox1, true);
-            pictureBox1.MouseLeave += (s, e) => CambiarBorde(pictureBox1, false);
+            pbLibro.MouseEnter += (s, e) => CambiarBorde(pbLibro, true);
+            pbLibro.MouseLeave += (s, e) => CambiarBorde(pbLibro, false);
 
-            pictureBox2.MouseEnter += (s, e) => CambiarBorde(pictureBox2, true);
-            pictureBox2.MouseLeave += (s, e) => CambiarBorde(pictureBox2, false);
+            pbAutor.MouseEnter += (s, e) => CambiarBorde(pbAutor, true);
+            pbAutor.MouseLeave += (s, e) => CambiarBorde(pbAutor, false);
 
-            pictureBox3.MouseEnter += (s, e) => CambiarBorde(pictureBox3, true);
-            pictureBox3.MouseLeave += (s, e) => CambiarBorde(pictureBox3, false);
+            pbUsuario.MouseEnter += (s, e) => CambiarBorde(pbUsuario, true);
+            pbUsuario.MouseLeave += (s, e) => CambiarBorde(pbUsuario, false);
 
-            pictureBox4.MouseEnter += (s, e) => CambiarBorde(pictureBox4, true);
-            pictureBox4.MouseLeave += (s, e) => CambiarBorde(pictureBox4, false);
+            pbDevolucion.MouseEnter += (s, e) => CambiarBorde(pbDevolucion, true);
+            pbDevolucion.MouseLeave += (s, e) => CambiarBorde(pbDevolucion, false);
 
-            pictureBox5.MouseEnter += (s, e) => CambiarBorde(pictureBox5, true);
-            pictureBox5.MouseLeave += (s, e) => CambiarBorde(pictureBox5, false);
+            pbEditorial.MouseEnter += (s, e) => CambiarBorde(pbEditorial, true);
+            pbEditorial.MouseLeave += (s, e) => CambiarBorde(pbEditorial, false);
 
-            pictureBox6.MouseEnter += (s, e) => CambiarBorde(pictureBox6, true);
-            pictureBox6.MouseLeave += (s, e) => CambiarBorde(pictureBox6, false);
+            pbPrestamo.MouseEnter += (s, e) => CambiarBorde(pbPrestamo, true);
+            pbPrestamo.MouseLeave += (s, e) => CambiarBorde(pbPrestamo, false);
 
-            pictureBox7.MouseEnter += (s, e) => CambiarBorde(pictureBox7, true);
-            pictureBox7.MouseLeave += (s, e) => CambiarBorde(pictureBox7, false);
+            pbBibliotecario.MouseEnter += (s, e) => CambiarBorde(pbBibliotecario, true);
+            pbBibliotecario.MouseLeave += (s, e) => CambiarBorde(pbBibliotecario, false);
 
-            pictureBox8.MouseEnter += (s, e) => CambiarBorde(pictureBox8, true);
-            pictureBox8.MouseLeave += (s, e) => CambiarBorde(pictureBox8, false);
+            pbCategoria.MouseEnter += (s, e) => CambiarBorde(pbCategoria, true);
+            pbCategoria.MouseLeave += (s, e) => CambiarBorde(pbCategoria, false);
 
-            pictureBox9.MouseEnter += (s, e) => CambiarBorde(pictureBox9, true);
-            pictureBox9.MouseLeave += (s, e) => CambiarBorde(pictureBox9, false);
+            pbHistorial.MouseEnter += (s, e) => CambiarBorde(pbHistorial, true);
+            pbHistorial.MouseLeave += (s, e) => CambiarBorde(pbHistorial, false);
 
-            pictureBox10.MouseEnter += (s, e) => CambiarBorde(pictureBox10, true);
-            pictureBox10.MouseLeave += (s, e) => CambiarBorde(pictureBox10, false);
+            pbVentasLibros.MouseEnter += (s, e) => CambiarBorde(pbVentasLibros, true);
+            pbVentasLibros.MouseLeave += (s, e) => CambiarBorde(pbVentasLibros, false);
 
-            pictureBox11.MouseEnter += (s, e) => CambiarBorde(pictureBox11, true);
-            pictureBox11.MouseLeave += (s, e) => CambiarBorde(pictureBox11, false);
+            pbUbicacion.MouseEnter += (s, e) => CambiarBorde(pbUbicacion, true);
+            pbUbicacion.MouseLeave += (s, e) => CambiarBorde(pbUbicacion, false);
 
-            pictureBox12.MouseEnter += (s, e) => CambiarBorde(pictureBox12, true);
-            pictureBox12.MouseLeave += (s, e) => CambiarBorde(pictureBox12, false);
+            pbPaises.MouseEnter += (s, e) => CambiarBorde(pbPaises, true);
+            pbPaises.MouseLeave += (s, e) => CambiarBorde(pbPaises, false);
         }
 
         private void CambiarBorde(PictureBox pictureBox, bool resaltar)
