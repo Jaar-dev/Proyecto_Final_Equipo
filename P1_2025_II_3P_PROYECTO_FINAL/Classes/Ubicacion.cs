@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Ubicacion : EntidadBase
+    public class Ubicacion : EntidadBase
     {
         private string _estanteria;
         private int _pasillo;

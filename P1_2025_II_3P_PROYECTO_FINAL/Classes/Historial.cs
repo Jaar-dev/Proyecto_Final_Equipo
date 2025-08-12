@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Historial : EntidadBase
+    public class Historial : EntidadBase
     {
         private int _usuarioId;
         private string _tipoAccion;

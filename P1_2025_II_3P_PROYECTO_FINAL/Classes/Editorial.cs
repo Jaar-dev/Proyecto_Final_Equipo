@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Editorial : EntidadBase
+    public class Editorial : EntidadBase
     {
         private string _nombre;
         private string _direccion;

@@ -21,7 +21,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
         public int Id
         {
             get { return _id; }
-            protected set
+            set
             {
                 if (value <= 0)
                     throw new ArgumentException("El ID debe ser mayor que cero");

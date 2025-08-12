@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Devolucion : EntidadBase
+    public class Devolucion : EntidadBase
     {
         private int _prestamoId;
         private int _usuarioId;

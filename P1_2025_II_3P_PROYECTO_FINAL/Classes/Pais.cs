@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Pais : EntidadBase
+    public class Pais : EntidadBase
     {
         private string _nombre;
         private string _codigo;

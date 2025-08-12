@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Bibliotecario : Persona
+    public class Bibliotecario : Persona
     {
         private string _codigoEmpleado;
         private string _turno;

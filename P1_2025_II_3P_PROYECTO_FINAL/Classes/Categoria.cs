@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Categoria : EntidadBase
+    public class Categoria : EntidadBase
     {
         private string _nombre;
         private string _descripcion;

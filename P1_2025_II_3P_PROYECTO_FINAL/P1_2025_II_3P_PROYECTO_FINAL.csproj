@@ -70,6 +70,11 @@
     <Compile Include="GUI\FrmAutor.Designer.cs">
       <DependentUpon>FrmAutor.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmAutor1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FrmAutor.resx</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmBibliotecario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +152,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FrmAutor.resx">
       <DependentUpon>FrmAutor.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FrmAutor1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmBibliotecario.resx">
       <DependentUpon>FrmBibliotecario.cs</DependentUpon>

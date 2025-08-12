@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class VentaLibros : EntidadBase
+    public class VentaLibros : EntidadBase
     {
         private int _libroId;
         private int _cantidad;

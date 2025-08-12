@@ -255,7 +255,6 @@
             this.lblcategoria.Size = new System.Drawing.Size(115, 26);
             this.lblcategoria.TabIndex = 13;
             this.lblcategoria.Text = "Categoría";
-            this.lblcategoria.Click += new System.EventHandler(this.label8_Click);
             // 
             // lblEditorial
             // 
@@ -268,7 +267,6 @@
             this.lblEditorial.Size = new System.Drawing.Size(100, 26);
             this.lblEditorial.TabIndex = 14;
             this.lblEditorial.Text = "Editorial";
-            this.lblEditorial.Click += new System.EventHandler(this.label9_Click);
             // 
             // pictureBox8
             // 

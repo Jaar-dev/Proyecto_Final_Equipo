@@ -21,5 +21,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
 
         }
+
+        private void FrmAutor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

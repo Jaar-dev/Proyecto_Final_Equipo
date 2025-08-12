@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Libro : EntidadBase
+    public class Libro : EntidadBase
     {
         private string _isbn;
         private string _titulo;
@@ -166,6 +166,12 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             _precio = 0;
             _idioma = "Español";
             _añoPublicacion = DateTime.Now.Year;
+            NumeroPaginas = 1;
+            ISBN = "";
+            Titulo = "";
+            Autor = "";
+            Editorial = "";
+            Categoria = "";
         }
 
         private bool ValidarISBN(string isbn)

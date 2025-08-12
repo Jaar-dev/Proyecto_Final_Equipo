@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Usuario : Persona
+    public class Usuario : Persona
     {
         private string _nombreUsuario;
         private string _contrasena;

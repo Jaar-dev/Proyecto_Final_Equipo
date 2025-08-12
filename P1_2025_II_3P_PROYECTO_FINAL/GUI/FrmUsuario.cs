@@ -27,7 +27,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             ConfigurarFormulario();
         }
 
-        private void ConfigurarFormulario(object sender, EventArgs e)
+        private void ConfigurarFormulario()
         {
             dtpFechaRegistro.Format = DateTimePickerFormat.Short;
             dtpFechaRegistro.Value = DateTime.Now;

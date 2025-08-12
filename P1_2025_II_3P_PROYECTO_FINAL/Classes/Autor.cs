@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
 {
-    public abstract class Autor : Persona
+    public class Autor : Persona
     {
         private string _nacionalidad;
         private string _biografia;
@@ -22,6 +22,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             _librosPublicados = 0;
             _activo = true;
             _generoLiterario = "Ficción";
+            Nacionalidad = "Honduras";
         }
 
         public string Nacionalidad
