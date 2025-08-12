@@ -62,7 +62,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
@@ -72,32 +71,32 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.verToolStripMenuItem.Text = "Ver";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // lblPrestamo
@@ -109,7 +108,7 @@
             this.lblPrestamo.Location = new System.Drawing.Point(282, 108);
             this.lblPrestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrestamo.Name = "lblPrestamo";
-            this.lblPrestamo.Size = new System.Drawing.Size(179, 40);
+            this.lblPrestamo.Size = new System.Drawing.Size(124, 29);
             this.lblPrestamo.TabIndex = 1;
             this.lblPrestamo.Text = "Préstamo";
             // 
@@ -120,15 +119,15 @@
             this.lblIDprestamo.Location = new System.Drawing.Point(66, 229);
             this.lblIDprestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIDprestamo.Name = "lblIDprestamo";
-            this.lblIDprestamo.Size = new System.Drawing.Size(112, 20);
+            this.lblIDprestamo.Size = new System.Drawing.Size(75, 13);
             this.lblIDprestamo.TabIndex = 2;
             this.lblIDprestamo.Text = "ID préstamo";
             // 
             // txtIDprestamo
             // 
-            this.txtIDprestamo.Location = new System.Drawing.Point(289, 226);
+            this.txtIDprestamo.Location = new System.Drawing.Point(213, 229);
             this.txtIDprestamo.Name = "txtIDprestamo";
-            this.txtIDprestamo.Size = new System.Drawing.Size(212, 26);
+            this.txtIDprestamo.Size = new System.Drawing.Size(212, 20);
             this.txtIDprestamo.TabIndex = 3;
             // 
             // lblUsuario
@@ -137,7 +136,7 @@
             this.lblUsuario.BackColor = System.Drawing.Color.BurlyWood;
             this.lblUsuario.Location = new System.Drawing.Point(66, 264);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(74, 20);
+            this.lblUsuario.Size = new System.Drawing.Size(50, 13);
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -147,7 +146,7 @@
             this.lblLibro.BackColor = System.Drawing.Color.BurlyWood;
             this.lblLibro.Location = new System.Drawing.Point(66, 298);
             this.lblLibro.Name = "lblLibro";
-            this.lblLibro.Size = new System.Drawing.Size(52, 20);
+            this.lblLibro.Size = new System.Drawing.Size(35, 13);
             this.lblLibro.TabIndex = 5;
             this.lblLibro.Text = "Libro";
             // 
@@ -157,7 +156,7 @@
             this.lblFechaPrestmo.BackColor = System.Drawing.Color.BurlyWood;
             this.lblFechaPrestmo.Location = new System.Drawing.Point(66, 334);
             this.lblFechaPrestmo.Name = "lblFechaPrestmo";
-            this.lblFechaPrestmo.Size = new System.Drawing.Size(170, 20);
+            this.lblFechaPrestmo.Size = new System.Drawing.Size(115, 13);
             this.lblFechaPrestmo.TabIndex = 6;
             this.lblFechaPrestmo.Text = "Fecha de préstamo";
             // 
@@ -167,7 +166,7 @@
             this.lblFechaVencimiento.BackColor = System.Drawing.Color.BurlyWood;
             this.lblFechaVencimiento.Location = new System.Drawing.Point(66, 365);
             this.lblFechaVencimiento.Name = "lblFechaVencimiento";
-            this.lblFechaVencimiento.Size = new System.Drawing.Size(192, 20);
+            this.lblFechaVencimiento.Size = new System.Drawing.Size(132, 13);
             this.lblFechaVencimiento.TabIndex = 7;
             this.lblFechaVencimiento.Text = "Fecha de vencimiento";
             // 
@@ -177,7 +176,7 @@
             this.lblFcehaDevolucion.BackColor = System.Drawing.Color.BurlyWood;
             this.lblFcehaDevolucion.Location = new System.Drawing.Point(66, 399);
             this.lblFcehaDevolucion.Name = "lblFcehaDevolucion";
-            this.lblFcehaDevolucion.Size = new System.Drawing.Size(181, 20);
+            this.lblFcehaDevolucion.Size = new System.Drawing.Size(126, 13);
             this.lblFcehaDevolucion.TabIndex = 8;
             this.lblFcehaDevolucion.Text = "Fecha de devolución";
             // 
@@ -187,30 +186,30 @@
             this.lblEstado.BackColor = System.Drawing.Color.BurlyWood;
             this.lblEstado.Location = new System.Drawing.Point(66, 432);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(67, 20);
+            this.lblEstado.Size = new System.Drawing.Size(46, 13);
             this.lblEstado.TabIndex = 9;
             this.lblEstado.Text = "Estado";
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(289, 264);
+            this.txtUsuario.Location = new System.Drawing.Point(213, 267);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(212, 26);
+            this.txtUsuario.Size = new System.Drawing.Size(212, 20);
             this.txtUsuario.TabIndex = 10;
             // 
             // txtLibro
             // 
             this.txtLibro.BackColor = System.Drawing.Color.SeaShell;
-            this.txtLibro.Location = new System.Drawing.Point(289, 298);
+            this.txtLibro.Location = new System.Drawing.Point(213, 301);
             this.txtLibro.Name = "txtLibro";
-            this.txtLibro.Size = new System.Drawing.Size(212, 26);
+            this.txtLibro.Size = new System.Drawing.Size(212, 20);
             this.txtLibro.TabIndex = 11;
             // 
             // txtEstado
             // 
-            this.txtEstado.Location = new System.Drawing.Point(289, 432);
+            this.txtEstado.Location = new System.Drawing.Point(213, 435);
             this.txtEstado.Name = "txtEstado";
-            this.txtEstado.Size = new System.Drawing.Size(212, 26);
+            this.txtEstado.Size = new System.Drawing.Size(212, 20);
             this.txtEstado.TabIndex = 15;
             // 
             // pictureBox1
@@ -226,23 +225,23 @@
             // 
             // dtpFechaPrestamo
             // 
-            this.dtpFechaPrestamo.Location = new System.Drawing.Point(289, 334);
+            this.dtpFechaPrestamo.Location = new System.Drawing.Point(213, 337);
             this.dtpFechaPrestamo.Name = "dtpFechaPrestamo";
-            this.dtpFechaPrestamo.Size = new System.Drawing.Size(362, 26);
+            this.dtpFechaPrestamo.Size = new System.Drawing.Size(362, 20);
             this.dtpFechaPrestamo.TabIndex = 73;
             // 
             // dtpFechaEvolucion
             // 
-            this.dtpFechaEvolucion.Location = new System.Drawing.Point(289, 399);
+            this.dtpFechaEvolucion.Location = new System.Drawing.Point(213, 402);
             this.dtpFechaEvolucion.Name = "dtpFechaEvolucion";
-            this.dtpFechaEvolucion.Size = new System.Drawing.Size(362, 26);
+            this.dtpFechaEvolucion.Size = new System.Drawing.Size(362, 20);
             this.dtpFechaEvolucion.TabIndex = 74;
             // 
             // dtpFechaVencimiento
             // 
-            this.dtpFechaVencimiento.Location = new System.Drawing.Point(289, 365);
+            this.dtpFechaVencimiento.Location = new System.Drawing.Point(213, 368);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            this.dtpFechaVencimiento.Size = new System.Drawing.Size(362, 26);
+            this.dtpFechaVencimiento.Size = new System.Drawing.Size(362, 20);
             this.dtpFechaVencimiento.TabIndex = 75;
             // 
             // lblBibliotecario
@@ -251,15 +250,15 @@
             this.lblBibliotecario.BackColor = System.Drawing.Color.BurlyWood;
             this.lblBibliotecario.Location = new System.Drawing.Point(66, 463);
             this.lblBibliotecario.Name = "lblBibliotecario";
-            this.lblBibliotecario.Size = new System.Drawing.Size(115, 20);
+            this.lblBibliotecario.Size = new System.Drawing.Size(77, 13);
             this.lblBibliotecario.TabIndex = 76;
             this.lblBibliotecario.Text = "Bibliotecario";
             // 
             // tbxBiblioteca
             // 
-            this.tbxBiblioteca.Location = new System.Drawing.Point(289, 463);
+            this.tbxBiblioteca.Location = new System.Drawing.Point(213, 466);
             this.tbxBiblioteca.Name = "tbxBiblioteca";
-            this.tbxBiblioteca.Size = new System.Drawing.Size(212, 26);
+            this.tbxBiblioteca.Size = new System.Drawing.Size(212, 20);
             this.tbxBiblioteca.TabIndex = 77;
             // 
             // btnGuardar
@@ -324,7 +323,7 @@
             // 
             // FrmPrestamo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1200, 692);

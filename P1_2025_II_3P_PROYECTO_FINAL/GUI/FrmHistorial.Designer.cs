@@ -48,15 +48,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dtpFechaActividad = new System.Windows.Forms.DateTimePicker();
-            this.clbTipoActividad = new System.Windows.Forms.CheckedListBox();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.cmbFechaActividad = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
@@ -65,42 +64,41 @@
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.verToolStripMenuItem.Text = "Ver";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(170, 55);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(113, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 142);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -110,10 +108,9 @@
             this.lblHistrorial.AutoSize = true;
             this.lblHistrorial.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.lblHistrorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHistrorial.Location = new System.Drawing.Point(334, 122);
-            this.lblHistrorial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHistrorial.Location = new System.Drawing.Point(223, 79);
             this.lblHistrorial.Name = "lblHistrorial";
-            this.lblHistrorial.Size = new System.Drawing.Size(131, 33);
+            this.lblHistrorial.Size = new System.Drawing.Size(85, 24);
             this.lblHistrorial.TabIndex = 3;
             this.lblHistrorial.Text = "Historial";
             this.lblHistrorial.Click += new System.EventHandler(this.label1_Click);
@@ -123,10 +120,9 @@
             this.lblIDHistorial.AutoSize = true;
             this.lblIDHistorial.BackColor = System.Drawing.Color.BurlyWood;
             this.lblIDHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDHistorial.Location = new System.Drawing.Point(57, 242);
-            this.lblIDHistorial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIDHistorial.Location = new System.Drawing.Point(38, 157);
             this.lblIDHistorial.Name = "lblIDHistorial";
-            this.lblIDHistorial.Size = new System.Drawing.Size(102, 20);
+            this.lblIDHistorial.Size = new System.Drawing.Size(68, 13);
             this.lblIDHistorial.TabIndex = 4;
             this.lblIDHistorial.Text = "ID historial";
             // 
@@ -135,10 +131,9 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.BackColor = System.Drawing.Color.BurlyWood;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(57, 292);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Location = new System.Drawing.Point(38, 190);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(74, 20);
+            this.lblUsuario.Size = new System.Drawing.Size(50, 13);
             this.lblUsuario.TabIndex = 5;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -147,10 +142,9 @@
             this.lblTipoActividad.AutoSize = true;
             this.lblTipoActividad.BackColor = System.Drawing.Color.BurlyWood;
             this.lblTipoActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoActividad.Location = new System.Drawing.Point(45, 363);
-            this.lblTipoActividad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipoActividad.Location = new System.Drawing.Point(30, 236);
             this.lblTipoActividad.Name = "lblTipoActividad";
-            this.lblTipoActividad.Size = new System.Drawing.Size(152, 20);
+            this.lblTipoActividad.Size = new System.Drawing.Size(106, 13);
             this.lblTipoActividad.TabIndex = 6;
             this.lblTipoActividad.Text = "Tipo de actividad";
             // 
@@ -159,10 +153,9 @@
             this.lblFechaActividad.AutoSize = true;
             this.lblFechaActividad.BackColor = System.Drawing.Color.BurlyWood;
             this.lblFechaActividad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaActividad.Location = new System.Drawing.Point(32, 460);
-            this.lblFechaActividad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaActividad.Location = new System.Drawing.Point(30, 291);
             this.lblFechaActividad.Name = "lblFechaActividad";
-            this.lblFechaActividad.Size = new System.Drawing.Size(167, 20);
+            this.lblFechaActividad.Size = new System.Drawing.Size(116, 13);
             this.lblFechaActividad.TabIndex = 7;
             this.lblFechaActividad.Text = "Fecha de actividad";
             // 
@@ -171,36 +164,32 @@
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.BackColor = System.Drawing.Color.BurlyWood;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(57, 525);
-            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcion.Location = new System.Drawing.Point(30, 342);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(110, 20);
+            this.lblDescripcion.Size = new System.Drawing.Size(74, 13);
             this.lblDescripcion.TabIndex = 8;
             this.lblDescripcion.Text = "Descripción";
             // 
             // txtIDHistorial
             // 
-            this.txtIDHistorial.Location = new System.Drawing.Point(171, 237);
-            this.txtIDHistorial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtIDHistorial.Location = new System.Drawing.Point(114, 154);
             this.txtIDHistorial.Name = "txtIDHistorial";
-            this.txtIDHistorial.Size = new System.Drawing.Size(313, 26);
+            this.txtIDHistorial.Size = new System.Drawing.Size(210, 20);
             this.txtIDHistorial.TabIndex = 9;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(160, 288);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsuario.Location = new System.Drawing.Point(107, 187);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(324, 26);
+            this.txtUsuario.Size = new System.Drawing.Size(217, 20);
             this.txtUsuario.TabIndex = 10;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(206, 511);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtDescripcion.Location = new System.Drawing.Point(129, 333);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(349, 47);
+            this.txtDescripcion.Size = new System.Drawing.Size(234, 32);
             this.txtDescripcion.TabIndex = 13;
             // 
             // btnEliminar
@@ -209,10 +198,9 @@
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(564, 609);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminar.Location = new System.Drawing.Point(385, 388);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(148, 71);
+            this.btnEliminar.Size = new System.Drawing.Size(99, 46);
             this.btnEliminar.TabIndex = 68;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -223,10 +211,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(397, 609);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBuscar.Location = new System.Drawing.Point(274, 388);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(148, 71);
+            this.btnBuscar.Size = new System.Drawing.Size(99, 46);
             this.btnBuscar.TabIndex = 67;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -237,41 +224,19 @@
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(231, 609);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnModificar.Location = new System.Drawing.Point(163, 388);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(148, 71);
+            this.btnModificar.Size = new System.Drawing.Size(99, 46);
             this.btnModificar.TabIndex = 66;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             // 
             // dtpFechaActividad
             // 
-            this.dtpFechaActividad.Location = new System.Drawing.Point(228, 455);
-            this.dtpFechaActividad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpFechaActividad.Location = new System.Drawing.Point(161, 288);
             this.dtpFechaActividad.Name = "dtpFechaActividad";
-            this.dtpFechaActividad.Size = new System.Drawing.Size(326, 26);
+            this.dtpFechaActividad.Size = new System.Drawing.Size(219, 20);
             this.dtpFechaActividad.TabIndex = 69;
-            // 
-            // clbTipoActividad
-            // 
-            this.clbTipoActividad.FormattingEnabled = true;
-            this.clbTipoActividad.Items.AddRange(new object[] {
-            "Préstamo de libros",
-            "Devolución de libros",
-            "Renovación de préstamo",
-            "Club de lectura",
-            "Taller de escritura",
-            "Presentación de libros",
-            "Exposición temática",
-            "Encuentro con autores",
-            "Lectura guiada",
-            "Capacitación o curso bibliotecario"});
-            this.clbTipoActividad.Location = new System.Drawing.Point(228, 338);
-            this.clbTipoActividad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.clbTipoActividad.Name = "clbTipoActividad";
-            this.clbTipoActividad.Size = new System.Drawing.Size(253, 96);
-            this.clbTipoActividad.TabIndex = 70;
             // 
             // btnGuardar
             // 
@@ -279,22 +244,29 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(61, 609);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGuardar.Location = new System.Drawing.Point(50, 388);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(148, 71);
+            this.btnGuardar.Size = new System.Drawing.Size(99, 46);
             this.btnGuardar.TabIndex = 71;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
+            // cmbFechaActividad
+            // 
+            this.cmbFechaActividad.FormattingEnabled = true;
+            this.cmbFechaActividad.Location = new System.Drawing.Point(161, 229);
+            this.cmbFechaActividad.Name = "cmbFechaActividad";
+            this.cmbFechaActividad.Size = new System.Drawing.Size(121, 21);
+            this.cmbFechaActividad.TabIndex = 76;
+            // 
             // FrmHistorial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1200, 748);
+            this.ClientSize = new System.Drawing.Size(800, 486);
+            this.Controls.Add(this.cmbFechaActividad);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.clbTipoActividad);
             this.Controls.Add(this.dtpFechaActividad);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnBuscar);
@@ -311,7 +283,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmHistorial";
             this.Text = "Historial";
             this.Load += new System.EventHandler(this.FrmHistorial_Load);
@@ -344,7 +315,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DateTimePicker dtpFechaActividad;
-        private System.Windows.Forms.CheckedListBox clbTipoActividad;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ComboBox cmbFechaActividad;
     }
 }
