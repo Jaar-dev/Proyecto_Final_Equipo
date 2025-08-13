@@ -7,57 +7,407 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using P1_2025_II_3P_PROYECTO_FINAL.Clases;
+using P1_2025_II_3P_PROYECTO_FINAL.Helpers;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 {
     public partial class FrmHistorial : Form
     {
+        private DataManager dataManager;
+        private List<Historial> historialFiltrado;
+
         public FrmHistorial()
         {
             InitializeComponent();
+            dataManager = DataManager.Instance;
+            ConfigurarFormulario();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ConfigurarFormulario()
         {
+            try
+            {
+                dtpFechaInicio.Format = DateTimePickerFormat.Short;
+                dtpFechaFin.Format = DateTimePickerFormat.Short;
+                dtpFechaInicio.Value = DateTime.Now.AddMonths(-1);
+                dtpFechaFin.Value = DateTime.Now;
 
+                CargarCombos();
+
+                ConfigurarDataGridView();
+
+                ConfigurarTooltips();
+
+                CargarDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al configurar formulario: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CargarCombos()
+        {
+            cmbTipoAccion.Items.Clear();
+            cmbTipoAccion.Items.Add("Todos");
+            cmbTipoAccion.Items.Add("Crear");
+            cmbTipoAccion.Items.Add("Actualizar");
+            cmbTipoAccion.Items.Add("Eliminar");
+            cmbTipoAccion.Items.Add("Renovar");
+            cmbTipoAccion.Items.Add("Devolver");
+            cmbTipoAccion.Items.Add("Prestar");
+            cmbTipoAccion.Items.Add("Vender");
+            cmbTipoAccion.SelectedIndex = 0;
+
+            cmbTablaAfectada.Items.Clear();
+            cmbTablaAfectada.Items.Add("Todas");
+            cmbTablaAfectada.Items.Add("Usuario");
+            cmbTablaAfectada.Items.Add("Libro");
+            cmbTablaAfectada.Items.Add("Prestamo");
+            cmbTablaAfectada.Items.Add("Devolucion");
+            cmbTablaAfectada.Items.Add("Bibliotecario");
+            cmbTablaAfectada.Items.Add("Autor");
+            cmbTablaAfectada.Items.Add("Categoria");
+            cmbTablaAfectada.Items.Add("Editorial");
+            cmbTablaAfectada.Items.Add("VentaLibros");
+            cmbTablaAfectada.Items.Add("Ubicacion");
+            cmbTablaAfectada.Items.Add("Pais");
+            cmbTablaAfectada.SelectedIndex = 0;
+
+            cmbUsuario.Items.Clear();
+            cmbUsuario.Items.Add("Todos");
+            foreach (var bibliotecario in dataManager.Bibliotecarios.Where(b => b.Activo))
+            {
+                cmbUsuario.Items.Add(bibliotecario.Nombre);
+            }
+            cmbUsuario.SelectedIndex = 0;
+        }
+
+        private void ConfigurarDataGridView()
+        {
+            dgvHistorial.AutoGenerateColumns = false;
+            dgvHistorial.Columns.Clear();
+
+            dgvHistorial.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Id",
+                HeaderText = "ID",
+                DataPropertyName = "Id",
+                Width = 50
+            });
+
+            dgvHistorial.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "FechaAccion",
+                HeaderText = "Fecha/Hora",
+                DataPropertyName = "FechaAccion",
+                Width = 150,
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy HH:mm:ss" }
+            });
+
+            dgvHistorial.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "TipoAccion",
+                HeaderText = "Tipo Acción",
+                DataPropertyName = "TipoAccion",
+                Width = 100
+            });
+
+            dgvHistorial.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "TablaAfectada",
+                HeaderText = "Tabla",
+                DataPropertyName = "TablaAfectada",
+                Width = 100
+            });
+
+            dgvHistorial.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "RegistroAfectadoId",
+                HeaderText = "Registro ID",
+                DataPropertyName = "RegistroAfectadoId",
+                Width = 80
+            });
+
+            dgvHistorial.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Descripcion",
+                HeaderText = "Descripción",
+                DataPropertyName = "Descripcion",
+                Width = 300
+            });
+
+            dgvHistorial.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "UsuarioId",
+                HeaderText = "Usuario ID",
+                DataPropertyName = "UsuarioId",
+                Width = 80
+            });
+
+            dgvHistorial.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHistorial.MultiSelect = false;
+            dgvHistorial.ReadOnly = true;
+            dgvHistorial.AllowUserToAddRows = false;
+            dgvHistorial.AllowUserToDeleteRows = false;
+        }
+
+        private void ConfigurarTooltips()
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(dtpFechaInicio, "Fecha inicial del período a consultar");
+            toolTip.SetToolTip(dtpFechaFin, "Fecha final del período a consultar");
+            toolTip.SetToolTip(cmbTipoAccion, "Filtrar por tipo de acción");
+            toolTip.SetToolTip(cmbTablaAfectada, "Filtrar por tabla afectada");
+            toolTip.SetToolTip(btnFiltrar, "Aplicar filtros seleccionados");
+            toolTip.SetToolTip(btnLimpiarFiltros, "Limpiar todos los filtros");
+            toolTip.SetToolTip(btnExportar, "Exportar historial a archivo");
         }
 
         private void FrmHistorial_Load(object sender, EventArgs e)
         {
-
-    
+            CargarDatos();
+            ActualizarEstadisticas();
         }
 
-        private void GuardarUbicacion() { }
-        private void ModificarUbicacion() { }
-        private void BuscarUbicacion() { }
-        private void EliminarUbicacion() { }
-
-        private void FrmCategoria_Load(object sender, EventArgs e)
+        private void CargarDatos()
         {
+            try
+            {
+                historialFiltrado = dataManager.HistorialAcciones
+                    .OrderByDescending(h => h.FechaAccion)
+                    .ToList();
 
+                dgvHistorial.DataSource = null;
+                dgvHistorial.DataSource = historialFiltrado;
+
+                lblTotalRegistros.Text = $"Total Registros: {historialFiltrado.Count}";
+
+                ColorearFilas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar datos: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+        private void ColorearFilas()
         {
-            GuardarUbicacion();
+            foreach (DataGridViewRow row in dgvHistorial.Rows)
+            {
+                var historial = (Historial)row.DataBoundItem;
+
+                switch (historial.TipoAccion.ToLower())
+                {
+                    case "crear":
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                        break;
+                    case "actualizar":
+                        row.DefaultCellStyle.BackColor = Color.LightBlue;
+                        break;
+                    case "eliminar":
+                        row.DefaultCellStyle.BackColor = Color.LightCoral;
+                        break;
+                    case "prestar":
+                        row.DefaultCellStyle.BackColor = Color.LightYellow;
+                        break;
+                    case "devolver":
+                        row.DefaultCellStyle.BackColor = Color.LightGray;
+                        break;
+                    case "vender":
+                        row.DefaultCellStyle.BackColor = Color.LightSalmon;
+                        break;
+                }
+            }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            ModificarUbicacion();
+            AplicarFiltros();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void AplicarFiltros()
         {
-            BuscarUbicacion();
+            try
+            {
+                historialFiltrado = dataManager.HistorialAcciones.AsEnumerable();
+
+                historialFiltrado = historialFiltrado.Where(h =>
+                    h.FechaAccion.Date >= dtpFechaInicio.Value.Date &&
+                    h.FechaAccion.Date <= dtpFechaFin.Value.Date);
+
+                if (cmbTipoAccion.SelectedIndex > 0)
+                {
+                    string tipoAccion = cmbTipoAccion.SelectedItem.ToString();
+                    historialFiltrado = historialFiltrado.Where(h =>
+                        h.TipoAccion.Equals(tipoAccion, StringComparison.OrdinalIgnoreCase));
+                }
+
+                if (cmbTablaAfectada.SelectedIndex > 0)
+                {
+                    string tabla = cmbTablaAfectada.SelectedItem.ToString();
+                    historialFiltrado = historialFiltrado.Where(h =>
+                        h.TablaAfectada.Equals(tabla, StringComparison.OrdinalIgnoreCase));
+                }
+
+                if (cmbUsuario.SelectedIndex > 0)
+                {
+                    string nombreUsuario = cmbUsuario.SelectedItem.ToString();
+                    var usuario = dataManager.Bibliotecarios.FirstOrDefault(b => b.Nombre == nombreUsuario);
+                    if (usuario != null)
+                    {
+                        historialFiltrado = historialFiltrado.Where(h => h.UsuarioId == usuario.Id);
+                    }
+                }
+
+                historialFiltrado = historialFiltrado.OrderByDescending(h => h.FechaAccion).ToList();
+
+                dgvHistorial.DataSource = null;
+                dgvHistorial.DataSource = historialFiltrado.ToList();
+
+                lblTotalRegistros.Text = $"Total Registros: {historialFiltrado.Count()}";
+
+                ColorearFilas();
+
+                ActualizarEstadisticas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al aplicar filtros: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
-            EliminarUbicacion();
+            dtpFechaInicio.Value = DateTime.Now.AddMonths(-1);
+            dtpFechaFin.Value = DateTime.Now;
+            cmbTipoAccion.SelectedIndex = 0;
+            cmbTablaAfectada.SelectedIndex = 0;
+            cmbUsuario.SelectedIndex = 0;
+
+            CargarDatos();
+            ActualizarEstadisticas();
         }
 
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Archivo CSV (*.csv)|*.csv|Archivo de texto (*.txt)|*.txt";
+                saveDialog.Title = "Exportar Historial";
+                saveDialog.FileName = $"Historial_{DateTime.Now:yyyyMMdd_HHmmss}";
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    StringBuilder sb = new StringBuilder();
+
+                    sb.AppendLine("ID,Fecha,Tipo Acción,Tabla,Registro ID,Descripción,Usuario ID");
+
+                    foreach (var item in historialFiltrado)
+                    {
+                        sb.AppendLine($"{item.Id},{item.FechaAccion:yyyy-MM-dd HH:mm:ss}," +
+                                    $"{item.TipoAccion},{item.TablaAfectada}," +
+                                    $"{item.RegistroAfectadoId},\"{item.Descripcion}\"," +
+                                    $"{item.UsuarioId}");
+                    }
+
+                    System.IO.File.WriteAllText(saveDialog.FileName, sb.ToString());
+
+                    MessageBox.Show("Historial exportado exitosamente.", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al exportar: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ActualizarEstadisticas()
+        {
+            try
+            {
+                var estadisticas = historialFiltrado.GroupBy(h => h.TipoAccion)
+                    .Select(g => new { Tipo = g.Key, Cantidad = g.Count() })
+                    .OrderByDescending(x => x.Cantidad);
+
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("Resumen de Acciones:");
+                foreach (var est in estadisticas)
+                {
+                    sb.AppendLine($"• {est.Tipo}: {est.Cantidad}");
+                }
+
+                lblEstadisticas.Text = sb.ToString();
+
+                var accionesHoy = historialFiltrado.Count(h => h.FechaAccion.Date == DateTime.Today);
+                lblAccionesHoy.Text = $"Acciones Hoy: {accionesHoy}";
+
+                // Tabla más modificada
+                var tablaMasModificada = historialFiltrado
+                    .GroupBy(h => h.TablaAfectada)
+                    .OrderByDescending(g => g.Count())
+                    .FirstOrDefault();
+
+                if (tablaMasModificada != null)
+                {
+                    lblTablaMasActiva.Text = $"Tabla más activa: {tablaMasModificada.Key} ({tablaMasModificada.Count()} acciones)";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error en estadísticas: {ex.Message}");
+            }
+        }
+
+        private void dgvHistorial_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var historial = (Historial)dgvHistorial.Rows[e.RowIndex].DataBoundItem;
+                MostrarDetallesHistorial(historial);
+            }
+        }
+
+        private void MostrarDetallesHistorial(Historial historial)
+        {
+            string detalles = $"ID: {historial.Id}\n" +
+                            $"Fecha: {historial.FechaAccion:dd/MM/yyyy HH:mm:ss}\n" +
+                            $"Tipo de Actividad: {historial.TipoAccion}\n" +
+                            $"Formulario Afectado: {historial.TablaAfectada}\n" +
+                            $"Registro ID: {historial.RegistroAfectadoId}\n" +
+                            $"Usuario ID: {historial.UsuarioId}\n";
+
+            if (!string.IsNullOrEmpty(historial.ValorAnterior))
+                detalles += $"Valor Anterior: {historial.ValorAnterior}\n";
+
+            if (!string.IsNullOrEmpty(historial.ValorNuevo))
+                detalles += $"Valor Nuevo: {historial.ValorNuevo}\n";
+
+            MessageBox.Show(detalles, "Detalles del Historial",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                AplicarFiltros();
+            }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+            ActualizarEstadisticas();
+            MessageBox.Show("Datos actualizados.", "Información",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
-
-
 }
