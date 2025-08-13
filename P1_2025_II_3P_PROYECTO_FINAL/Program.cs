@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using P1_2025_II_3P_PROYECTO_FINAL.Clases;
 using P1_2025_II_3P_PROYECTO_FINAL.GUI;
 namespace P1_2025_II_3P_PROYECTO_FINAL
 {

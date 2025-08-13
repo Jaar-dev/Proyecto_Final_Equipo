@@ -127,7 +127,7 @@
             this.lblLibro.AutoSize = true;
             this.lblLibro.BackColor = System.Drawing.Color.Gainsboro;
             this.lblLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLibro.Location = new System.Drawing.Point(86, 234);
+            this.lblLibro.Location = new System.Drawing.Point(76, 232);
             this.lblLibro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLibro.Name = "lblLibro";
             this.lblLibro.Size = new System.Drawing.Size(73, 29);
@@ -161,7 +161,7 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.BackColor = System.Drawing.Color.Gainsboro;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lblUsuario.Location = new System.Drawing.Point(214, 234);
+            this.lblUsuario.Location = new System.Drawing.Point(204, 234);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(94, 26);
@@ -218,7 +218,7 @@
             this.lblPrestamo.AutoSize = true;
             this.lblPrestamo.BackColor = System.Drawing.Color.Gainsboro;
             this.lblPrestamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lblPrestamo.Location = new System.Drawing.Point(72, 339);
+            this.lblPrestamo.Location = new System.Drawing.Point(60, 340);
             this.lblPrestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrestamo.Name = "lblPrestamo";
             this.lblPrestamo.Size = new System.Drawing.Size(114, 26);
@@ -230,7 +230,7 @@
             this.lblDevocion.AutoSize = true;
             this.lblDevocion.BackColor = System.Drawing.Color.Gainsboro;
             this.lblDevocion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDevocion.Location = new System.Drawing.Point(344, 335);
+            this.lblDevocion.Location = new System.Drawing.Point(339, 335);
             this.lblDevocion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDevocion.Name = "lblDevocion";
             this.lblDevocion.Size = new System.Drawing.Size(143, 29);
@@ -242,7 +242,7 @@
             this.lblBlbliotecario.AutoSize = true;
             this.lblBlbliotecario.BackColor = System.Drawing.Color.Gainsboro;
             this.lblBlbliotecario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lblBlbliotecario.Location = new System.Drawing.Point(62, 450);
+            this.lblBlbliotecario.Location = new System.Drawing.Point(52, 451);
             this.lblBlbliotecario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBlbliotecario.Name = "lblBlbliotecario";
             this.lblBlbliotecario.Size = new System.Drawing.Size(144, 26);
@@ -254,7 +254,7 @@
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.BackColor = System.Drawing.Color.Gainsboro;
             this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lblcategoria.Location = new System.Drawing.Point(214, 449);
+            this.lblcategoria.Location = new System.Drawing.Point(204, 451);
             this.lblcategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcategoria.Name = "lblcategoria";
             this.lblcategoria.Size = new System.Drawing.Size(115, 26);
@@ -266,7 +266,7 @@
             this.lblEditorial.AutoSize = true;
             this.lblEditorial.BackColor = System.Drawing.Color.Gainsboro;
             this.lblEditorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.lblEditorial.Location = new System.Drawing.Point(214, 339);
+            this.lblEditorial.Location = new System.Drawing.Point(206, 341);
             this.lblEditorial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEditorial.Name = "lblEditorial";
             this.lblEditorial.Size = new System.Drawing.Size(100, 26);

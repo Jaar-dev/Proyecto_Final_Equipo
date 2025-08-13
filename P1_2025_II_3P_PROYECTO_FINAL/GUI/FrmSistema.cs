@@ -32,7 +32,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
         private void FrmSistema_Load(object sender, EventArgs e)
         {
-
+            MostrarEstadisticas();
         }
         private void ConfigurarFormulario()
         {
@@ -41,7 +41,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             this.IsMdiContainer = true;
 
             ConfigurarEventosClick();
-
+            ConfigurarCursores();
             MostrarFechaHora();
         }
 
@@ -72,9 +72,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             pbHistorial.Click += (s, e) => AbrirFormulario(ref frmHistorial);
             pbVentasLibros.Click += (s, e) => AbrirFormulario(ref frmVentasLibros);
             pbUbicacion.Click += (s, e) => AbrirFormulario(ref frmUbicacion);
-            
-
-            ConfigurarCursores();
         }
 
         private void ConfigurarCursores()

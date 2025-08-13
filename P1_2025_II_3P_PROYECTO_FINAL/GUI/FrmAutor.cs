@@ -322,7 +322,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             txtBiografia.Clear();
             dtpFechaNacimiento.Value = DateTime.Now.AddYears(-30);
             dtpFechaRegistro.Value = DateTime.Now;
-            cmbNacionalidad.SelectedIndex = 0;
+            cmbNacionalidad.SelectedIndex = -1;
             cmbGenero.SelectedIndex = 0;
 
             modoEdicion = false;
@@ -337,11 +337,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                     dataManager.Autores.Max(a => a.Id) + 1 : 1;
                 txtIDAutor.Text = proximoId.ToString();
             }
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            // Método vacío, puede implementar validación en tiempo real si se desea
         }
     }
 }

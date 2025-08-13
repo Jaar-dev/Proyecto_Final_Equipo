@@ -2,12 +2,8 @@
 using P1_2025_II_3P_PROYECTO_FINAL.Helpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
@@ -20,6 +16,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         private Libro libroSeleccionado;
         private Bibliotecario bibliotecarioActual;
         private bool modoEdicion = false;
+
         public FrmPrestamo()
         {
             InitializeComponent();
@@ -46,9 +43,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             txtEstado.Enabled = false;
 
             ConfigurarTooltips();
-
             ConfigurarBibliotecario();
-
             LimpiarFormulario();
         }
 
@@ -92,6 +87,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             ActualizarCodigoPrestamo();
             ActualizarEstadisticas();
         }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -105,7 +101,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
                 if (!modoEdicion)
                 {
-                    dataManager.CrearPrestamo(
+                    dataManager.CrearPrestamo
+                    (
                         usuarioSeleccionado.Id,
                         libroSeleccionado.Id,
                         bibliotecarioActual.Id
@@ -129,7 +126,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 }
                 else
                 {
-                    // Modificar préstamo (solo fechas y observaciones)
                     if (prestamoActual != null && prestamoActual.EstadoPrestamo == "Activo")
                     {
                         prestamoActual.FechaVencimiento = dtpFechaVencimiento.Value;
@@ -142,13 +138,9 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
                         LimpiarFormulario();
                         modoEdicion = false;
+                        ActualizarCodigoPrestamo();
                     }
                 }
-            }
-            catch (InvalidOperationException ex)
-            {
-                MessageBox.Show($"Operación inválida: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -162,7 +154,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             try
             {
                 string busqueda = Microsoft.VisualBasic.Interaction.InputBox(
-                    "Ingrese el código del préstamo:",
+                    "Ingrese el código del préstamo a buscar:",
                     "Buscar Préstamo", "");
 
                 if (string.IsNullOrWhiteSpace(busqueda))
@@ -170,24 +162,13 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
                 if (int.TryParse(busqueda, out int codigo))
                 {
-                    prestamoActual = dataManager.Prestamos.FirstOrDefault(p => p.Id == codigo);
+                    Prestamo prestamoEncontrado = dataManager.Prestamos.FirstOrDefault(p => p.Id == codigo);
 
-                    if (prestamoActual != null)
+                    if (prestamoEncontrado != null)
                     {
-                        CargarPrestamoEnFormulario(prestamoActual);
+                        CargarPrestamoEnFormulario(prestamoEncontrado);
                         modoEdicion = true;
-
-                        prestamoActual.ActualizarEstado();
-                        txtEstado.Text = prestamoActual.EstadoPrestamo;
-
-                        if (prestamoActual.EstadoPrestamo == "Vencido")
-                        {
-                            MessageBox.Show($"ATENCIÓN: Este préstamo está vencido.\n" +
-                                          $"Días de retraso: {prestamoActual.DiasRetraso}\n" +
-                                          $"Multa acumulada: L. {prestamoActual.MultaPorRetraso:F2}",
-                                "Préstamo Vencido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-
+                        prestamoActual = prestamoEncontrado;
                         MessageBox.Show("Préstamo encontrado.", "Búsqueda exitosa",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -197,51 +178,16 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Ingrese un código válido.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error en la búsqueda: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            if (prestamoActual == null)
-            {
-                MessageBox.Show("Primero debe buscar un préstamo para modificar.",
-                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (prestamoActual.EstadoPrestamo != "Activo")
-            {
-                MessageBox.Show("Solo se pueden modificar préstamos activos.",
-                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (prestamoActual.PuedeRenovar())
-            {
-                DialogResult resultado = MessageBox.Show(
-                    "¿Desea renovar este préstamo por 14 días más?",
-                    "Renovar Préstamo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (resultado == DialogResult.Yes)
-                {
-                    dataManager.RenovarPrestamo(prestamoActual.Id);
-                    MessageBox.Show($"Préstamo renovado exitosamente.\n" +
-                                  $"Nueva fecha de vencimiento: {prestamoActual.FechaVencimiento:dd/MM/yyyy}",
-                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    CargarPrestamoEnFormulario(prestamoActual);
-                }
-            }
-            else
-            {
-                MessageBox.Show($"Este préstamo no puede ser renovado.\n" +
-                              $"Renovaciones realizadas: {prestamoActual.Renovaciones}/3",
-                    "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -251,218 +197,46 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             {
                 if (prestamoActual == null)
                 {
-                    MessageBox.Show("Primero debe buscar un préstamo.",
+                    MessageBox.Show("Primero debe buscar un préstamo para eliminar.",
                         "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                if (prestamoActual.EstadoPrestamo == "Activo")
-                {
-                    DialogResult resultado = MessageBox.Show(
-                        "Este préstamo está activo. ¿Desea procesar la devolución?",
-                        "Devolución", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show($"¿Está seguro que desea cancelar el préstamo ID: {prestamoActual.Id}?",
+                    "Confirmar Cancelación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    if (resultado == DialogResult.Yes)
+                if (resultado == DialogResult.Yes)
+                {
+                    prestamoActual.EstadoPrestamo = "Cancelado";
+                    prestamoActual.ActualizarFechaModificación();
+
+                    if (libroSeleccionado != null)
                     {
-                        ProcesarDevolucion();
-                    }
-                }
-                else if (prestamoActual.EstadoPrestamo == "Devuelto")
-                {
-                    MessageBox.Show("Este préstamo ya fue devuelto.",
-                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"Estado del préstamo: {prestamoActual.EstadoPrestamo}",
-                        "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void txtUsuario_Leave(object sender, EventArgs e)
-        {
-            BuscarUsuario();
-        }
-
-        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                BuscarUsuario();
-                txtLibro.Focus();
-            }
-        }
-
-        private void BuscarUsuario()
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-                    return;
-
-                Usuario usuario = null;
-
-                if (int.TryParse(txtUsuario.Text, out int id))
-                {
-                    usuario = dataManager.BuscarUsuario(id);
-                }
-
-                if (usuario == null)
-                {
-                    usuario = dataManager.BuscarUsuarioPorNombre(txtUsuario.Text);
-                }
-
-                if (usuario != null)
-                {
-                    if (!usuario.Activo)
-                    {
-                        MessageBox.Show("El usuario está inactivo.", "Usuario Inactivo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtUsuario.Clear();
-                        usuarioSeleccionado = null;
-                        return;
+                        libroSeleccionado.CantidadDisponible++;
                     }
 
-                    usuarioSeleccionado = usuario;
-                    txtUsuario.Text = $"{usuario.Id} - {usuario.NombreCompleto}";
+                    dataManager.GuardarTodosLosDatos();
 
-                    if (!usuario.PuedePrestar())
-                    {
-                        string mensaje = "El usuario NO puede realizar préstamos:\n\n";
-
-                        if (usuario.PrestamosActivos >= 5)
-                            mensaje += $"- Tiene {usuario.PrestamosActivos} préstamos activos (máximo 5)\n";
-
-                        if (usuario.MultasPendientes > 0)
-                            mensaje += $"- Tiene multas pendientes: L. {usuario.MultasPendientes:F2}\n";
-
-                        MessageBox.Show(mensaje, "Usuario No Habilitado",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        txtUsuario.Clear();
-                        usuarioSeleccionado = null;
-                    }
-                    else
-                    {
-                        string info = $"Usuario: {usuario.NombreCompleto}\n" +
-                                    $"Tipo: {usuario.TipoUsuario}\n" +
-                                    $"Préstamos activos: {usuario.PrestamosActivos}/5";
-
-                        lblUsuario.Text = info;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado.", "Búsqueda",
+                    MessageBox.Show("Préstamo cancelado exitosamente.", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtUsuario.Clear();
-                    usuarioSeleccionado = null;
+
+                    LimpiarFormulario();
+                    modoEdicion = false;
+                    ActualizarCodigoPrestamo();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al buscar usuario: {ex.Message}", "Error",
+                MessageBox.Show($"Error al cancelar: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void txtLibro_Leave(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            BuscarLibro();
-        }
-
-        private void txtLibro_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                BuscarLibro();
-                dtpFechaVencimiento.Focus();
-            }
-        }
-
-        private void BuscarLibro()
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(txtLibro.Text))
-                    return;
-
-                Libro libro = null;
-
-                if (int.TryParse(txtLibro.Text, out int id))
-                {
-                    libro = dataManager.BuscarLibro(id);
-                }
-
-                if (libro == null)
-                {
-                    libro = dataManager.BuscarLibroPorISBN(txtLibro.Text);
-                }
-
-                if (libro == null)
-                {
-                    var librosPorTitulo = dataManager.BuscarLibrosPorTitulo(txtLibro.Text);
-                    if (librosPorTitulo.Count == 1)
-                    {
-                        libro = librosPorTitulo.First();
-                    }
-                    else if (librosPorTitulo.Count > 1)
-                    {
-                        libro = MostrarListaSeleccionLibros(librosPorTitulo);
-                    }
-                }
-
-                if (libro != null)
-                {
-                    if (!libro.Activo)
-                    {
-                        MessageBox.Show("El libro está inactivo.", "Libro Inactivo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtLibro.Clear();
-                        libroSeleccionado = null;
-                        return;
-                    }
-
-                    libroSeleccionado = libro;
-                    txtLibro.Text = $"{libro.Id} - {libro.Titulo}";
-
-                    if (!libro.EstaDisponible())
-                    {
-                        MessageBox.Show($"El libro NO está disponible.\n" +
-                                      $"Ejemplares disponibles: {libro.CantidadDisponible}/{libro.CantidadTotal}",
-                            "Libro No Disponible", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        txtLibro.Clear();
-                        libroSeleccionado = null;
-                    }
-                    else
-                    {
-                        string info = $"Libro: {libro.Titulo}\n" +
-                                    $"Autor: {libro.Autor}\n" +
-                                    $"Disponibles: {libro.CantidadDisponible}/{libro.CantidadTotal}";
-
-                        lblLibro.Text = info;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Libro no encontrado.", "Búsqueda",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtLibro.Clear();
-                    libroSeleccionado = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al buscar libro: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LimpiarFormulario();
+            modoEdicion = false;
+            ActualizarCodigoPrestamo();
         }
 
         private bool ValidarFormulario()
@@ -570,11 +344,14 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
-                var estadisticas = dataManager.ObtenerEstadisticas();
+                int prestamosActivos = dataManager.Prestamos.Count(p => p.EstadoPrestamo == "Activo");
+                int prestamosVencidos = dataManager.Prestamos.Count(p =>
+                    p.EstadoPrestamo == "Activo" && p.FechaVencimiento < DateTime.Now);
 
-                // Actualizar etiquetas si existen
-                this.Text = $"Gestión de Préstamos - Activos: {estadisticas["PrestamosActivos"]} | " +
-                           $"Vencidos: {estadisticas["PrestamosVencidos"]}";
+                if (lblUsuario != null)
+                    lblUsuario.Text = $"Préstamos Activos: {prestamosActivos}";
+                if (lblLibro != null)
+                    lblLibro.Text = $"Préstamos Vencidos: {prestamosVencidos}";
             }
             catch (Exception ex)
             {
@@ -582,225 +359,264 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             }
         }
 
-        private Libro MostrarListaSeleccionLibros(List<Libro> libros)
+        private void txtUsuario_Leave(object sender, EventArgs e)
         {
-            Form formSeleccion = new Form
-            {
-                Text = "Seleccione un libro",
-                Size = new Size(700, 400),
-                StartPosition = FormStartPosition.CenterParent
-            };
-
-            ListView listView = new ListView
-            {
-                View = View.Details,
-                FullRowSelect = true,
-                GridLines = true,
-                Dock = DockStyle.Fill
-            };
-
-            listView.Columns.Add("ID", 50);
-            listView.Columns.Add("Título", 250);
-            listView.Columns.Add("Autor", 150);
-            listView.Columns.Add("Disponibles", 100);
-
-            foreach (var libro in libros)
-            {
-                var item = new ListViewItem(libro.Id.ToString());
-                item.SubItems.Add(libro.Titulo);
-                item.SubItems.Add(libro.Autor);
-                item.SubItems.Add($"{libro.CantidadDisponible}/{libro.CantidadTotal}");
-                item.Tag = libro;
-                listView.Items.Add(item);
-            }
-
-            Button btnSeleccionar = new Button
-            {
-                Text = "Seleccionar",
-                Dock = DockStyle.Bottom,
-                Height = 30
-            };
-
-            Libro libroSeleccionado = null;
-
-            btnSeleccionar.Click += (s, e) =>
-            {
-                if (listView.SelectedItems.Count > 0)
-                {
-                    libroSeleccionado = (Libro)listView.SelectedItems[0].Tag;
-                    formSeleccion.DialogResult = DialogResult.OK;
-                }
-            };
-
-            formSeleccion.Controls.Add(listView);
-            formSeleccion.Controls.Add(btnSeleccionar);
-
-            return formSeleccion.ShowDialog() == DialogResult.OK ? libroSeleccionado : null;
+            BuscarUsuario();
         }
 
-        private void ProcesarDevolucion()
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Form formDevolucion = new Form
+            if (e.KeyChar == (char)Keys.Enter)
             {
-                Text = "Procesar Devolución",
-                Size = new Size(400, 300),
-                StartPosition = FormStartPosition.CenterParent
-            };
+                BuscarUsuario();
+                txtLibro.Focus();
+            }
+        }
 
-            Label lblCondicion = new Label
+        private void BuscarUsuario()
+        {
+            try
             {
-                Text = "Condición del libro:",
-                Location = new Point(20, 20),
-                AutoSize = true
-            };
+                if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+                    return;
 
-            ComboBox cmbCondicion = new ComboBox
-            {
-                Location = new Point(20, 50),
-                Width = 200,
-                DropDownStyle = ComboBoxStyle.DropDownList
-            };
-            cmbCondicion.Items.AddRange(new[] { "Excelente", "Bueno", "Regular", "Malo", "Perdido" });
-            cmbCondicion.SelectedIndex = 1;
+                Usuario usuario = null;
 
-            Label lblObservaciones = new Label
-            {
-                Text = "Observaciones:",
-                Location = new Point(20, 90),
-                AutoSize = true
-            };
-
-            TextBox txtObservaciones = new TextBox
-            {
-                Location = new Point(20, 120),
-                Width = 340,
-                Height = 60,
-                Multiline = true
-            };
-
-            Button btnProcesar = new Button
-            {
-                Text = "Procesar Devolución",
-                Location = new Point(150, 200),
-                Width = 120
-            };
-
-            btnProcesar.Click += (s, e) =>
-            {
-                try
+                if (int.TryParse(txtUsuario.Text, out int id))
                 {
-                    dataManager.DevolverPrestamo(
-                        prestamoActual.Id,
-                        cmbCondicion.SelectedItem.ToString(),
-                        bibliotecarioActual.Id
-                    );
+                    usuario = dataManager.BuscarUsuario(id);
+                }
 
-                    MessageBox.Show("Devolución procesada exitosamente.", "Éxito",
+                if (usuario == null)
+                {
+                    var usuarios = dataManager.Usuarios.Where(u =>
+                        u.NombreCompleto.ToLower().Contains(txtUsuario.Text.ToLower())).ToList();
+
+                    if (usuarios.Count == 1)
+                    {
+                        usuario = usuarios.First();
+                    }
+                    else if (usuarios.Count > 1)
+                    {
+                        usuario = MostrarListaSeleccionUsuarios(usuarios);
+                    }
+                }
+
+                if (usuario != null)
+                {
+                    if (!usuario.Activo)
+                    {
+                        MessageBox.Show("El usuario está inactivo.", "Información",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtUsuario.Clear();
+                        usuarioSeleccionado = null;
+                        return;
+                    }
+
+                    usuarioSeleccionado = usuario;
+                    txtUsuario.Text = $"{usuario.Id} - {usuario.NombreCompleto}";
+                    lblUsuario.Text = $"Usuario: {usuario.NombreCompleto}";
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no encontrado.", "Búsqueda",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    formDevolucion.DialogResult = DialogResult.OK;
-                    LimpiarFormulario();
-                    ActualizarEstadisticas();
+                    txtUsuario.Clear();
+                    usuarioSeleccionado = null;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al procesar devolución: {ex.Message}", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            };
-
-            formDevolucion.Controls.AddRange(new Control[]
+            }
+            catch (Exception ex)
             {
-                lblCondicion, cmbCondicion, lblObservaciones, txtObservaciones, btnProcesar
-            });
+                MessageBox.Show($"Error al buscar usuario: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            formDevolucion.ShowDialog();
+        private void txtLibro_Leave(object sender, EventArgs e)
+        {
+            BuscarLibro();
+        }
+
+        private void txtLibro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BuscarLibro();
+                dtpFechaVencimiento.Focus();
+            }
+        }
+
+        private void BuscarLibro()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtLibro.Text))
+                    return;
+
+                Libro libro = null;
+
+                if (int.TryParse(txtLibro.Text, out int id))
+                {
+                    libro = dataManager.BuscarLibro(id);
+                }
+
+                if (libro == null)
+                {
+                    libro = dataManager.BuscarLibroPorISBN(txtLibro.Text);
+                }
+
+                if (libro == null)
+                {
+                    var librosPorTitulo = dataManager.BuscarLibrosPorTitulo(txtLibro.Text);
+                    if (librosPorTitulo.Count == 1)
+                    {
+                        libro = librosPorTitulo.First();
+                    }
+                    else if (librosPorTitulo.Count > 1)
+                    {
+                        libro = MostrarListaSeleccionLibros(librosPorTitulo);
+                    }
+                }
+
+                if (libro != null)
+                {
+                    if (!libro.Activo)
+                    {
+                        MessageBox.Show("El libro está inactivo.", "Información",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtLibro.Clear();
+                        libroSeleccionado = null;
+                        return;
+                    }
+
+                    if (libro.CantidadDisponible <= 0)
+                    {
+                        MessageBox.Show("No hay ejemplares disponibles.", "Información",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtLibro.Clear();
+                        libroSeleccionado = null;
+                        return;
+                    }
+
+                    libroSeleccionado = libro;
+                    txtLibro.Text = $"{libro.Id} - {libro.Titulo}";
+                    lblLibro.Text = $"Libro: {libro.Titulo} (Disponibles: {libro.CantidadDisponible})";
+                }
+                else
+                {
+                    MessageBox.Show("Libro no encontrado.", "Búsqueda",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtLibro.Clear();
+                    libroSeleccionado = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar libro: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Usuario MostrarListaSeleccionUsuarios(List<Usuario> usuarios)
+        {
+            Form formSeleccion = new Form();
+            formSeleccion.Text = "Seleccionar Usuario";
+            formSeleccion.Size = new Size(400, 300);
+            formSeleccion.StartPosition = FormStartPosition.CenterParent;
+
+            ListBox listBox = new ListBox();
+            listBox.Dock = DockStyle.Fill;
+            listBox.DisplayMember = "NombreCompleto";
+            listBox.ValueMember = "Id";
+            listBox.DataSource = usuarios;
+
+            Button btnSeleccionar = new Button();
+            btnSeleccionar.Text = "Seleccionar";
+            btnSeleccionar.Dock = DockStyle.Bottom;
+            btnSeleccionar.DialogResult = DialogResult.OK;
+
+            formSeleccion.Controls.Add(listBox);
+            formSeleccion.Controls.Add(btnSeleccionar);
+
+            Usuario usuarioSeleccionado = null;
+            if (formSeleccion.ShowDialog() == DialogResult.OK && listBox.SelectedItem != null)
+            {
+                usuarioSeleccionado = (Usuario)listBox.SelectedItem;
+            }
+
+            return usuarioSeleccionado;
+        }
+
+        private Libro MostrarListaSeleccionLibros(List<Libro> libros)
+        {
+            Form formSeleccion = new Form();
+            formSeleccion.Text = "Seleccionar Libro";
+            formSeleccion.Size = new Size(500, 300);
+            formSeleccion.StartPosition = FormStartPosition.CenterParent;
+
+            ListBox listBox = new ListBox();
+            listBox.Dock = DockStyle.Fill;
+            listBox.DisplayMember = "TituloCompleto";
+            listBox.ValueMember = "Id";
+            listBox.DataSource = libros;
+
+            Button btnSeleccionar = new Button();
+            btnSeleccionar.Text = "Seleccionar";
+            btnSeleccionar.Dock = DockStyle.Bottom;
+            btnSeleccionar.DialogResult = DialogResult.OK;
+
+            formSeleccion.Controls.Add(listBox);
+            formSeleccion.Controls.Add(btnSeleccionar);
+
+            Libro libroSeleccionado = null;
+            if (formSeleccion.ShowDialog() == DialogResult.OK && listBox.SelectedItem != null)
+            {
+                libroSeleccionado = (Libro)listBox.SelectedItem;
+            }
+
+            return libroSeleccionado;
         }
 
         private void ImprimirComprobante()
         {
-            string comprobante = "COMPROBANTE DE PRÉSTAMO\n";
-            comprobante += "========================\n\n";
-            comprobante += $"Préstamo No: {txtIDprestamo.Text}\n";
-            comprobante += $"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}\n\n";
-            comprobante += $"Usuario: {usuarioSeleccionado.NombreCompleto}\n";
-            comprobante += $"Libro: {libroSeleccionado.Titulo}\n";
-            comprobante += $"Autor: {libroSeleccionado.Autor}\n\n";
-            comprobante += $"Fecha de préstamo: {dtpFechaPrestamo.Value:dd/MM/yyyy}\n";
-            comprobante += $"Fecha de vencimiento: {dtpFechaVencimiento.Value:dd/MM/yyyy}\n\n";
-            comprobante += $"Bibliotecario: {bibliotecarioActual.NombreCompleto}\n";
-            comprobante += "========================\n";
-            comprobante += "Recuerde devolver el libro en la fecha indicada.\n";
-            comprobante += "Las devoluciones tardías generan multas.";
-
-            MessageBox.Show(comprobante, "Comprobante de Préstamo",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Implementar opciones del menú Archivo
-        }
-
-        private void verToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MostrarListaPrestamos();
-        }
-
-        private void MostrarListaPrestamos()
-        {
-            var prestamosActivos = dataManager.Prestamos.Where(p => p.EstadoPrestamo == "Activo").ToList();
-
-            if (!prestamosActivos.Any())
+            try
             {
-                MessageBox.Show("No hay préstamos activos.", "Información",
+                string comprobante = $@"
+BIBLIOTECA UJCV - COMPROBANTE DE PRÉSTAMO
+=========================================
+
+Código de Préstamo: {txtIDprestamo.Text}
+Fecha de Préstamo: {dtpFechaPrestamo.Value:dd/MM/yyyy}
+Fecha de Vencimiento: {dtpFechaVencimiento.Value:dd/MM/yyyy}
+
+USUARIO:
+ID: {usuarioSeleccionado.Id}
+Nombre: {usuarioSeleccionado.NombreCompleto}
+Teléfono: {usuarioSeleccionado.Telefono}
+
+LIBRO:
+ID: {libroSeleccionado.Id}
+Título: {libroSeleccionado.Titulo}
+Autor: {libroSeleccionado.Autor}
+ISBN: {libroSeleccionado.ISBN}
+
+BIBLIOTECARIO:
+{bibliotecarioActual.NombreCompleto}
+
+Fecha de Emisión: {DateTime.Now:dd/MM/yyyy HH:mm:ss}
+
+NOTA: Este libro debe ser devuelto antes de la fecha de vencimiento.
+";
+
+                // Aquí puedes implementar la impresión real o mostrar en un formulario
+                MessageBox.Show(comprobante, "Comprobante de Préstamo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
             }
-
-            string lista = "LISTA DE PRÉSTAMOS ACTIVOS\n";
-            lista += "=====================================\n\n";
-
-            foreach (var prestamo in prestamosActivos)
+            catch (Exception ex)
             {
-                prestamo.ActualizarEstado();
-                var usuario = dataManager.BuscarUsuario(prestamo.UsuarioId);
-                var libro = dataManager.BuscarLibro(prestamo.LibroId);
-
-                lista += $"Préstamo #{prestamo.Id}\n";
-                lista += $"Usuario: {usuario?.NombreCompleto ?? "Desconocido"}\n";
-                lista += $"Libro: {libro?.Titulo ?? "Desconocido"}\n";
-                lista += $"Vencimiento: {prestamo.FechaVencimiento:dd/MM/yyyy}\n";
-                lista += $"Estado: {prestamo.EstadoPrestamo}\n";
-
-                if (prestamo.DiasRetraso > 0)
-                {
-                    lista += $"RETRASO: {prestamo.DiasRetraso} días\n";
-                }
-
-                lista += "-------------------------------------\n";
+                MessageBox.Show($"Error al generar comprobante: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            Form formLista = new Form
-            {
-                Text = "Lista de Préstamos Activos",
-                Size = new Size(600, 500),
-                StartPosition = FormStartPosition.CenterParent
-            };
-
-            TextBox textBox = new TextBox
-            {
-                Multiline = true,
-                ScrollBars = ScrollBars.Vertical,
-                ReadOnly = true,
-                Dock = DockStyle.Fill,
-                Text = lista,
-                Font = new Font("Consolas", 10)
-            };
-
-            formLista.Controls.Add(textBox);
-            formLista.ShowDialog();
         }
-
     }
 }
