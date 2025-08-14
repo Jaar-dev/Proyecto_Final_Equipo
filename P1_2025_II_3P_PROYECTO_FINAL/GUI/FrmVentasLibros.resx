@@ -164,7 +164,7 @@
         /m9MdjOTdDO3IEwuwPkNz6+RMKVnhHEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGenerarFactura.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAAfNJREFUOE+1ks9rE1EQx/v2x0yrrQYt2HpU9CL+BeKfYW966UkEU2mFVPAQQaFe
@@ -9341,6 +9341,20 @@
         PqfsthhEAlnbHvcgef8AurNeEGgpaTNV2zBc1Q3Usm2spcWUpW4SFKBIPdP8hgD+IfMrl4zVdEr1D/iB
         TNyokwk7JHsPYdxg89EL/YMtdMLk/fWFsXBL661h1Ugu+iAiY4ISkfU/GKt3tNXm3PVrtiNTr9VVhThS
         ZK1KVuY/AH8cVKEGSoAcbhtz/PJdjxhxw+jrZ7W7LY29/ePgv//Z
+</value>
+  </data>
+  <data name="btnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAfNJREFUOE+1ks9rE1EQx/v2x0yrrQYt2HpU9CL+BeKfYW966UkEU2mFVPAQQaFe
+        NBWxtTRi00Ox7TbmTQyiKL30X/BgPehfsIKBpPvejOxu2HRDjvqFx/Jm5vth9s2MjPwPWY2XmHCBCV8x
+        YYWbeNt+9S/EOaOxwIQ1/gylb0/dvNFoHGfCqhBaIZTc+YCWv8Bb24KZ5L7j81HNw765ASeE8CBNgshr
+        f5/X/DnehVtM+EYIoxQGv5PvO19szRvLAHGrSaLmG150Zn8s59tjjdeFMDUPAoyGKSHsSgDCD51yzpnC
+        V4Twp2hsHweYDW80KbAarwqhkZdeGJWciSGAj6JRktNAkTqKvPC+/6m4TlZkqt60KarzOWdP4Y6vokVn
+        MppXk917qtC5qybaRdX/x3YAbkfDyW4DTkfv4eyRhjNh4KscpSejcdp8gqks0AnAFcLDwbFx02/lnOlb
+        nRLCUAgiu+VdSYN1GMuZA2jLNvziJXdlEMCEj5KaNb9rys654YBtCHnDu3bcGI+UNc4mD72HwmX3eZbM
+        AHsgsttbkiZG3MJ1JrzJhEUh3E/i8QSW3INoQfUXKKrDaDpXEH7s3oj3fOgqb4HlJ27VzKvxzBzr8FnS
+        3gOueJum5BTimNV4kQnvcADLvAmrXPHu2zl1OWf8V/oLlexgxlpfQz8AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

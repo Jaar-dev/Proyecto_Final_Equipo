@@ -226,10 +226,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            AplicarFiltros();
+            //AplicarFiltros();
         }
 
-        private void AplicarFiltros()
+       /* private void AplicarFiltros()
         {
             try
             {
@@ -279,7 +279,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 MessageBox.Show($"Error al aplicar filtros: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        }*/
 
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
@@ -398,7 +398,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                AplicarFiltros();
+                //AplicarFiltros();
             }
         }
 

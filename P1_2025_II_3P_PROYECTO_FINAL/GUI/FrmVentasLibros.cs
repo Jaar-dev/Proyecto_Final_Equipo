@@ -30,24 +30,18 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
-                // Configurar controles
                 txtIdVenta.Enabled = false;
                 dtpFechaVenta.Format = DateTimePickerFormat.Short;
                 dtpFechaVenta.Value = DateTime.Now;
 
-                // Cargar combos
                 CargarCombos();
 
-                // Configurar DataGridView
                 ConfigurarDataGridView();
 
-                // Configurar tooltips
                 ConfigurarTooltips();
 
-                // Limpiar formulario
                 LimpiarFormulario();
 
-                // Cargar datos
                 CargarDatos();
             }
             catch (Exception ex)
@@ -59,7 +53,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
         private void CargarCombos()
         {
-            // Cargar libros disponibles
             cmbLibro.Items.Clear();
             cmbLibro.Items.Add("Seleccione un libro...");
             foreach (var libro in dataManager.Libros.Where(l => l.Activo && l.CantidadDisponible > 0))
@@ -68,7 +61,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             }
             cmbLibro.SelectedIndex = 0;
 
-            // Cargar métodos de pago
             cmbMetodoPago.Items.Clear();
             cmbMetodoPago.Items.Add("Seleccione...");
             cmbMetodoPago.Items.Add("Efectivo");
@@ -79,13 +71,12 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             cmbMetodoPago.Items.Add("PayPal");
             cmbMetodoPago.SelectedIndex = 0;
 
-            // Cargar estados de venta
-            cmbEstadoVenta.Items.Clear();
-            cmbEstadoVenta.Items.Add("Completada");
-            cmbEstadoVenta.Items.Add("Pendiente");
-            cmbEstadoVenta.Items.Add("Cancelada");
-            cmbEstadoVenta.Items.Add("Reembolsada");
-            cmbEstadoVenta.SelectedIndex = 0;
+            cmbMetodoPago.Items.Clear();
+            cmbMetodoPago.Items.Add("Completada");
+            cmbMetodoPago.Items.Add("Pendiente");
+            cmbMetodoPago.Items.Add("Cancelada");
+            cmbMetodoPago.Items.Add("Reembolsada");
+            cmbMetodoPago.SelectedIndex = 0;
         }
 
         private void ConfigurarDataGridView()
@@ -209,7 +200,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
                 lblTotalRegistros.Text = $"Total Ventas: {ventas.Count}";
 
-                // Colorear filas según estado
                 ColorearFilas();
             }
             catch (Exception ex)
@@ -256,7 +246,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
                 if (!modoEdicion)
                 {
-                    // Verificar disponibilidad
                     if (libroSeleccionado.CantidadDisponible < numCantidad.Value)
                     {
                         MessageBox.Show($"No hay suficientes libros disponibles. Disponibles: {libroSeleccionado.CantidadDisponible}",
@@ -264,19 +253,16 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                         return;
                     }
 
-                    // Crear nueva venta
                     VentaLibros nuevaVenta = new VentaLibros();
                     AsignarDatosVenta(nuevaVenta);
                     nuevaVenta.Id = dataManager.Ventas.Any() ?
                         dataManager.Ventas.Max(v => v.Id) + 1 : 1;
 
-                    // Actualizar stock del libro
                     libroSeleccionado.CantidadDisponible -= (int)numCantidad.Value;
 
                     dataManager.Ventas.Add(nuevaVenta);
                     dataManager.GuardarTodosLosDatos();
 
-                    // Registrar en historial
                     var historial = new Historial
                     {
                         Id = dataManager.HistorialAcciones.Any() ?
@@ -296,7 +282,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 }
                 else
                 {
-                    // Actualizar venta existente
                     AsignarDatosVenta(ventaActual);
                     ventaActual.ActualizarFechaModificación();
 
@@ -324,18 +309,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvVentas.SelectedRows.Count > 0)
-            {
-                ventaActual = (VentaLibros)dgvVentas.SelectedRows[0].DataBoundItem;
-                CargarVentaEnFormulario(ventaActual);
-                modoEdicion = true;
-                btnGuardar.Text = "Actualizar";
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una venta para modificar.", "Información",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -349,7 +323,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 {
                     var venta = (VentaLibros)dgvVentas.SelectedRows[0].DataBoundItem;
 
-                    // Devolver stock al libro
                     var libro = dataManager.Libros.FirstOrDefault(l => l.Id == venta.LibroId);
                     if (libro != null)
                     {
@@ -496,7 +469,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             venta.Total = decimal.Parse(txtTotal.Text.Replace("L. ", ""));
             venta.FechaVenta = dtpFechaVenta.Value;
             venta.MetodoPago = cmbMetodoPago.SelectedItem.ToString();
-            venta.EstadoVenta = cmbEstadoVenta.SelectedItem.ToString();
+            venta.EstadoVenta = cmbMetodoPago.SelectedItem.ToString();
             venta.ModificadoPor = "Sistema";
         }
 
@@ -504,7 +477,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             txtIdVenta.Text = venta.Id.ToString();
 
-            // Buscar y seleccionar el libro
             var libro = dataManager.Libros.FirstOrDefault(l => l.Id == venta.LibroId);
             if (libro != null)
             {
@@ -525,7 +497,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             txtTotal.Text = $"L. {venta.Total:F2}";
             dtpFechaVenta.Value = venta.FechaVenta;
 
-            // Seleccionar método de pago
             for (int i = 0; i < cmbMetodoPago.Items.Count; i++)
             {
                 if (cmbMetodoPago.Items[i].ToString() == venta.MetodoPago)
@@ -535,12 +506,11 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 }
             }
 
-            // Seleccionar estado de venta
-            for (int i = 0; i < cmbEstadoVenta.Items.Count; i++)
+            for (int i = 0; i < cmbMetodoPago.Items.Count; i++)
             {
-                if (cmbEstadoVenta.Items[i].ToString() == venta.EstadoVenta)
+                if (cmbMetodoPago.Items[i].ToString() == venta.EstadoVenta)
                 {
-                    cmbEstadoVenta.SelectedIndex = i;
+                    cmbMetodoPago.SelectedIndex = i;
                     break;
                 }
             }
@@ -556,7 +526,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             txtTotal.Text = "L. 0.00";
             dtpFechaVenta.Value = DateTime.Now;
             cmbMetodoPago.SelectedIndex = 0;
-            cmbEstadoVenta.SelectedIndex = 0;
+            cmbMetodoPago.SelectedIndex = 0;
             txtInfoLibro.Clear();
 
             modoEdicion = false;
@@ -588,16 +558,13 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
                 if (libroSeleccionado != null)
                 {
-                    // Mostrar información del libro
                     txtInfoLibro.Text = $"Título: {libroSeleccionado.Titulo}\r\n" +
                                        $"Autor: {libroSeleccionado.Autor}\r\n" +
                                        $"Precio: L. {libroSeleccionado.Precio:F2}\r\n" +
                                        $"Disponibles: {libroSeleccionado.CantidadDisponible}";
 
-                    // Establecer precio unitario
                     numPrecioUnitario.Value = libroSeleccionado.Precio;
 
-                    // Actualizar total
                     CalcularTotal();
                 }
             }
@@ -634,7 +601,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                     .ToList();
 
                 decimal totalHoy = ventasHoy.Sum(v => v.Total);
-                lblVentasHoy.Text = $"Ventas Hoy: {ventasHoy.Count} (L. {totalHoy:F2})";
+                lblVentasHoy.Text = $"Ventas de hoy: {ventasHoy.Count} (L. {totalHoy:F2})";
 
                 // Ventas del mes
                 var ventasMes = dataManager.Ventas
@@ -658,7 +625,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                     var libro = dataManager.Libros.FirstOrDefault(l => l.Id == libroMasVendido.Key);
                     if (libro != null)
                     {
-                        lblLibroMasVendido.Text = $"Más Vendido: {libro.Titulo} ({libroMasVendido.Sum(v => v.Cantidad)} unidades)";
+                        lblLibroMasVendido.Text = $"Libro mas Vendido: {libro.Titulo} ({libroMasVendido.Sum(v => v.Cantidad)} unidades)";
                     }
                 }
 
@@ -723,7 +690,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 }
                 reporte.AppendLine();
 
-                // Ventas por método de pago
                 reporte.AppendLine("VENTAS POR MÉTODO DE PAGO:");
                 var ventasPorMetodo = dataManager.Ventas
                     .Where(v => v.Activo)
