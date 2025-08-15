@@ -226,7 +226,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            //AplicarFiltros();
+            AplicarFiltros();
         }
 
         private void AplicarFiltros()
@@ -349,7 +349,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 var accionesHoy = historialFiltrado.Count(h => h.FechaAccion.Date == DateTime.Today);
                 lblAccionesHoy.Text = $"Acciones Hoy: {accionesHoy}";
 
-                // Tabla más modificada
                 var tablaMasModificada = historialFiltrado
                     .GroupBy(h => h.TablaAfectada)
                     .OrderByDescending(g => g.Count())
@@ -398,7 +397,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                //AplicarFiltros();
+                AplicarFiltros();
             }
         }
 
