@@ -229,7 +229,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             //AplicarFiltros();
         }
 
-       /* private void AplicarFiltros()
+        private void AplicarFiltros()
         {
             try
             {
@@ -279,7 +279,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 MessageBox.Show($"Error al aplicar filtros: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }*/
+        }
 
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
