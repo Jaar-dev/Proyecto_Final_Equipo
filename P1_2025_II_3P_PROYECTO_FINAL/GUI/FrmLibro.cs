@@ -103,6 +103,9 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
         private void FrmLibro_Load(object sender, EventArgs e)
         {
             ActualizarCodigoLibro();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

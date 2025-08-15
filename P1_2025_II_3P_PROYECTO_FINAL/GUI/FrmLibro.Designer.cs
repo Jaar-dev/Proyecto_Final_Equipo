@@ -56,6 +56,7 @@
             this.cmbTitulo = new System.Windows.Forms.ComboBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.cmbIdioma = new System.Windows.Forms.ComboBox();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericNumeroPaginas)).BeginInit();
@@ -324,12 +325,21 @@
             this.cmbIdioma.Size = new System.Drawing.Size(121, 21);
             this.cmbIdioma.TabIndex = 80;
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.vScrollBar1.Location = new System.Drawing.Point(543, 25);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(143, 486);
+            this.vScrollBar1.TabIndex = 81;
+            // 
             // FrmLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 614);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.cmbIdioma);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.cmbTitulo);
@@ -355,6 +365,7 @@
             this.Controls.Add(this.lblLibro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLibro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Libro";
             this.Load += new System.EventHandler(this.FrmLibro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -394,5 +405,6 @@
         private System.Windows.Forms.ComboBox cmbTitulo;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.ComboBox cmbIdioma;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }

@@ -53,6 +53,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblFechaIngreso = new System.Windows.Forms.Label();
             this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
             this.pictureBox13.Location = new System.Drawing.Point(47, 38);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(130, 90);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -323,12 +324,21 @@
             this.dtpFechaIngreso.Size = new System.Drawing.Size(221, 20);
             this.dtpFechaIngreso.TabIndex = 89;
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.vScrollBar1.Location = new System.Drawing.Point(534, 24);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(143, 486);
+            this.vScrollBar1.TabIndex = 90;
+            // 
             // FrmPaises
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.dtpFechaIngreso);
             this.Controls.Add(this.lblFechaIngreso);
             this.Controls.Add(this.btnGuardar);
@@ -351,6 +361,7 @@
             this.Controls.Add(this.pictureBox13);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPaises";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paises";
             this.Load += new System.EventHandler(this.FrmPaises_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -387,5 +398,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblFechaIngreso;
         private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }

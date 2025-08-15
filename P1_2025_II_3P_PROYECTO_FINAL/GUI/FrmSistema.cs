@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,6 +35,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             MostrarEstadisticas();
         }
+
         private void ConfigurarFormulario()
         {
             this.Text = "Sistema de Gestión de Biblioteca - Menú Principal";
@@ -42,6 +44,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
             ConfigurarEventosClick();
             ConfigurarCursores();
+            AgregarEfectosHover();
             MostrarFechaHora();
         }
 
@@ -63,7 +66,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             pbLibro.Click += (s, e) => AbrirFormulario(ref frmLibro);
             pbUsuario.Click += (s, e) => AbrirFormulario(ref frmUsuario);
             pbAutor.Click += (s, e) => AbrirFormulario(ref frmAutor);
-            pbPaises.Click += (s, e) => AbrirFormulario(ref frmPaises);
             pbPrestamo.Click += (s, e) => AbrirFormulario(ref frmPrestamo);
             pbDevolucion.Click += (s, e) => AbrirFormulario(ref frmDevolucion);
             pbBibliotecario.Click += (s, e) => AbrirFormulario(ref frmBibliotecario);
@@ -72,35 +74,18 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             pbHistorial.Click += (s, e) => AbrirFormulario(ref frmHistorial);
             pbVentasLibros.Click += (s, e) => AbrirFormulario(ref frmVentasLibros);
             pbUbicacion.Click += (s, e) => AbrirFormulario(ref frmUbicacion);
+            pbPaises.Click += (s, e) => AbrirFormulario(ref frmPaises);
         }
 
         private void ConfigurarCursores()
         {
-            lblLibro.Cursor = Cursors.Hand;
-            lblUsuario.Cursor = Cursors.Hand;
-            lblAutor.Cursor = Cursors.Hand;
-            lblPrestamo.Cursor = Cursors.Hand;
-            lblDevocion.Cursor = Cursors.Hand;
-            lblBlbliotecario.Cursor = Cursors.Hand;
-            lblcategoria.Cursor = Cursors.Hand;
-            lblEditorial.Cursor = Cursors.Hand;
-            lblHistorial.Cursor = Cursors.Hand;
-            lblVentasLibros.Cursor = Cursors.Hand;
-            lblUbicacion.Cursor = Cursors.Hand;
-            lblPaises.Cursor = Cursors.Hand;
-
-            pbLibro.Cursor = Cursors.Hand;
-            pbAutor.Cursor = Cursors.Hand;
-            pbUsuario.Cursor = Cursors.Hand;
-            pbDevolucion.Cursor = Cursors.Hand;
-            pbEditorial.Cursor = Cursors.Hand;
-            pbPrestamo.Cursor = Cursors.Hand;
-            pbBibliotecario.Cursor = Cursors.Hand;
-            pbCategoria.Cursor = Cursors.Hand;
-            pbHistorial.Cursor = Cursors.Hand;
-            pbVentasLibros.Cursor = Cursors.Hand;
-            pbUbicacion.Cursor = Cursors.Hand;
-            pbPaises.Cursor = Cursors.Hand;
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label lbl && lbl.Name.StartsWith("lbl"))
+                    lbl.Cursor = Cursors.Hand;
+                if (ctrl is PictureBox pb && pb.Name.StartsWith("pb"))
+                    pb.Cursor = Cursors.Hand;
+            }
         }
 
         private void AbrirFormulario<T>(ref T formulario) where T : Form, new()
@@ -132,10 +117,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             timer.Interval = 1000;
             timer.Tick += (s, e) =>
             {
-                if (lblFecha != null)
-                    lblFecha.Text = $"Fecha: {DateTime.Now:dd/MM/yyyy}";
-                if (lblHora != null)
-                    lblHora.Text = $"Hora: {DateTime.Now:HH:mm:ss}";
+                lblFecha.Text = $"Fecha: {DateTime.Now:dd/MM/yyyy}";
+                lblHora.Text = $"Hora: {DateTime.Now:HH:mm:ss}";
             };
             timer.Start();
         }
@@ -144,20 +127,23 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
-                string estadisticas = "ESTADÍSTICAS DEL SISTEMA\n";
-                estadisticas += "========================\n\n";
+                var usuarios = ContarRegistros("usuarios.json");
+                var libros = ContarRegistros("libros.json");
+                var prestamos = ContarRegistros("prestamos.json");
+                var bibliotecarios = ContarRegistros("bibliotecarios.json");
+                var autores = ContarRegistros("autores.json");
+                var categorias = ContarRegistros("categorias.json");
 
-                estadisticas += $"Usuarios registrados: {ContarRegistros("usuarios.json")}\n";
-                estadisticas += $"Libros en catálogo: {ContarRegistros("libros.json")}\n";
-                estadisticas += $"Préstamos activos: {ContarRegistros("prestamos.json")}\n";
-                estadisticas += $"Bibliotecarios: {ContarRegistros("bibliotecarios.json")}\n";
-                estadisticas += $"Autores: {ContarRegistros("autores.json")}\n";
-                estadisticas += $"Categorías: {ContarRegistros("categorias.json")}\n";
+                string estadisticas = $"ESTADÍSTICAS DEL SISTEMA\n========================\n\n" +
+                                      $"Usuarios registrados: {usuarios}\n" +
+                                      $"Libros en catálogo: {libros}\n" +
+                                      $"Préstamos activos: {prestamos}\n" +
+                                      $"Bibliotecarios: {bibliotecarios}\n" +
+                                      $"Autores: {autores}\n" +
+                                      $"Categorías: {categorias}\n";
 
-                if (lblUsuarios != null)
-                    lblUsuarios.Text = "Usuarios Registrados: " + ContarRegistros("usuarios.json");
-                if (lblLibrosR != null)
-                    lblLibrosR.Text = "Libros Registrados: " + ContarRegistros("libros.json");
+                lblUsuarios.Text = $"Usuarios Registrados: {usuarios}";
+                lblLibrosR.Text = $"Libros Registrados: {libros}";
             }
             catch (Exception ex)
             {
@@ -172,32 +158,13 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 if (System.IO.File.Exists(archivo))
                 {
                     string json = System.IO.File.ReadAllText(archivo);
-                    dynamic lista = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+                    dynamic lista = JsonConvert.DeserializeObject(json);
                     if (lista != null && lista.Count != null)
                         return lista.Count;
                 }
             }
-            catch
-            {
-            }
+            catch { }
             return 0;
-        }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            MostrarEstadisticas();
-
-            lblTitulo.Text = "Sistema de Biblioteca UJCV";
-            lblBS.Text = "Bienvenido al Sistema";
-        }
-
-        private void CerrarTodosLosFormularios()
-        {
-            foreach (Form frm in this.MdiChildren)
-            {
-                frm.Close();
-            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -215,62 +182,47 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             else
             {
                 CerrarTodosLosFormularios();
+                base.OnFormClosing(e);
             }
+        }
 
-            base.OnFormClosing(e);
+        private void CerrarTodosLosFormularios()
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Close();
+            }
         }
 
         private void AgregarEfectosHover()
         {
-            pbLibro.MouseEnter += (s, e) => CambiarBorde(pbLibro, true);
-            pbLibro.MouseLeave += (s, e) => CambiarBorde(pbLibro, false);
-
-            pbAutor.MouseEnter += (s, e) => CambiarBorde(pbAutor, true);
-            pbAutor.MouseLeave += (s, e) => CambiarBorde(pbAutor, false);
-
-            pbUsuario.MouseEnter += (s, e) => CambiarBorde(pbUsuario, true);
-            pbUsuario.MouseLeave += (s, e) => CambiarBorde(pbUsuario, false);
-
-            pbDevolucion.MouseEnter += (s, e) => CambiarBorde(pbDevolucion, true);
-            pbDevolucion.MouseLeave += (s, e) => CambiarBorde(pbDevolucion, false);
-
-            pbEditorial.MouseEnter += (s, e) => CambiarBorde(pbEditorial, true);
-            pbEditorial.MouseLeave += (s, e) => CambiarBorde(pbEditorial, false);
-
-            pbPrestamo.MouseEnter += (s, e) => CambiarBorde(pbPrestamo, true);
-            pbPrestamo.MouseLeave += (s, e) => CambiarBorde(pbPrestamo, false);
-
-            pbBibliotecario.MouseEnter += (s, e) => CambiarBorde(pbBibliotecario, true);
-            pbBibliotecario.MouseLeave += (s, e) => CambiarBorde(pbBibliotecario, false);
-
-            pbCategoria.MouseEnter += (s, e) => CambiarBorde(pbCategoria, true);
-            pbCategoria.MouseLeave += (s, e) => CambiarBorde(pbCategoria, false);
-
-            pbHistorial.MouseEnter += (s, e) => CambiarBorde(pbHistorial, true);
-            pbHistorial.MouseLeave += (s, e) => CambiarBorde(pbHistorial, false);
-
-            pbVentasLibros.MouseEnter += (s, e) => CambiarBorde(pbVentasLibros, true);
-            pbVentasLibros.MouseLeave += (s, e) => CambiarBorde(pbVentasLibros, false);
-
-            pbUbicacion.MouseEnter += (s, e) => CambiarBorde(pbUbicacion, true);
-            pbUbicacion.MouseLeave += (s, e) => CambiarBorde(pbUbicacion, false);
-
-            pbPaises.MouseEnter += (s, e) => CambiarBorde(pbPaises, true);
-            pbPaises.MouseLeave += (s, e) => CambiarBorde(pbPaises, false);
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is PictureBox pb && pb.Name.StartsWith("pb"))
+                {
+                    pb.MouseEnter += (s, e) => CambiarBorde(pb, true);
+                    pb.MouseLeave += (s, e) => CambiarBorde(pb, false);
+                }
+            }
         }
 
         private void CambiarBorde(PictureBox pictureBox, bool resaltar)
         {
-            if (resaltar)
+            pictureBox.BorderStyle = resaltar ? BorderStyle.Fixed3D : BorderStyle.None;
+            pictureBox.BackColor = resaltar ? Color.LightBlue : Color.Transparent;
+        }
+
+        private void pbLibro_Click(object sender, EventArgs e)
+        {
             {
-                pictureBox.BorderStyle = BorderStyle.Fixed3D;
-                pictureBox.BackColor = Color.LightBlue;
+               
             }
-            else
-            {
-                pictureBox.BorderStyle = BorderStyle.None;
-                pictureBox.BackColor = Color.Transparent;
-            }
+        }
+
+        private void pbUsuario_Click(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }

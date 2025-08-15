@@ -57,6 +57,7 @@
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.cmbAreaTematica = new System.Windows.Forms.ComboBox();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
@@ -337,12 +338,21 @@
             this.cmbAreaTematica.Size = new System.Drawing.Size(121, 21);
             this.cmbAreaTematica.TabIndex = 78;
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Cursor = System.Windows.Forms.Cursors.AppStarting;
+            this.vScrollBar1.Location = new System.Drawing.Point(491, 24);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(143, 486);
+            this.vScrollBar1.TabIndex = 82;
+            // 
             // FrmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 589);
+            this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.cmbAreaTematica);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dtpFechaCreacion);
@@ -370,6 +380,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categoria";
             this.Load += new System.EventHandler(this.FrmCategoria_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -409,5 +420,6 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ComboBox cmbAreaTematica;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }
