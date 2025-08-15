@@ -29,22 +29,16 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
-                // Configurar controles
                 txtIDUbicacion.Enabled = false;
 
-                // Cargar datos en combos
                 CargarCombos();
 
-                // Configurar tooltips
                 ConfigurarTooltips();
 
-                // Configurar DataGridView
                 ConfigurarDataGridView();
 
-                // Limpiar formulario
                 LimpiarFormulario();
 
-                // Cargar datos
                 CargarDatos();
             }
             catch (Exception ex)

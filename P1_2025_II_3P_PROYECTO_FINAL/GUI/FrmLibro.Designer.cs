@@ -56,7 +56,6 @@
             this.cmbTitulo = new System.Windows.Forms.ComboBox();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.cmbIdioma = new System.Windows.Forms.ComboBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericNumeroPaginas)).BeginInit();
@@ -67,18 +66,20 @@
             this.lblLibro.AutoSize = true;
             this.lblLibro.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.lblLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLibro.Location = new System.Drawing.Point(178, 72);
+            this.lblLibro.Location = new System.Drawing.Point(267, 111);
+            this.lblLibro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLibro.Name = "lblLibro";
-            this.lblLibro.Size = new System.Drawing.Size(57, 24);
+            this.lblLibro.Size = new System.Drawing.Size(85, 33);
             this.lblLibro.TabIndex = 2;
             this.lblLibro.Text = "Libro";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(60, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(90, 62);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(101, 90);
+            this.pictureBox1.Size = new System.Drawing.Size(152, 138);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -88,9 +89,10 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.BackColor = System.Drawing.Color.BurlyWood;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(27, 193);
+            this.lblTitulo.Location = new System.Drawing.Point(40, 297);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(39, 13);
+            this.lblTitulo.Size = new System.Drawing.Size(56, 20);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Titulo";
             // 
@@ -99,9 +101,10 @@
             this.lblAutor.AutoSize = true;
             this.lblAutor.BackColor = System.Drawing.Color.BurlyWood;
             this.lblAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAutor.Location = new System.Drawing.Point(27, 226);
+            this.lblAutor.Location = new System.Drawing.Point(40, 348);
+            this.lblAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(37, 13);
+            this.lblAutor.Size = new System.Drawing.Size(54, 20);
             this.lblAutor.TabIndex = 1;
             this.lblAutor.Text = "Autor";
             // 
@@ -110,9 +113,10 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.BackColor = System.Drawing.Color.BurlyWood;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(27, 274);
+            this.lblCategoria.Location = new System.Drawing.Point(40, 422);
+            this.lblCategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(61, 13);
+            this.lblCategoria.Size = new System.Drawing.Size(90, 20);
             this.lblCategoria.TabIndex = 2;
             this.lblCategoria.Text = "Categoria";
             // 
@@ -121,9 +125,10 @@
             this.lblAño.AutoSize = true;
             this.lblAño.BackColor = System.Drawing.Color.BurlyWood;
             this.lblAño.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAño.Location = new System.Drawing.Point(27, 312);
+            this.lblAño.Location = new System.Drawing.Point(40, 480);
+            this.lblAño.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAño.Name = "lblAño";
-            this.lblAño.Size = new System.Drawing.Size(29, 13);
+            this.lblAño.Size = new System.Drawing.Size(41, 20);
             this.lblAño.TabIndex = 7;
             this.lblAño.Text = "Año";
             // 
@@ -132,9 +137,10 @@
             this.lblISBN.AutoSize = true;
             this.lblISBN.BackColor = System.Drawing.Color.BurlyWood;
             this.lblISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblISBN.Location = new System.Drawing.Point(27, 351);
+            this.lblISBN.Location = new System.Drawing.Point(40, 540);
+            this.lblISBN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblISBN.Name = "lblISBN";
-            this.lblISBN.Size = new System.Drawing.Size(36, 13);
+            this.lblISBN.Size = new System.Drawing.Size(52, 20);
             this.lblISBN.TabIndex = 9;
             this.lblISBN.Text = "ISBN";
             // 
@@ -143,9 +149,10 @@
             this.lblIdioma.AutoSize = true;
             this.lblIdioma.BackColor = System.Drawing.Color.BurlyWood;
             this.lblIdioma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdioma.Location = new System.Drawing.Point(27, 395);
+            this.lblIdioma.Location = new System.Drawing.Point(40, 608);
+            this.lblIdioma.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdioma.Name = "lblIdioma";
-            this.lblIdioma.Size = new System.Drawing.Size(44, 13);
+            this.lblIdioma.Size = new System.Drawing.Size(64, 20);
             this.lblIdioma.TabIndex = 10;
             this.lblIdioma.Text = "Idioma";
             // 
@@ -154,24 +161,27 @@
             this.lblNumeroPaginas.AutoSize = true;
             this.lblNumeroPaginas.BackColor = System.Drawing.Color.BurlyWood;
             this.lblNumeroPaginas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumeroPaginas.Location = new System.Drawing.Point(27, 445);
+            this.lblNumeroPaginas.Location = new System.Drawing.Point(40, 685);
+            this.lblNumeroPaginas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumeroPaginas.Name = "lblNumeroPaginas";
-            this.lblNumeroPaginas.Size = new System.Drawing.Size(116, 13);
+            this.lblNumeroPaginas.Size = new System.Drawing.Size(171, 20);
             this.lblNumeroPaginas.TabIndex = 11;
             this.lblNumeroPaginas.Text = "Numero de paginas";
             // 
             // txtAutor
             // 
-            this.txtAutor.Location = new System.Drawing.Point(80, 223);
+            this.txtAutor.Location = new System.Drawing.Point(120, 343);
+            this.txtAutor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(195, 20);
+            this.txtAutor.Size = new System.Drawing.Size(290, 26);
             this.txtAutor.TabIndex = 13;
             // 
             // txtISBN
             // 
-            this.txtISBN.Location = new System.Drawing.Point(86, 351);
+            this.txtISBN.Location = new System.Drawing.Point(129, 540);
+            this.txtISBN.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtISBN.Name = "txtISBN";
-            this.txtISBN.Size = new System.Drawing.Size(189, 20);
+            this.txtISBN.Size = new System.Drawing.Size(282, 26);
             this.txtISBN.TabIndex = 17;
             // 
             // btnEliminar
@@ -180,9 +190,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(361, 492);
+            this.btnEliminar.Location = new System.Drawing.Point(542, 757);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(95, 43);
+            this.btnEliminar.Size = new System.Drawing.Size(142, 66);
             this.btnEliminar.TabIndex = 68;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -194,9 +205,10 @@
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(246, 489);
+            this.btnBuscar.Location = new System.Drawing.Point(369, 752);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(98, 46);
+            this.btnBuscar.Size = new System.Drawing.Size(147, 71);
             this.btnBuscar.TabIndex = 67;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -208,9 +220,10 @@
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(124, 488);
+            this.btnModificar.Location = new System.Drawing.Point(186, 751);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(107, 47);
+            this.btnModificar.Size = new System.Drawing.Size(160, 72);
             this.btnModificar.TabIndex = 66;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -218,6 +231,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
@@ -226,33 +240,33 @@
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
             this.menuStrip1.TabIndex = 69;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
             this.verToolStripMenuItem.Text = "Ver";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // lblIDLibro
@@ -260,31 +274,35 @@
             this.lblIDLibro.AutoSize = true;
             this.lblIDLibro.BackColor = System.Drawing.Color.BurlyWood;
             this.lblIDLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDLibro.Location = new System.Drawing.Point(27, 155);
+            this.lblIDLibro.Location = new System.Drawing.Point(40, 238);
+            this.lblIDLibro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIDLibro.Name = "lblIDLibro";
-            this.lblIDLibro.Size = new System.Drawing.Size(48, 13);
+            this.lblIDLibro.Size = new System.Drawing.Size(71, 20);
             this.lblIDLibro.TabIndex = 70;
             this.lblIDLibro.Text = "ID libro";
             // 
             // txtIDLibro
             // 
-            this.txtIDLibro.Location = new System.Drawing.Point(90, 155);
+            this.txtIDLibro.Location = new System.Drawing.Point(135, 238);
+            this.txtIDLibro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtIDLibro.Name = "txtIDLibro";
-            this.txtIDLibro.Size = new System.Drawing.Size(185, 20);
+            this.txtIDLibro.Size = new System.Drawing.Size(276, 26);
             this.txtIDLibro.TabIndex = 71;
             // 
             // dtpAño
             // 
-            this.dtpAño.Location = new System.Drawing.Point(75, 312);
+            this.dtpAño.Location = new System.Drawing.Point(112, 480);
+            this.dtpAño.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpAño.Name = "dtpAño";
-            this.dtpAño.Size = new System.Drawing.Size(200, 20);
+            this.dtpAño.Size = new System.Drawing.Size(298, 26);
             this.dtpAño.TabIndex = 75;
             // 
             // numericNumeroPaginas
             // 
-            this.numericNumeroPaginas.Location = new System.Drawing.Point(161, 443);
+            this.numericNumeroPaginas.Location = new System.Drawing.Point(242, 682);
+            this.numericNumeroPaginas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericNumeroPaginas.Name = "numericNumeroPaginas";
-            this.numericNumeroPaginas.Size = new System.Drawing.Size(132, 20);
+            this.numericNumeroPaginas.Size = new System.Drawing.Size(198, 26);
             this.numericNumeroPaginas.TabIndex = 76;
             // 
             // btnGuardar
@@ -293,9 +311,10 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(12, 488);
+            this.btnGuardar.Location = new System.Drawing.Point(18, 751);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(99, 46);
+            this.btnGuardar.Size = new System.Drawing.Size(148, 71);
             this.btnGuardar.TabIndex = 77;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -304,42 +323,36 @@
             // cmbTitulo
             // 
             this.cmbTitulo.FormattingEnabled = true;
-            this.cmbTitulo.Location = new System.Drawing.Point(90, 190);
+            this.cmbTitulo.Location = new System.Drawing.Point(135, 292);
+            this.cmbTitulo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTitulo.Name = "cmbTitulo";
-            this.cmbTitulo.Size = new System.Drawing.Size(121, 21);
+            this.cmbTitulo.Size = new System.Drawing.Size(180, 28);
             this.cmbTitulo.TabIndex = 78;
             // 
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(114, 266);
+            this.cmbCategoria.Location = new System.Drawing.Point(171, 409);
+            this.cmbCategoria.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategoria.Size = new System.Drawing.Size(180, 28);
             this.cmbCategoria.TabIndex = 79;
             // 
             // cmbIdioma
             // 
             this.cmbIdioma.FormattingEnabled = true;
-            this.cmbIdioma.Location = new System.Drawing.Point(85, 392);
+            this.cmbIdioma.Location = new System.Drawing.Point(128, 603);
+            this.cmbIdioma.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbIdioma.Name = "cmbIdioma";
-            this.cmbIdioma.Size = new System.Drawing.Size(121, 21);
+            this.cmbIdioma.Size = new System.Drawing.Size(180, 28);
             this.cmbIdioma.TabIndex = 80;
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.vScrollBar1.Location = new System.Drawing.Point(543, 25);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(143, 486);
-            this.vScrollBar1.TabIndex = 81;
             // 
             // FrmLibro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(800, 614);
-            this.Controls.Add(this.vScrollBar1);
+            this.ClientSize = new System.Drawing.Size(1200, 945);
             this.Controls.Add(this.cmbIdioma);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.cmbTitulo);
@@ -364,6 +377,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblLibro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmLibro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Libro";
@@ -405,6 +419,5 @@
         private System.Windows.Forms.ComboBox cmbTitulo;
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.ComboBox cmbIdioma;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }

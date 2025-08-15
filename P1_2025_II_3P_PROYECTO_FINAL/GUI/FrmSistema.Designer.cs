@@ -94,7 +94,7 @@
             this.lblTitulo.Location = new System.Drawing.Point(260, 48);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(268, 24);
+            this.lblTitulo.Size = new System.Drawing.Size(406, 33);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Sistema de Biblioteca UJCV";
             // 
@@ -131,7 +131,7 @@
             this.lblLibro.Location = new System.Drawing.Point(91, 232);
             this.lblLibro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLibro.Name = "lblLibro";
-            this.lblLibro.Size = new System.Drawing.Size(46, 18);
+            this.lblLibro.Size = new System.Drawing.Size(73, 29);
             this.lblLibro.TabIndex = 2;
             this.lblLibro.Text = "Libro";
             // 
@@ -166,7 +166,7 @@
             this.lblUsuario.Location = new System.Drawing.Point(212, 234);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(67, 18);
+            this.lblUsuario.Size = new System.Drawing.Size(94, 26);
             this.lblUsuario.TabIndex = 5;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -178,7 +178,7 @@
             this.lblAutor.Location = new System.Drawing.Point(374, 234);
             this.lblAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(48, 18);
+            this.lblAutor.Size = new System.Drawing.Size(69, 26);
             this.lblAutor.TabIndex = 6;
             this.lblAutor.Text = "Autor";
             // 
@@ -223,7 +223,7 @@
             this.lblPrestamo.Location = new System.Drawing.Point(73, 340);
             this.lblPrestamo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrestamo.Name = "lblPrestamo";
-            this.lblPrestamo.Size = new System.Drawing.Size(81, 18);
+            this.lblPrestamo.Size = new System.Drawing.Size(114, 26);
             this.lblPrestamo.TabIndex = 10;
             this.lblPrestamo.Text = "Préstamo";
             // 
@@ -235,7 +235,7 @@
             this.lblDevocion.Location = new System.Drawing.Point(357, 335);
             this.lblDevocion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDevocion.Name = "lblDevocion";
-            this.lblDevocion.Size = new System.Drawing.Size(92, 18);
+            this.lblDevocion.Size = new System.Drawing.Size(143, 29);
             this.lblDevocion.TabIndex = 11;
             this.lblDevocion.Text = "Devolución";
             // 
@@ -247,7 +247,7 @@
             this.lblBlbliotecario.Location = new System.Drawing.Point(61, 461);
             this.lblBlbliotecario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBlbliotecario.Name = "lblBlbliotecario";
-            this.lblBlbliotecario.Size = new System.Drawing.Size(102, 18);
+            this.lblBlbliotecario.Size = new System.Drawing.Size(144, 26);
             this.lblBlbliotecario.TabIndex = 12;
             this.lblBlbliotecario.Text = "Bibliotecario";
             // 
@@ -259,7 +259,7 @@
             this.lblcategoria.Location = new System.Drawing.Point(211, 461);
             this.lblcategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcategoria.Name = "lblcategoria";
-            this.lblcategoria.Size = new System.Drawing.Size(81, 18);
+            this.lblcategoria.Size = new System.Drawing.Size(115, 26);
             this.lblcategoria.TabIndex = 13;
             this.lblcategoria.Text = "Categoría";
             // 
@@ -271,7 +271,7 @@
             this.lblEditorial.Location = new System.Drawing.Point(216, 341);
             this.lblEditorial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEditorial.Name = "lblEditorial";
-            this.lblEditorial.Size = new System.Drawing.Size(70, 18);
+            this.lblEditorial.Size = new System.Drawing.Size(100, 26);
             this.lblEditorial.TabIndex = 14;
             this.lblEditorial.Text = "Editorial";
             // 
@@ -316,7 +316,7 @@
             this.lblHistorial.Location = new System.Drawing.Point(363, 460);
             this.lblHistorial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHistorial.Name = "lblHistorial";
-            this.lblHistorial.Size = new System.Drawing.Size(71, 18);
+            this.lblHistorial.Size = new System.Drawing.Size(100, 26);
             this.lblHistorial.TabIndex = 18;
             this.lblHistorial.Text = "Historial";
             // 
@@ -339,7 +339,7 @@
             this.lblVentasLibros.Location = new System.Drawing.Point(505, 335);
             this.lblVentasLibros.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVentasLibros.Name = "lblVentasLibros";
-            this.lblVentasLibros.Size = new System.Drawing.Size(106, 18);
+            this.lblVentasLibros.Size = new System.Drawing.Size(165, 29);
             this.lblVentasLibros.TabIndex = 20;
             this.lblVentasLibros.Text = "Ventas libros";
             // 
@@ -362,7 +362,7 @@
             this.lblUbicacion.Location = new System.Drawing.Point(519, 460);
             this.lblUbicacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUbicacion.Name = "lblUbicacion";
-            this.lblUbicacion.Size = new System.Drawing.Size(83, 18);
+            this.lblUbicacion.Size = new System.Drawing.Size(129, 29);
             this.lblUbicacion.TabIndex = 22;
             this.lblUbicacion.Text = "Ubicación";
             // 
@@ -385,7 +385,7 @@
             this.lblPaises.Location = new System.Drawing.Point(531, 234);
             this.lblPaises.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPaises.Name = "lblPaises";
-            this.lblPaises.Size = new System.Drawing.Size(59, 18);
+            this.lblPaises.Size = new System.Drawing.Size(84, 26);
             this.lblPaises.TabIndex = 24;
             this.lblPaises.Text = "Países";
             // 
@@ -396,7 +396,7 @@
             this.lblTitulo2.Location = new System.Drawing.Point(811, 43);
             this.lblTitulo2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo2.Name = "lblTitulo2";
-            this.lblTitulo2.Size = new System.Drawing.Size(383, 24);
+            this.lblTitulo2.Size = new System.Drawing.Size(568, 33);
             this.lblTitulo2.TabIndex = 25;
             this.lblTitulo2.Text = "Programacion 1, Segundo Periodo 2025";
             // 
@@ -407,7 +407,7 @@
             this.lblCreadoPor.Location = new System.Drawing.Point(811, 118);
             this.lblCreadoPor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCreadoPor.Name = "lblCreadoPor";
-            this.lblCreadoPor.Size = new System.Drawing.Size(121, 24);
+            this.lblCreadoPor.Size = new System.Drawing.Size(179, 33);
             this.lblCreadoPor.TabIndex = 26;
             this.lblCreadoPor.Text = "Creado por:";
             // 
@@ -418,7 +418,7 @@
             this.label4.Location = new System.Drawing.Point(897, 160);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 24);
+            this.label4.Size = new System.Drawing.Size(195, 33);
             this.label4.TabIndex = 27;
             this.label4.Text = "Jose Alvarez";
             // 
@@ -429,7 +429,7 @@
             this.label5.Location = new System.Drawing.Point(897, 234);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 24);
+            this.label5.Size = new System.Drawing.Size(243, 33);
             this.label5.TabIndex = 28;
             this.label5.Text = "Alfredo Martinez";
             // 
@@ -440,7 +440,7 @@
             this.label6.Location = new System.Drawing.Point(811, 303);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 24);
+            this.label6.Size = new System.Drawing.Size(139, 33);
             this.label6.TabIndex = 29;
             this.label6.Text = "Docente:";
             // 
@@ -451,7 +451,7 @@
             this.label7.Location = new System.Drawing.Point(897, 339);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(127, 24);
+            this.label7.Size = new System.Drawing.Size(188, 33);
             this.label7.TabIndex = 30;
             this.label7.Text = "Kevin Funez";
             // 
@@ -496,7 +496,7 @@
             this.lblFecha.Location = new System.Drawing.Point(906, 478);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(64, 20);
+            this.lblFecha.Size = new System.Drawing.Size(92, 29);
             this.lblFecha.TabIndex = 34;
             this.lblFecha.Text = "Fecha:";
             // 
@@ -508,7 +508,7 @@
             this.lblHora.Location = new System.Drawing.Point(1091, 478);
             this.lblHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(53, 20);
+            this.lblHora.Size = new System.Drawing.Size(76, 29);
             this.lblHora.TabIndex = 35;
             this.lblHora.Text = "Hora:";
             // 
@@ -520,7 +520,7 @@
             this.lblUsuarios.Location = new System.Drawing.Point(906, 507);
             this.lblUsuarios.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuarios.Name = "lblUsuarios";
-            this.lblUsuarios.Size = new System.Drawing.Size(187, 20);
+            this.lblUsuarios.Size = new System.Drawing.Size(271, 29);
             this.lblUsuarios.TabIndex = 36;
             this.lblUsuarios.Text = "Usuarios Registrados:";
             // 
@@ -532,7 +532,7 @@
             this.lblLibrosR.Location = new System.Drawing.Point(904, 536);
             this.lblLibrosR.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLibrosR.Name = "lblLibrosR";
-            this.lblLibrosR.Size = new System.Drawing.Size(165, 20);
+            this.lblLibrosR.Size = new System.Drawing.Size(241, 29);
             this.lblLibrosR.TabIndex = 37;
             this.lblLibrosR.Text = "Libros Registrados:";
             // 
@@ -543,17 +543,17 @@
             this.lblBS.Location = new System.Drawing.Point(810, 421);
             this.lblBS.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBS.Name = "lblBS";
-            this.lblBS.Size = new System.Drawing.Size(216, 24);
+            this.lblBS.Size = new System.Drawing.Size(325, 33);
             this.lblBS.TabIndex = 38;
             this.lblBS.Text = "Bienvenido al Sistema";
             // 
             // FrmSistema
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 33F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1370, 588);
+            this.ClientSize = new System.Drawing.Size(1386, 588);
             this.Controls.Add(this.lblBS);
             this.Controls.Add(this.lblLibrosR);
             this.Controls.Add(this.lblUsuarios);

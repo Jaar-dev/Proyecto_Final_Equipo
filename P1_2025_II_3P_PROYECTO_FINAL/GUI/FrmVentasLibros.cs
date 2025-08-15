@@ -307,10 +307,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -629,7 +625,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                     }
                 }
 
-                // Total general
                 decimal totalGeneral = dataManager.Ventas
                     .Where(v => v.Activo)
                     .Sum(v => v.Total);
