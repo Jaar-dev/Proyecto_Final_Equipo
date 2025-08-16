@@ -198,7 +198,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                 string identidadLimpia = Regex.Replace(value ?? "", @"[^\d]", "");
                 if (identidadLimpia.Length != 13)
                     throw new ArgumentException("La identidad debe contener exactamente 13 dígitos numéricos.");
-                string codigoDepartamento = identidadLimpia.Substring(0, 2);
+              /*  string codigoDepartamento = identidadLimpia.Substring(0, 2);
                 Dictionary<string, string> departamentosHonduras = new Dictionary<string, string>
                 {
                     {"01", "Atlántida"},
@@ -227,7 +227,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                 string codigoMunicipio = identidadLimpia.Substring(2, 2);
                 int municipio = int.Parse(codigoMunicipio);
                 if (municipio < 1 || municipio > 28)
-                    throw new ArgumentException($"Código de municipio inválido: {codigoMunicipio}. Debe ser entre 01 y 28.");
+                    throw new ArgumentException($"Código de municipio inválido: {codigoMunicipio}. Debe ser entre 01 y 28."); */
 
                 _identificacion = value;
             }
@@ -235,46 +235,59 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             
         public DateTime FechaNacimiento
         {
-            get { return _fechaNacimiento; }
-            set
-            {
-                if (value > DateTime.Now)
-                    throw new ArgumentException("La fecha de nacimiento no puede ser en el futuro.");
+            
+                get { return _fechaNacimiento; }
+                set
+    {
+                  /*  if (value > DateTime.Now)
+                        throw new ArgumentException("La fecha de nacimiento no puede ser en el futuro.");
 
-                if (value < new DateTime(1900, 1, 1))
-                    throw new ArgumentException("La fecha de nacimiento no puede ser anterior al año 1900.");
+                    if (value < new DateTime(1900, 1, 1))
+                        throw new ArgumentException("La fecha de nacimiento no puede ser anterior al año 1900.");
 
-                int edadCalculada = DateTime.Now.Year - value.Year;
-                if (DateTime.Now < value.AddYears(edadCalculada))
-                    edadCalculada--;
+                    int edadCalculada = DateTime.Now.Year - value.Year;
+                    if (DateTime.Now < value.AddYears(edadCalculada))
+                        edadCalculada--;
 
-                if (edadCalculada < 7)
-                    throw new ArgumentException("La persona debe tener al menos 7 años de edad.");
+                    if (edadCalculada < 7)
+                        throw new ArgumentException("La persona debe tener al menos 7 años de edad.");
 
-                if (edadCalculada > 90)
-                    throw new ArgumentException("La edad no puede ser mayor a 90 años.");
-                if (!string.IsNullOrEmpty(_identificacion))
-                {
-                    string identidadLimpia = Regex.Replace(_identificacion, @"[^\d]", "");
-                    if (identidadLimpia.Length == 13)
+                    if (edadCalculada > 90)
+                        throw new ArgumentException("La edad no puede ser mayor a 90 años.");
+
+                    if (!string.IsNullOrEmpty(_identificacion))
                     {
-                        int añoIdentidad = int.Parse(identidadLimpia.Substring(4, 4));
-                        if (añoIdentidad != value.Year)
+                       string identidadLimpia = Regex.Replace(_identificacion, @"[^\d]", "");
+                      if (identidadLimpia.Length == 13)
                         {
-                            throw new ArgumentException($"El año de nacimiento ({value.Year}) no coincide con la identidad ({añoIdentidad}).");
+                            int añoIdentidad = int.Parse(identidadLimpia.Substring(4,2));
+                            if (añoIdentidad >= 0 && añoIdentidad <= 25)
+                                añoIdentidad += 2000;   
+                            else
+                                añoIdentidad += 1900; 
+
+                            if (añoIdentidad != value.Year)
+                            {
+                                throw new ArgumentException($"El año de nacimiento ({value.Year}) no coincide con la identidad ({añoIdentidad}).");
+                            }
                         }
                     }
-                }
-                _fechaNacimiento = value;
-            }
-        }
+
+                    _fechaNacimiento = value; */
+                } 
+            } 
+
+        
+
+
+
 
         public string Genero
         {
             get { return _genero; }
             set
             {
-                if (string.IsNullOrWhiteSpace(value))
+            /*   if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException("El género es obligatorio.");
 
                 value = value.Trim();
@@ -287,7 +300,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
                 {
                     throw new ArgumentException($"El género debe ser uno de: {string.Join(", ", generosValidos)}");
                 }
-                _genero = value;
+                _genero = value;*/
             }
         }
 

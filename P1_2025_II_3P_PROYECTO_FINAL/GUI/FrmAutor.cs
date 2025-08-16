@@ -23,10 +23,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
-                dtpFechaNacimiento.Format = DateTimePickerFormat.Short;
+              /*  dtpFechaNacimiento.Format = DateTimePickerFormat.Short;
                 dtpFechaNacimiento.MaxDate = DateTime.Now.AddYears(-18);
-                dtpFechaNacimiento.Value = DateTime.Now.AddYears(-30);
-                dtpFechaRegistro.Format = DateTimePickerFormat.Short;
+                dtpFechaNacimiento.Value = DateTime.Now.AddYears(-30)*/
+                dtpFechaRegistro.Format = DateTimePickerFormat.Short; 
                 dtpFechaRegistro.Value = DateTime.Now;
                 dtpFechaRegistro.Enabled = false;
                 txtIDAutor.Enabled = false;
@@ -51,16 +51,11 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 cmbGenero.Items.Clear();
                 cmbGenero.Items.AddRange(new string[] {
                     "-- Seleccione --",
-                    "Ficción",
-                    "No Ficción",
-                    "Poesía",
-                    "Drama",
-                    "Ensayo",
-                    "Ciencia Ficción",
-                    "Fantasía",
-                    "Misterio",
-                    "Romance",
-                    "Histórico"
+                    "Masculino",
+                    "Femenino",
+                    "Otro",
+                    "Prefiero no decir",
+                    
                 });
                 cmbGenero.SelectedIndex = 0;
 
@@ -281,7 +276,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             autor.Telefono = "2222-0000";
             autor.Correo = $"{autor.Nombre.ToLower()}.{autor.Apellido.ToLower()}@autor.com";
             autor.Direccion = "Colonia gallo";
-            autor.Identificacion = "080100000000";
+            autor.Identificacion = "0801200000000";
             autor.Genero = "No especificado";
         }
 
@@ -290,7 +285,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             txtIDAutor.Text = autor.Id.ToString();
             txtNombre.Text = autor.Nombre;
             txtApellido.Text = autor.Apellido;
-            dtpFechaNacimiento.Value = autor.FechaNacimiento;
+           /* dtpFechaNacimiento.Value = autor.FechaNacimiento;*/
 
             for (int i = 0; i < cmbNacionalidad.Items.Count; i++)
             {
@@ -320,7 +315,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             txtNombre.Clear();
             txtApellido.Clear();
             txtBiografia.Clear();
-            dtpFechaNacimiento.Value = DateTime.Now.AddYears(-30);
+           /* dtpFechaNacimiento.Value = DateTime.Now.AddYears(-30);*/
             dtpFechaRegistro.Value = DateTime.Now;
             cmbNacionalidad.SelectedIndex = -1;
             cmbGenero.SelectedIndex = 0;

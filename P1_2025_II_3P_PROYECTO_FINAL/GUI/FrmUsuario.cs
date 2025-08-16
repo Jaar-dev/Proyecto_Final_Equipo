@@ -287,7 +287,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             usuario.FechaRegistro = dtpFechaRegistro.Value;
             usuario.FechaNacimiento = DateTime.Now.AddYears(-25);
             usuario.Genero = "Otro";
-            usuario.Identificacion = "0801000000000"; 
+            usuario.Identificacion = "0801050312345"; 
             usuario.TipoUsuario = "Estudiante"; 
         }
 

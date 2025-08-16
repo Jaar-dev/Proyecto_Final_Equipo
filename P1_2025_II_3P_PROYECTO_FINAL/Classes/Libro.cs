@@ -95,11 +95,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             get { return _cantidadDisponible; }
             set
             {
-                if (value < 0)
-                    throw new ArgumentException("La cantidad disponible no puede ser negativa");
-                if (value > _cantidadTotal)
-                    throw new ArgumentException("La cantidad disponible no puede ser mayor que la cantidad total");
-                _cantidadDisponible = value;
+              
             }
         }
 
