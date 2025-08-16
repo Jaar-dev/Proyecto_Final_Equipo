@@ -278,10 +278,10 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
             autor.Biografia = txtBiografia.Text.Trim();
 
-            autor.Telefono = "0000-0000";
+            autor.Telefono = "2222-0000";
             autor.Correo = $"{autor.Nombre.ToLower()}.{autor.Apellido.ToLower()}@autor.com";
-            autor.Direccion = "Dirección no especificada";
-            autor.Identificacion = "0000000000000";
+            autor.Direccion = "Colonia gallo";
+            autor.Identificacion = "080100000000";
             autor.Genero = "No especificado";
         }
 

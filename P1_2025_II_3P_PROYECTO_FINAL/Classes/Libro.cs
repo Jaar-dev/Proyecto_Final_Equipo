@@ -27,7 +27,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             get { return _isbn; }
             set
             {
-                if (!ValidarISBN(value))
+                if (!string.IsNullOrEmpty(value) && !ValidarISBN(value))
                     throw new ArgumentException("Formato de ISBN inválido");
                 _isbn = value;
             }
@@ -166,12 +166,12 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.Clases
             _precio = 0;
             _idioma = "Español";
             _añoPublicacion = DateTime.Now.Year;
-            NumeroPaginas = 1;
-            ISBN = "";
-            Titulo = "";
-            Autor = "";
-            Editorial = "";
-            Categoria = "";
+            _isbn = "";
+            _titulo = "";
+            _autor = "";
+            _editorial = "";
+            _categoria = "";
+            _numeroPaginas = 1;
         }
 
         private bool ValidarISBN(string isbn)

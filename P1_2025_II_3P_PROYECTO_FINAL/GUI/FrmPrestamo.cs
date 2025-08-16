@@ -72,8 +72,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                     Nombre = "Admin",
                     Apellido = "Sistema",
                     Correo = "admin@biblioteca.com",
-                    Telefono = "0000-0000",
-                    Direccion = "Biblioteca Central",
+                    Telefono = "2222-0000",
+                    Direccion = "Colonia gallo",
                     CodigoEmpleado = "EMP001",
                     NivelAcceso = "Administrador"
                 };
@@ -581,6 +581,18 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
+                string telefonoUsuario = "No registrado";
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(usuarioSeleccionado.Telefono))
+                    {
+                        telefonoUsuario = usuarioSeleccionado.Telefono;
+                    }
+                }
+                catch (Exception)
+                {
+                    telefonoUsuario = "No registrado";
+                }
                 string comprobante = $@"
 BIBLIOTECA UJCV - COMPROBANTE DE PRÉSTAMO
 =========================================

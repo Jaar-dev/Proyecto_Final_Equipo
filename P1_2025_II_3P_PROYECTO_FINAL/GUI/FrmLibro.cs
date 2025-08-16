@@ -297,7 +297,16 @@ namespace P1_2025_II_3P_PROYECTO_FINAL
 
         private void AsignarDatosLibro(Libro libro)
         {
-            libro.ISBN = txtISBN.Text.Trim();
+            string isbnLimpio = txtISBN.Text.Trim().Replace("-", "").Replace(" ", "");
+
+            if (isbnLimpio.Length == 13 && long.TryParse(isbnLimpio, out _))
+            {
+                libro.ISBN = isbnLimpio;
+            }
+            else
+            {
+                throw new ArgumentException("El ISBN debe tener exactamente 13 dígitos numéricos");
+            }
             libro.Titulo = cmbTitulo.Text.Trim();
             libro.Autor = txtAutor.Text.Trim();
             libro.AñoPublicacion = dtpAño.Value.Year;

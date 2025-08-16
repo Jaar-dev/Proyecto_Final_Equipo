@@ -47,7 +47,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             toolTip.SetToolTip(txtNombre, "Ingrese el nombre completo del bibliotecario");
             toolTip.SetToolTip(txtCorreoElectronico, "Ingrese un correo electrónico válido");
             toolTip.SetToolTip(txtTelefono, "Formato: ####-####");
-            toolTip.SetToolTip(txtDireccion, "Ingrese la dirección completa");
+            toolTip.SetToolTip(txtDireccion, "Ingrese la dirección completa\n" +
+                "Ejm: Colonia, Ciudad...");
             toolTip.SetToolTip(dtpFechaIngreso, "Seleccione la fecha de ingreso");
         }
 
@@ -288,7 +289,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             bibliotecario.Departamento = "Biblioteca";
             bibliotecario.NivelAcceso = "Intermedio";
             bibliotecario.Especialidad = "General";
-            bibliotecario.Identificacion = "0000000000000";
+            bibliotecario.Identificacion = "08010200217265";
             bibliotecario.FechaNacimiento = DateTime.Now.AddYears(-25);
             bibliotecario.Genero = "No especificado";
         }
