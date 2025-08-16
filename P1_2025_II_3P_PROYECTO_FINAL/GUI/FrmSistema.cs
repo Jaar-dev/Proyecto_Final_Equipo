@@ -211,18 +211,5 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             pictureBox.BorderStyle = resaltar ? BorderStyle.Fixed3D : BorderStyle.None;
             pictureBox.BackColor = resaltar ? Color.LightBlue : Color.Transparent;
         }
-
-        private void pbLibro_Click(object sender, EventArgs e)
-        {
-            {
-               
-            }
-        }
-
-        private void pbUsuario_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
     }
 }

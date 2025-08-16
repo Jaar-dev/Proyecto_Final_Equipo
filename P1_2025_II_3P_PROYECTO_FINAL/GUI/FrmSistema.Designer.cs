@@ -121,7 +121,6 @@
             this.pbLibro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLibro.TabIndex = 0;
             this.pbLibro.TabStop = false;
-            this.pbLibro.Click += new System.EventHandler(this.pbLibro_Click);
             // 
             // lblLibro
             // 
@@ -156,7 +155,6 @@
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUsuario.TabIndex = 4;
             this.pbUsuario.TabStop = false;
-            this.pbUsuario.Click += new System.EventHandler(this.pbUsuario_Click);
             // 
             // lblUsuario
             // 

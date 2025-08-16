@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAutor));
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(1300, 970);
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -66,13 +68,14 @@
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(540, 777);
+            this.btnEliminar.Location = new System.Drawing.Point(539, 731);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(136, 66);
             this.btnEliminar.TabIndex = 60;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnBuscar
             // 
@@ -80,13 +83,14 @@
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(380, 775);
+            this.btnBuscar.Location = new System.Drawing.Point(379, 729);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(141, 71);
             this.btnBuscar.TabIndex = 59;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnModificar
             // 
@@ -94,13 +98,14 @@
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(204, 775);
+            this.btnModificar.Location = new System.Drawing.Point(203, 729);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(154, 72);
             this.btnModificar.TabIndex = 58;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtBiografia
             // 
@@ -108,7 +113,7 @@
             this.txtBiografia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBiografia.Multiline = true;
             this.txtBiografia.Name = "txtBiografia";
-            this.txtBiografia.Size = new System.Drawing.Size(408, 81);
+            this.txtBiografia.Size = new System.Drawing.Size(404, 81);
             this.txtBiografia.TabIndex = 56;
             // 
             // txtApellido
@@ -132,7 +137,7 @@
             this.lblFechaRegistro.AutoSize = true;
             this.lblFechaRegistro.BackColor = System.Drawing.Color.BurlyWood;
             this.lblFechaRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaRegistro.Location = new System.Drawing.Point(18, 678);
+            this.lblFechaRegistro.Location = new System.Drawing.Point(24, 664);
             this.lblFechaRegistro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaRegistro.Name = "lblFechaRegistro";
             this.lblFechaRegistro.Size = new System.Drawing.Size(163, 20);
@@ -235,7 +240,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1253, 35);
             this.menuStrip1.TabIndex = 61;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -304,10 +309,10 @@
             // 
             // dtpFechaRegistro
             // 
-            this.dtpFechaRegistro.Location = new System.Drawing.Point(190, 678);
+            this.dtpFechaRegistro.Location = new System.Drawing.Point(196, 664);
             this.dtpFechaRegistro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
-            this.dtpFechaRegistro.Size = new System.Drawing.Size(324, 26);
+            this.dtpFechaRegistro.Size = new System.Drawing.Size(332, 26);
             this.dtpFechaRegistro.TabIndex = 65;
             // 
             // cmbNacionalidad
@@ -333,18 +338,19 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(33, 775);
+            this.btnGuardar.Location = new System.Drawing.Point(32, 729);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(148, 71);
             this.btnGuardar.TabIndex = 69;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // cmbGenero
             // 
             this.cmbGenero.FormattingEnabled = true;
-            this.cmbGenero.Location = new System.Drawing.Point(126, 518);
+            this.cmbGenero.Location = new System.Drawing.Point(341, 515);
             this.cmbGenero.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbGenero.Name = "cmbGenero";
             this.cmbGenero.Size = new System.Drawing.Size(180, 28);
@@ -355,7 +361,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1200, 749);
+            this.ClientSize = new System.Drawing.Size(1253, 804);
             this.Controls.Add(this.cmbGenero);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.cmbNacionalidad);

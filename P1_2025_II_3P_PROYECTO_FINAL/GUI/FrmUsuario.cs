@@ -445,7 +445,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 }
             }
         }
-
         private void txtContraseña_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtContraseña.Text))

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaises));
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(1300, 970);
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lblVentasLibros = new System.Windows.Forms.Label();
             this.lblIdiomaPricipal = new System.Windows.Forms.Label();
@@ -155,7 +157,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1563, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1253, 35);
             this.menuStrip1.TabIndex = 77;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -495,7 +497,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1563, 710);
+            this.ClientSize = new System.Drawing.Size(1253, 804);
             this.Controls.Add(this.lblPaisMayorPoblacion);
             this.Controls.Add(this.lblPoblacionTotal);
             this.Controls.Add(this.btnExportar);

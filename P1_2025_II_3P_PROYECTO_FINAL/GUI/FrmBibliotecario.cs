@@ -302,7 +302,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             txtDireccion.Text = bibliotecario.Direccion;
             dtpFechaIngreso.Value = bibliotecario.FechaContratacion;
 
-            // Seleccionar turno
             switch (bibliotecario.Turno)
             {
                 case "Matutino":

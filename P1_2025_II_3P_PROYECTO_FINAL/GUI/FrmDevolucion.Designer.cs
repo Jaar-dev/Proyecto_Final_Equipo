@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDevolucion));
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(1300, 970);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +74,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1200, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1253, 35);
             this.menuStrip1.TabIndex = 64;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -285,6 +287,7 @@
             this.numericUsuario.Name = "numericUsuario";
             this.numericUsuario.Size = new System.Drawing.Size(140, 26);
             this.numericUsuario.TabIndex = 89;
+            this.numericUsuario.ValueChanged += new System.EventHandler(this.numericUsuario_ValueChanged);
             // 
             // numericULibro
             // 
@@ -293,6 +296,7 @@
             this.numericULibro.Name = "numericULibro";
             this.numericULibro.Size = new System.Drawing.Size(140, 26);
             this.numericULibro.TabIndex = 90;
+            this.numericULibro.ValueChanged += new System.EventHandler(this.numericULibro_ValueChanged);
             // 
             // dtpFechaObservacion
             // 
@@ -332,7 +336,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1200, 749);
+            this.ClientSize = new System.Drawing.Size(1253, 804);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.dtpFechaObservacion);
