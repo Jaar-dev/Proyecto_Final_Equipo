@@ -25,6 +25,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         private FrmVentasLibros frmVentasLibros;
         private FrmUbicacion frmUbicacion;
         private FrmPaises frmPaises;
+
         public FrmSistema()
         {
             InitializeComponent();
@@ -40,7 +41,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             this.Text = "Sistema de Gestión de Biblioteca - Menú Principal";
             this.WindowState = FormWindowState.Maximized;
-            this.IsMdiContainer = true;
 
             ConfigurarEventosClick();
             ConfigurarCursores();
@@ -95,13 +95,19 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 if (formulario == null || formulario.IsDisposed)
                 {
                     formulario = new T();
-                    formulario.MdiParent = this;
+                    formulario.StartPosition = FormStartPosition.CenterScreen;
+
+
                     formulario.Show();
+
+                    formulario.BringToFront();
+                    formulario.Activate();
                 }
                 else
                 {
                     formulario.BringToFront();
                     formulario.WindowState = FormWindowState.Normal;
+                    formulario.Activate();
                 }
             }
             catch (Exception ex)
@@ -188,9 +194,14 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
 
         private void CerrarTodosLosFormularios()
         {
-            foreach (Form frm in this.MdiChildren)
+            var formsToClose = Application.OpenForms
+                .Cast<Form>()
+                .Where(f => f != this)
+                .ToList();
+
+            foreach (var form in formsToClose)
             {
-                frm.Close();
+                form.Close();
             }
         }
 

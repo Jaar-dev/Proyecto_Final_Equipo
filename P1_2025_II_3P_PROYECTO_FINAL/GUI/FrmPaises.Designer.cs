@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPaises));
-            this.AutoScroll = true;
-            this.AutoScrollMinSize = new System.Drawing.Size(1300, 970);
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lblVentasLibros = new System.Windows.Forms.Label();
             this.lblIdiomaPricipal = new System.Windows.Forms.Label();
@@ -157,32 +155,32 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1253, 35);
+            this.menuStrip1.Size = new System.Drawing.Size(1300, 36);
             this.menuStrip1.TabIndex = 77;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 29);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(88, 30);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(73, 30);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 29);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(53, 30);
             this.verToolStripMenuItem.Text = "Ver";
             // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(79, 30);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
             // txtCodigoISO
@@ -360,6 +358,11 @@
             // numPoblacion
             // 
             this.numPoblacion.Location = new System.Drawing.Point(204, 432);
+            this.numPoblacion.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
             this.numPoblacion.Name = "numPoblacion";
             this.numPoblacion.Size = new System.Drawing.Size(74, 26);
             this.numPoblacion.TabIndex = 93;
@@ -391,6 +394,11 @@
             // numPIB
             // 
             this.numPIB.Location = new System.Drawing.Point(204, 467);
+            this.numPIB.Maximum = new decimal(new int[] {
+            1874919424,
+            2328306,
+            0,
+            0});
             this.numPIB.Name = "numPIB";
             this.numPIB.Size = new System.Drawing.Size(74, 26);
             this.numPIB.TabIndex = 95;
@@ -496,6 +504,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(1300, 970);
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1253, 804);
             this.Controls.Add(this.lblPaisMayorPoblacion);

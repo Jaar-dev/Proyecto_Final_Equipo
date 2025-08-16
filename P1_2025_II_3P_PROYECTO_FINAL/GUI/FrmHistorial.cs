@@ -34,11 +34,8 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 dtpFechaFin.Value = DateTime.Now;
 
                 CargarCombos();
-
                 ConfigurarDataGridView();
-
                 ConfigurarTooltips();
-
                 CargarDatos();
             }
             catch (Exception ex)
@@ -199,8 +196,9 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             foreach (DataGridViewRow row in dgvHistorial.Rows)
             {
                 var historial = (Historial)row.DataBoundItem;
+                if (historial == null) continue;
 
-                switch (historial.TipoAccion.ToLower())
+                switch (historial.TipoAccion?.ToLower())
                 {
                     case "crear":
                         row.DefaultCellStyle.BackColor = Color.LightGreen;
@@ -233,23 +231,25 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
-                historialFiltrado = dataManager.HistorialAcciones.AsEnumerable();
+                IEnumerable<Historial> historialTemp = dataManager.HistorialAcciones;
 
-                historialFiltrado = historialFiltrado.Where(h =>
+                historialTemp = historialTemp.Where(h =>
                     h.FechaAccion.Date >= dtpFechaInicio.Value.Date &&
                     h.FechaAccion.Date <= dtpFechaFin.Value.Date);
 
                 if (cmbTipoAccion.SelectedIndex > 0)
                 {
                     string tipoAccion = cmbTipoAccion.SelectedItem.ToString();
-                    historialFiltrado = historialFiltrado.Where(h =>
+                    historialTemp = historialTemp.Where(h =>
+                        h.TipoAccion != null &&
                         h.TipoAccion.Equals(tipoAccion, StringComparison.OrdinalIgnoreCase));
                 }
 
                 if (cmbTablaAfectada.SelectedIndex > 0)
                 {
                     string tabla = cmbTablaAfectada.SelectedItem.ToString();
-                    historialFiltrado = historialFiltrado.Where(h =>
+                    historialTemp = historialTemp.Where(h =>
+                        h.TablaAfectada != null &&
                         h.TablaAfectada.Equals(tabla, StringComparison.OrdinalIgnoreCase));
                 }
 
@@ -259,19 +259,20 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                     var usuario = dataManager.Bibliotecarios.FirstOrDefault(b => b.Nombre == nombreUsuario);
                     if (usuario != null)
                     {
-                        historialFiltrado = historialFiltrado.Where(h => h.UsuarioId == usuario.Id);
+                        historialTemp = historialTemp.Where(h => h.UsuarioId == usuario.Id);
                     }
                 }
 
-                historialFiltrado = historialFiltrado.OrderByDescending(h => h.FechaAccion).ToList();
+                historialFiltrado = historialTemp
+                    .OrderByDescending(h => h.FechaAccion)
+                    .ToList();
 
                 dgvHistorial.DataSource = null;
-                dgvHistorial.DataSource = historialFiltrado.ToList();
+                dgvHistorial.DataSource = historialFiltrado;
 
-                lblTotalRegistros.Text = $"Total Registros: {historialFiltrado.Count()}";
+                lblTotalRegistros.Text = $"Total Registros: {historialFiltrado.Count}";
 
                 ColorearFilas();
-
                 ActualizarEstadisticas();
             }
             catch (Exception ex)
@@ -305,7 +306,6 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 if (saveDialog.ShowDialog() == DialogResult.OK)
                 {
                     StringBuilder sb = new StringBuilder();
-
                     sb.AppendLine("ID,Fecha,Tipo Acción,Tabla,Registro ID,Descripción,Usuario ID");
 
                     foreach (var item in historialFiltrado)
@@ -333,7 +333,15 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             try
             {
-                var estadisticas = historialFiltrado.GroupBy(h => h.TipoAccion)
+                if (historialFiltrado == null || historialFiltrado.Count == 0)
+                {
+                    lblEstadisticas.Text = "Resumen de Acciones:\nNo hay datos para mostrar";
+                    lblAccionesHoy.Text = "Acciones Hoy: 0";
+                    lblTablaMasActiva.Text = "Tabla más activa: N/A";
+                    return;
+                }
+
+                var estadisticas = historialFiltrado.GroupBy(h => h.TipoAccion ?? "Sin tipo")
                     .Select(g => new { Tipo = g.Key, Cantidad = g.Count() })
                     .OrderByDescending(x => x.Cantidad);
 
@@ -350,6 +358,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 lblAccionesHoy.Text = $"Acciones Hoy: {accionesHoy}";
 
                 var tablaMasModificada = historialFiltrado
+                    .Where(h => !string.IsNullOrEmpty(h.TablaAfectada))
                     .GroupBy(h => h.TablaAfectada)
                     .OrderByDescending(g => g.Count())
                     .FirstOrDefault();
@@ -358,19 +367,27 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
                 {
                     lblTablaMasActiva.Text = $"Tabla más activa: {tablaMasModificada.Key} ({tablaMasModificada.Count()} acciones)";
                 }
+                else
+                {
+                    lblTablaMasActiva.Text = "Tabla más activa: N/A";
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error en estadísticas: {ex.Message}");
+                lblEstadisticas.Text = "Error al calcular estadísticas";
             }
         }
 
         private void dgvHistorial_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dgvHistorial.Rows.Count)
             {
-                var historial = (Historial)dgvHistorial.Rows[e.RowIndex].DataBoundItem;
-                MostrarDetallesHistorial(historial);
+                var historial = dgvHistorial.Rows[e.RowIndex].DataBoundItem as Historial;
+                if (historial != null)
+                {
+                    MostrarDetallesHistorial(historial);
+                }
             }
         }
 
@@ -378,10 +395,11 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
         {
             string detalles = $"ID: {historial.Id}\n" +
                             $"Fecha: {historial.FechaAccion:dd/MM/yyyy HH:mm:ss}\n" +
-                            $"Tipo de Actividad: {historial.TipoAccion}\n" +
-                            $"Formulario Afectado: {historial.TablaAfectada}\n" +
+                            $"Tipo de Actividad: {historial.TipoAccion ?? "N/A"}\n" +
+                            $"Formulario Afectado: {historial.TablaAfectada ?? "N/A"}\n" +
                             $"Registro ID: {historial.RegistroAfectadoId}\n" +
-                            $"Usuario ID: {historial.UsuarioId}\n";
+                            $"Usuario ID: {historial.UsuarioId}\n" +
+                            $"Descripción: {historial.Descripcion ?? "Sin descripción"}\n";
 
             if (!string.IsNullOrEmpty(historial.ValorAnterior))
                 detalles += $"Valor Anterior: {historial.ValorAnterior}\n";
@@ -398,6 +416,7 @@ namespace P1_2025_II_3P_PROYECTO_FINAL.GUI
             if (e.KeyChar == (char)Keys.Enter)
             {
                 AplicarFiltros();
+                e.Handled = true;
             }
         }
 

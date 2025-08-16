@@ -70,11 +70,6 @@
     <Compile Include="GUI\FrmAutor.Designer.cs">
       <DependentUpon>FrmAutor.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmAutor1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FrmAutor.resx</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FrmBibliotecario.cs">
       <SubType>Form</SubType>
     </Compile>
